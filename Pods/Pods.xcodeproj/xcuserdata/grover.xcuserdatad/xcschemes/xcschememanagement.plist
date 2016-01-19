@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>BDKCollectionIndexView.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
+		<key>Mixpanel.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>Pods.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>66FE7435004E5BAF648796006C70B238</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>ADCE79BF197A39E8E5120B25C7C558CF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B260C24FCE69F7AFF08CDDB1444E9201</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BE14D5E4081DFB7FB3F3BDC89CA3443E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F737B8634AC7DEFC99AFD1737201A540</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>

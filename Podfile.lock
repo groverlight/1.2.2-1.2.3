@@ -1,0 +1,15 @@
+PODS:
+  - BDKCollectionIndexView (2.2.1)
+  - Mixpanel (2.8.2):
+    - Mixpanel/Mixpanel (= 2.8.2)
+  - Mixpanel/Mixpanel (2.8.2)
+
+DEPENDENCIES:
+  - BDKCollectionIndexView
+  - Mixpanel
+
+SPEC CHECKSUMS:
+  BDKCollectionIndexView: 819bd123d618f20c061caacd409e2d8f1590df7d
+  Mixpanel: f4d71ac2a306e7cda6ad03d4a2be249a0fd7a967
+
+COCOAPODS: 0.38.2

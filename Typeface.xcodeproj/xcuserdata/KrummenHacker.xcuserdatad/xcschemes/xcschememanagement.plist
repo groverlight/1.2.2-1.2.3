@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>BackgroundFetch FallingTexts.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>FallingTexts.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>0</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>B679C32519EC416D00D83187</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B679C33719EC46FA00D83187</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B6CEE28419F95AFD005AC1A0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B6CEE29C19F95AFD005AC1A0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B6E7AABD1868512800DBB0EB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B6E7AAE11868512800DBB0EB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>
