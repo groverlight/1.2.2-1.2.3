@@ -75,21 +75,24 @@
     [self.view addGestureRecognizer:swipeRight];
     
     //Config dark gradient view
-    CAGradientLayer *gradient = [CAGradientLayer layer];
-    gradient.frame = [[UIScreen mainScreen] bounds];
-    gradient.colors = [NSArray arrayWithObjects:(id)[UIColorFromRGB(0x030303) CGColor], (id)[[UIColor clearColor] CGColor], nil];
-    [self.GradientView.layer insertSublayer:gradient atIndex:0];
-    self.GradientView.alpha =.8;
-    
+//    CAGradientLayer *gradient = [CAGradientLayer layer];
+//    gradient.frame = [[UIScreen mainScreen] bounds];
+//    gradient.colors = [NSArray arrayWithObjects:(id)[UIColorFromRGB(0xFF4771) CGColor], (id)[[UIColor clearColor] CGColor], nil];
+//    [self.GradientView.layer insertSublayer:gradient atIndex:0];
+//    self.GradientView.alpha =0.9;
+
     _button.hidden = YES;
-    _button.layer.borderWidth = 4.0f;
-    _button.layer.borderColor = [UIColor grayColor].CGColor;
-    _button.layer.cornerRadius = 20.0f;
-    
+    _button.layer.borderWidth = 2.0f;
+    _button.layer.backgroundColor = [UIColor clearColor].CGColor;
+    _button.layer.borderColor = [UIColor whiteColor].CGColor;
+    _button.layer.cornerRadius = 6.0f;
+
     _button2.hidden = YES;
-    _button2.layer.borderWidth = 4.0f;
-    _button2.layer.borderColor = [UIColor grayColor].CGColor;
-    _button2.layer.cornerRadius = 20.0f;
+    _button2.layer.borderWidth = 2.0f;
+    _button2.layer.backgroundColor = [UIColor clearColor].CGColor;
+    _button2.layer.borderColor = [UIColor whiteColor].CGColor;
+    _button2.layer.cornerRadius = 6.0f;
+
     
 
     
@@ -139,7 +142,7 @@
     [[AVAudioSession sharedInstance] setActive:YES error:&sessionError];
     
     //Set up player
-    [self setUpVideo:@"Video2" :@"m4v"];
+    [self setUpVideo:@"Video1" :@"m4v"];
 
     
     //Config player
@@ -172,8 +175,9 @@
     {
         self.pageControl.currentPage = 4;
         _logo.hidden = NO;
-        _firstLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:20];
-        _firstLabel.text = @" We need these allowed";
+        _firstLabel.font = [UIFont fontWithName:@"AvenirNext-Bold" size:22];
+        _firstLabel.textColor = [UIColor whiteColor];
+        _firstLabel.text = @"We need these allowed";
         
         _firstLabel.hidden = NO;
         _label2.hidden = YES;
@@ -781,24 +785,27 @@
             _logo.hidden = YES;
             _firstLabel.hidden = YES;
             _label2.hidden = NO;
-            _label2.text = @"Type something important then press face to attach a selfie";
-            [self setUpVideo:@"Video2" :@"m4v"];
+            _label2.textColor = [UIColor whiteColor];
+            _label2.font = [UIFont fontWithName:@"AvenirNext-Bold" size:20];
+            _label2.text = @"type something \n then take a selfie";
+            [self setUpVideo:@"Video2_adjusted" :@"m4v"];
             break;
         case 2:
-            _label2.text = @"Press and hold the recipients' name to send the message";
+            _label2.text = @"press & hold a name \n to send the message";
             [self setUpVideo:@"Video3" :@"m4v"];
             break;
         case 3:
-            _label2.text = @"Press and hold the sender's name to read the message";
+            _label2.text = @"do the same thing \n to read a reply";
             _button.hidden = YES;
             [self setUpVideo:@"Video4" :@"m4v"];
             break;
         case 4:
-            string = @"This is how you practice safe text";
-            string2 = @"Ready to typeface?";
+            string = @"practice safe text";
+            string2 = @"ready to typeface?";
             _label2.text = [NSString stringWithFormat:@"%@\r%@", string,string2];
             _button.hidden = NO;
-            [_button setTitle:@"Allow Camera >"forState:UIControlStateNormal];
+            [_button setTitle:@"Allow Camera"forState:UIControlStateNormal];
+
             [self setUpVideo:@"Video5" :@"m4v"];
             
             
@@ -846,7 +853,7 @@
             [_button setTitleColor:[UIColor colorWithRed:1.00 green:0.28 blue:0.44 alpha:1.0] forState: UIControlStateNormal];
    
     }
-    if ([_button.titleLabel.text isEqualToString:@"Allow Camera >"])
+    if ([_button.titleLabel.text isEqualToString:@"Allow Camera"])
     {
         NSLog(@"this is allow camera");
         [self cameraPermission];

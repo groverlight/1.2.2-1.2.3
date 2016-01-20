@@ -11,6 +11,12 @@
       location = "group:logo_tut.png">
    </FileRef>
    <FileRef
+      location = "group:branding.png">
+   </FileRef>
+   <FileRef
+      location = "group:/Users/grover/Desktop/1.2.2/Video3_adjusted.m4v">
+   </FileRef>
+   <FileRef
       location = "group:Typeface.xcodeproj">
    </FileRef>
    <FileRef
