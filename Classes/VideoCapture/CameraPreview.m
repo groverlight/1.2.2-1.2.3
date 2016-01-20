@@ -28,14 +28,32 @@
 
 - (id)initWithFrame:(CGRect)frame
 {
+    
 	self = [super initWithFrame:frame];
 	if (self)
 	{
     AlreadyActive         = NO;
     UseViewFrame          = NO;
     self.clipsToBounds    = YES;
-//    self.backgroundColor  = Green;
-    Capture               = [VideoCapture sharedCapture];
+//  self.backgroundColor  = Green;
+        AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
+        if(authStatus == AVAuthorizationStatusAuthorized) {
+            // do your logic
+            NSLog(@"hi");
+            Capture               = [VideoCapture sharedCapture];
+        } else if(authStatus == AVAuthorizationStatusDenied){
+            // denied
+        } else if(authStatus == AVAuthorizationStatusRestricted){
+            // restricted, normally won't happen
+        } else if(authStatus == AVAuthorizationStatusNotDetermined){
+            // not determined?!
+
+        } else {
+            // impossible, unknown authorization status
+        }
+    
+
+    
 	}
 	return self;
 }

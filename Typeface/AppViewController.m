@@ -18,6 +18,9 @@
 #import "Mixpanel.h"
 #import "VideoViewController.h"
 #import "Reachability.h"
+#import "CameraPreview.h"
+#import "VideoCapture.h"
+
 //__________________________________________________________________________________________________
 
 #define BE_YOUR_BEST_FRIEND 0 //!< Define to 1 to declare the current user to be his own friend.
@@ -170,7 +173,22 @@ static AppViewController* MainViewController = nil;
 
         if (newUser)
         {
-          if (!ParseCheckPermissionForRemoteNotifications())
+            
+            [self dismissViewControllerAnimated:YES completion:nil];
+            dispatch_async(dispatch_get_main_queue(), ^(void){
+            [self presentViewController:Intro animated:YES completion:nil];
+            
+                [ViewStack.liveView  restorePreviewWithCompletion:^{
+                    
+                }];
+
+                
+                
+                
+
+            });
+
+          /*if (!ParseCheckPermissionForRemoteNotifications())
           {
             Alert(NSLocalizedString(@"Want Notifications?", @""), NSLocalizedString(@"To be alerted when your friends message you, please allow push notifications", @""), NSLocalizedString(@"OK", @""), nil, ^(NSInteger pressedButton)
             {
@@ -178,8 +196,9 @@ static AppViewController* MainViewController = nil;
               {
               });
             });
-          }
+          }*/
         }
+          
         else
         {
           ParseRegisterForRemoteNotifications(^(BOOL notificationsAreEnabled)
@@ -207,39 +226,42 @@ static AppViewController* MainViewController = nil;
 - (void)loadView
 {
 
-    
+   
 //  NSLog(@"1 loadView");
   MainViewController = self;
   // The global parameters should be set as soon as possible, at last before loading the user interface.
   GlobalParams = InitGlobalParameters(self);
-//  NSLog(@"2 loadView");
+  NSLog(@"2 loadView");
 
   // The global parameters have been initialized. Now we can load the User Interface.
   [super loadView];
-//  NSLog(@"3 loadView");
+  NSLog(@"3 loadView");
 
+ self.view.hidden= YES;
+    
   ViewStack = [ViewStackView sharedInstance];
   self.view = ViewStack;
-//  NSLog(@"4 loadView");
+  NSLog(@"4 loadView");
   NavView = [NavigationView new];
   NavView.frame = CGRectMake(0, 0, GetScreenWidth(), GetScreenHeight());
-  set_myself;
-//  NSLog(@"5 loadView");
-  NavView->PleaseBlurByThisFactorAction = ^(CGFloat blurFactor)
-  {
-    get_myself;
-    [myself->ViewStack blurWithFactor:blurFactor];
-  };
-  NavView->PleaseFlashForDuration = ^(CGFloat duration, BlockAction completion)
-  {
-    get_myself;
-    [myself->ViewStack flashForDuration:duration completion:completion];
-  };
-
-//  NSLog(@"6 loadView");
-  [ViewStack setTextViewContent:NavView animated:NO fromLeft:YES];
-  [ViewStack activate];
-//  NSLog(@"7 loadView");
+    set_myself;
+    NSLog(@"5 loadView");
+    NavView->PleaseBlurByThisFactorAction = ^(CGFloat blurFactor)
+    {
+        get_myself;
+        [myself->ViewStack blurWithFactor:blurFactor];
+    };
+    NavView->PleaseFlashForDuration = ^(CGFloat duration, BlockAction completion)
+    {
+        get_myself;
+        [myself->ViewStack flashForDuration:duration completion:completion];
+    };
+    
+    NSLog(@"6 loadView");
+    [ViewStack setTextViewContent:NavView animated:NO fromLeft:YES];
+    [ViewStack activate];
+    NSLog(@"7 loadView");
+    
 }
 //__________________________________________________________________________________________________
 
@@ -253,6 +275,7 @@ static AppViewController* MainViewController = nil;
     dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         [self checkNetwork];
     });
+    Intro = [[VideoViewController alloc]init];
   // Parse stuff.
   ParseInitialization(^(PFUser* user, BOOL newUser, BOOL restart, NSError *error)
   {
@@ -261,12 +284,14 @@ static AppViewController* MainViewController = nil;
     {
       if (newUser)
       {
-          /*[self dismissViewControllerAnimated:YES completion:nil];
-          Intro = [[VideoViewController alloc]init];
+          [self dismissViewControllerAnimated:YES completion:nil];
+          
           dispatch_async(dispatch_get_main_queue(), ^(void){
-              [self presentViewController:Intro animated:YES completion:nil];      });*/
-
+              [self presentViewController:Intro animated:YES completion:nil];      });
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 3 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+            self.view.hidden=NO;
         [NavView showLoginFromStart:restart];
+                             });
       }
       else
       {
@@ -289,6 +314,7 @@ static AppViewController* MainViewController = nil;
 
 - (void)viewDidAppear:(BOOL)animated
 {
+    
 }
 //__________________________________________________________________________________________________
 

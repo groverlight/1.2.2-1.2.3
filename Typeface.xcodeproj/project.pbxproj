@@ -11,6 +11,12 @@
 		27AA8F3A1BE18147009B363A /* VideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27AA8F371BE18147009B363A /* VideoViewController.m */; };
 		27AA8F3B1BE18147009B363A /* VideoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27AA8F381BE18147009B363A /* VideoViewController.xib */; };
 		27AA8F3C1BE18147009B363A /* xx.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 27AA8F391BE18147009B363A /* xx.mp4 */; };
+		27C180731C4EE73D00FEE015 /* Video1.m4v in Resources */ = {isa = PBXBuildFile; fileRef = 27C1806E1C4EE73D00FEE015 /* Video1.m4v */; };
+		27C180741C4EE73D00FEE015 /* Video2.m4v in Resources */ = {isa = PBXBuildFile; fileRef = 27C1806F1C4EE73D00FEE015 /* Video2.m4v */; };
+		27C180751C4EE73D00FEE015 /* Video3.m4v in Resources */ = {isa = PBXBuildFile; fileRef = 27C180701C4EE73D00FEE015 /* Video3.m4v */; };
+		27C180761C4EE73D00FEE015 /* Video4.m4v in Resources */ = {isa = PBXBuildFile; fileRef = 27C180711C4EE73D00FEE015 /* Video4.m4v */; };
+		27C180771C4EE73D00FEE015 /* Video5.m4v in Resources */ = {isa = PBXBuildFile; fileRef = 27C180721C4EE73D00FEE015 /* Video5.m4v */; };
+		27C180821C4EF41F00FEE015 /* StyledPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C180811C4EF41F00FEE015 /* StyledPageControl.m */; };
 		27DB56F11C0F80D600022D9C /* logo_tut.png in Resources */ = {isa = PBXBuildFile; fileRef = 27DB56F01C0F80D600022D9C /* logo_tut.png */; };
 		27DB56F91C0F8B0A00022D9C /* spelled_out.png in Resources */ = {isa = PBXBuildFile; fileRef = 27DB56F81C0F8B0A00022D9C /* spelled_out.png */; };
 		4B54798E0871C1CD30766BD2 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC11EAC3B02F3A8EFCAC90A /* libPods.a */; };
@@ -132,6 +138,13 @@
 		27AA8F371BE18147009B363A /* VideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoViewController.m; sourceTree = SOURCE_ROOT; };
 		27AA8F381BE18147009B363A /* VideoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoViewController.xib; sourceTree = SOURCE_ROOT; };
 		27AA8F391BE18147009B363A /* xx.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = xx.mp4; sourceTree = SOURCE_ROOT; };
+		27C1806E1C4EE73D00FEE015 /* Video1.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = Video1.m4v; sourceTree = SOURCE_ROOT; };
+		27C1806F1C4EE73D00FEE015 /* Video2.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = Video2.m4v; sourceTree = SOURCE_ROOT; };
+		27C180701C4EE73D00FEE015 /* Video3.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = Video3.m4v; sourceTree = SOURCE_ROOT; };
+		27C180711C4EE73D00FEE015 /* Video4.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = Video4.m4v; sourceTree = SOURCE_ROOT; };
+		27C180721C4EE73D00FEE015 /* Video5.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = Video5.m4v; sourceTree = SOURCE_ROOT; };
+		27C180801C4EF41F00FEE015 /* StyledPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StyledPageControl.h; sourceTree = SOURCE_ROOT; };
+		27C180811C4EF41F00FEE015 /* StyledPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StyledPageControl.m; sourceTree = SOURCE_ROOT; };
 		27DB56F01C0F80D600022D9C /* logo_tut.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_tut.png; sourceTree = SOURCE_ROOT; };
 		27DB56F81C0F8B0A00022D9C /* spelled_out.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = spelled_out.png; path = Typeface/spelled_out.png; sourceTree = SOURCE_ROOT; };
 		ADC11EAC3B02F3A8EFCAC90A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -725,6 +738,13 @@
 		B6E7AAC71868512800DBB0EB /* Typeface */ = {
 			isa = PBXGroup;
 			children = (
+				27C180801C4EF41F00FEE015 /* StyledPageControl.h */,
+				27C180811C4EF41F00FEE015 /* StyledPageControl.m */,
+				27C1806E1C4EE73D00FEE015 /* Video1.m4v */,
+				27C1806F1C4EE73D00FEE015 /* Video2.m4v */,
+				27C180701C4EE73D00FEE015 /* Video3.m4v */,
+				27C180711C4EE73D00FEE015 /* Video4.m4v */,
+				27C180721C4EE73D00FEE015 /* Video5.m4v */,
 				27DB56F81C0F8B0A00022D9C /* spelled_out.png */,
 				27DB56F01C0F80D600022D9C /* logo_tut.png */,
 				27AA8F361BE18147009B363A /* VideoViewController.h */,
@@ -838,7 +858,7 @@
 				ORGANIZATIONNAME = "";
 				TargetAttributes = {
 					B6E7AABD1868512800DBB0EB = {
-						DevelopmentTeam = 4THJ5Z3YGF;
+						DevelopmentTeam = KEKFU6H295;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -890,16 +910,21 @@
 				F4172AC91C1F46F9006379E7 /* digi_blip_hi_2x.aif in Resources */,
 				F4F5854D1B82A9C80016D180 /* Images.xcassets in Resources */,
 				F4172AC81C1F46F9006379E7 /* digi_alert.aif in Resources */,
+				27C180771C4EE73D00FEE015 /* Video5.m4v in Resources */,
 				F466BDEF1BDF39A500683986 /* rolldown10.aiff in Resources */,
 				F466BDEB1BDF37D200683986 /* blurbout15.aiff in Resources */,
 				F466BDE71BDF34D200683986 /* back30.aiff in Resources */,
+				27C180741C4EE73D00FEE015 /* Video2.m4v in Resources */,
 				27DB56F11C0F80D600022D9C /* logo_tut.png in Resources */,
 				F4152EDC1BDAF7F600F83627 /* chime_blip_off.aif in Resources */,
 				F4D0F9F91BDAF3E40039C51D /* chime_blip_on.aif in Resources */,
 				F480C2B01BDFEF3F009EF518 /* zap_future.aif in Resources */,
 				F466BDD31BDF302100683986 /* remove15.aiff in Resources */,
 				27AA8F3B1BE18147009B363A /* VideoViewController.xib in Resources */,
+				27C180751C4EE73D00FEE015 /* Video3.m4v in Resources */,
 				F466BDDB1BDF319000683986 /* button20.aiff in Resources */,
+				27C180731C4EE73D00FEE015 /* Video1.m4v in Resources */,
+				27C180761C4EE73D00FEE015 /* Video4.m4v in Resources */,
 				271E14E51C45E2E500CCE6F0 /* typeface.m4v.mov in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -998,6 +1023,7 @@
 				B6B982C61AECDC93009A8423 /* IntlPhonePrefixPicker.m in Sources */,
 				B6FB0D7F1A9736AE002125AF /* TypingView.m in Sources */,
 				F4F5854C1B82A9C80016D180 /* AppViewController.m in Sources */,
+				27C180821C4EF41F00FEE015 /* StyledPageControl.m in Sources */,
 				B61B60491AF60A6A00EE2060 /* NetworkActivityView.m in Sources */,
 				B65810351AA66EA40086820C /* FriendListItemStateView.m in Sources */,
 				B6CEE37819F96E7C005AC1A0 /* POPCustomAnimation.mm in Sources */,
@@ -1122,8 +1148,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Grover Light (4MBTY8L594)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Grover Light (4MBTY8L594)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1143,7 +1169,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.groverlight.Typeface;
+				PRODUCT_BUNDLE_IDENTIFIER = KEKFU6H295.com.typeFace.AddressBook;
 				PRODUCT_NAME = Typeface;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1157,8 +1183,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Grover Light (4MBTY8L594)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Grover Light (4MBTY8L594)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1178,7 +1204,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.groverlight.Typeface;
+				PRODUCT_BUNDLE_IDENTIFIER = KEKFU6H295.com.typeFace.AddressBook;
 				PRODUCT_NAME = Typeface;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1228,8 +1254,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Grover Light (4MBTY8L594)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Grover Light (4MBTY8L594)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1249,7 +1275,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.groverlight.Typeface;
+				PRODUCT_BUNDLE_IDENTIFIER = KEKFU6H295.com.typeFace.AddressBook;
 				PRODUCT_NAME = Typeface;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;

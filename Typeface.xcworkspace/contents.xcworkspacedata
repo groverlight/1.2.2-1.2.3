@@ -2,6 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:StyledPageControl.h">
+   </FileRef>
+   <FileRef
+      location = "group:StyledPageControl.m">
+   </FileRef>
+   <FileRef
       location = "group:logo_tut.png">
    </FileRef>
    <FileRef

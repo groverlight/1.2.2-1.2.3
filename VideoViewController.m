@@ -1,7 +1,7 @@
 //
 //  ViewController.m
 //  VideoCover
-
+#define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 #import "VideoViewController.h"
 #import "AppViewController.h"
@@ -21,6 +21,8 @@
 @property (nonatomic, strong) AVPlayer *avplayer;
 @property (strong, nonatomic) IBOutlet UIView *movieView;
 @property (strong, nonatomic) IBOutlet UIPageControl *pageControl;
+@property (strong, nonatomic) IBOutlet UIView *GradientView;
+@property (strong, nonatomic) IBOutlet UISwipeGestureRecognizer *SwipeGesture;
 
 - (IBAction)button:(id)sender;
 - (IBAction)button2:(id)sender;
@@ -37,7 +39,7 @@
 
 @implementation VideoViewController
 {
-
+    AppViewController *rootController;
     UIAlertController * alertController;
     UIAlertController * alertController2;
     BOOL didLogin;
@@ -72,9 +74,12 @@
     swipeRight.direction = UISwipeGestureRecognizerDirectionRight;
     [self.view addGestureRecognizer:swipeRight];
     
-
-
-    
+    //Config dark gradient view
+    CAGradientLayer *gradient = [CAGradientLayer layer];
+    gradient.frame = [[UIScreen mainScreen] bounds];
+    gradient.colors = [NSArray arrayWithObjects:(id)[UIColorFromRGB(0x030303) CGColor], (id)[[UIColor clearColor] CGColor], nil];
+    [self.GradientView.layer insertSublayer:gradient atIndex:0];
+    self.GradientView.alpha =.8;
     
     _button.hidden = YES;
     _button.layer.borderWidth = 4.0f;
@@ -89,43 +94,15 @@
 
     
     
-
- 
-
-    
-
-    NSError *sessionError = nil;
-    
-    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryAmbient error:&sessionError];
-    [[AVAudioSession sharedInstance] setActive:YES error:&sessionError];
-    
-    //Set up player
-    [self setUpVideo:@"typeface.m4v" :@"mov"];
-
-    
-    //Config player
-    [self.avplayer seekToTime:kCMTimeZero];
-    [self.avplayer setVolume:0.0f];
-    [self.avplayer setActionAtItemEnd:AVPlayerActionAtItemEndNone];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(playerItemDidReachEnd:)
-                                                 name:AVPlayerItemDidPlayToEndTimeNotification
-                                               object:[self.avplayer currentItem]];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(playerStartPlaying)
-                                                 name:UIApplicationDidBecomeActiveNotification object:nil];
- 
-
-    
     alertController =[ UIAlertController
                       alertControllerWithTitle:@"Camera access is required"
                       message:@" To continue, you must enable camera access in the Settings app."
                       preferredStyle:UIAlertControllerStyleAlert];
     
     alertController2 =[ UIAlertController
-                      alertControllerWithTitle:@"Please enable notifications"
-                      message:@"To be alerted when friends message you, please enable notifications in the Settings app."
-                      preferredStyle:UIAlertControllerStyleAlert];
+                       alertControllerWithTitle:@"Please enable notifications"
+                       message:@"To be alerted when friends message you, please enable notifications in the Settings app."
+                       preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *cancelAction = [UIAlertAction
                                    actionWithTitle:@"Cancel"
                                    style:UIAlertActionStyleCancel
@@ -140,9 +117,9 @@
                                style:UIAlertActionStyleDefault
                                handler:^(UIAlertAction *action)
                                {
-
-                                       NSURL *appSettings = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
-                                       [[UIApplication sharedApplication] openURL:appSettings];
+                                   
+                                   NSURL *appSettings = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
+                                   [[UIApplication sharedApplication] openURL:appSettings];
                                    
                                    _label2.text = @" Ready to continue?";
                                }];
@@ -151,6 +128,32 @@
     [alertController addAction:okAction];
     [alertController2 addAction:cancelAction];
     [alertController2 addAction:okAction];
+
+ 
+
+    
+
+    NSError *sessionError = nil;
+    
+    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryAmbient error:&sessionError];
+    [[AVAudioSession sharedInstance] setActive:YES error:&sessionError];
+    
+    //Set up player
+    [self setUpVideo:@"Video2" :@"m4v"];
+
+    
+    //Config player
+    [self.avplayer seekToTime:kCMTimeZero];
+    [self.avplayer setVolume:0.0f];
+    [self.avplayer setActionAtItemEnd:AVPlayerActionAtItemEndNone];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(playerItemDidReachEnd:)
+                                                 name:AVPlayerItemDidPlayToEndTimeNotification
+                                               object:[self.avplayer currentItem]];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(playerStartPlaying)
+                                                 name:UIApplicationDidBecomeActiveNotification object:nil];
     
     
 }
@@ -162,10 +165,12 @@
     [super viewDidAppear:animated];
     if (!didLogin)
     {
+    self.SwipeGesture.enabled = NO;
     self.pageControl.currentPage = 0;
     }
     else
     {
+        self.pageControl.currentPage = 4;
         _logo.hidden = NO;
         _firstLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:20];
         _firstLabel.text = @" We need these allowed";
@@ -178,7 +183,7 @@
         NSString *string = @"This is how you practice safe text";
         NSString *string2 = @"Ready to typeface?";
         _label2.text = [NSString stringWithFormat:@"%@\r%@", string,string2];
-        self.pageControl.currentPage = 5;
+        
     }
     [self.avplayer play];
 }
@@ -211,6 +216,7 @@
         if (granted) {
             // Permission has been granted. Use dispatch_async for any UI updating
             // code because this block may be executed in a thread.
+            
             dispatch_async(dispatch_get_main_queue(), ^{
             didLogin = YES;
             [self dismissViewControllerAnimated:YES completion:nil];
@@ -659,6 +665,8 @@
 
 -(void)setUpVideo:(NSString*)fileName :(NSString*)extension
 {
+    
+    NSLog(@"setup video %@", fileName);
     if (self.movieView.window != nil)
     {
         [self.movieView.window removeFromSuperview];
@@ -672,8 +680,21 @@
 
     [avPlayerLayer setFrame:self.view.frame];
     
-    self.movieView.alpha = 0.7;
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(playerItemDidReachEnd:)
+                                                 name:AVPlayerItemDidPlayToEndTimeNotification
+                                               object:[self.avplayer currentItem]];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(playerStartPlaying)
+                                                 name:UIApplicationDidBecomeActiveNotification object:nil];
+    self.movieView.alpha = 1;
+    self.movieView.layer.sublayers = nil;
     [self.movieView.layer insertSublayer:avPlayerLayer atIndex:0]; // this sets up Video
+    [self.avplayer seekToTime:kCMTimeZero];
+    [self.avplayer setVolume:0.0f];
+    [self.avplayer setActionAtItemEnd:AVPlayerActionAtItemEndNone];
+    [self.avplayer play];
+
     
 }
 
@@ -684,7 +705,7 @@
     disappear.property = [POPAnimatableProperty propertyWithName:kPOPViewAlpha];
     disappear.toValue = @(0);
     
-    if ([swipeRecogniser direction] == UISwipeGestureRecognizerDirectionLeft)
+    if ([swipeRecogniser direction] == UISwipeGestureRecognizerDirectionRight)
     {
         if (!(self.pageControl.currentPage == 0))
         {
@@ -693,7 +714,7 @@
                 if (finished)
                 {
                     POPSpringAnimation *appear = [POPSpringAnimation animationWithPropertyNamed:kPOPViewAlpha];
-                    appear.toValue = @(0.4);
+                    appear.toValue = @(1);
                     [self.movieView pop_addAnimation:appear forKey:@"appear"];
                 }
             }];
@@ -706,16 +727,16 @@
             
         }
     }
-        else if ([swipeRecogniser direction] == UISwipeGestureRecognizerDirectionRight)
+        else if ([swipeRecogniser direction] == UISwipeGestureRecognizerDirectionLeft)
         {
-            if (!(self.pageControl.currentPage == 4))
+            if (!(self.pageControl.currentPage == 3))
             {
                 
                 [disappear setCompletionBlock:^(POPAnimation *anim, BOOL finished) {
                     if (finished)
                     {
                         POPBasicAnimation *appear = [POPBasicAnimation animationWithPropertyNamed:kPOPViewAlpha];
-                        appear.toValue = @(0.4);
+                        appear.toValue = @(1);
                         [self.movieView pop_addAnimation:appear forKey:@"appear"];
                     }
                 }];
@@ -726,24 +747,22 @@
             
         }
     
-    if (self.pageControl.currentPage != 5)
-    {
-        if ([swipeRecogniser direction] == UISwipeGestureRecognizerDirectionLeft)
+
+        if ([swipeRecogniser direction] == UISwipeGestureRecognizerDirectionRight)
         {
-     
+
             self.pageControl.currentPage -=1;
             
 
         }
-        else if  ([swipeRecogniser direction] == UISwipeGestureRecognizerDirectionRight)
+        else if  ([swipeRecogniser direction] == UISwipeGestureRecognizerDirectionLeft)
         {
-         if (self.pageControl.currentPage != 4)
-             {
+
                 self.pageControl.currentPage +=1;
-             }
+            
 
         }
-    }
+    
 
     
     NSLog(@" page Control : %lu", (long)self.pageControl.currentPage);
@@ -756,19 +775,23 @@
             _logo.hidden = NO;
             _firstLabel.hidden = NO;
             _label2.hidden = YES;
+            [self setUpVideo:@"Video1" :@"m4v"];
             break;
         case 1:
             _logo.hidden = YES;
             _firstLabel.hidden = YES;
             _label2.hidden = NO;
             _label2.text = @"Type something important then press face to attach a selfie";
+            [self setUpVideo:@"Video2" :@"m4v"];
             break;
         case 2:
             _label2.text = @"Press and hold the recipients' name to send the message";
+            [self setUpVideo:@"Video3" :@"m4v"];
             break;
         case 3:
             _label2.text = @"Press and hold the sender's name to read the message";
             _button.hidden = YES;
+            [self setUpVideo:@"Video4" :@"m4v"];
             break;
         case 4:
             string = @"This is how you practice safe text";
@@ -776,7 +799,7 @@
             _label2.text = [NSString stringWithFormat:@"%@\r%@", string,string2];
             _button.hidden = NO;
             [_button setTitle:@"Allow Camera >"forState:UIControlStateNormal];
-            
+            [self setUpVideo:@"Video5" :@"m4v"];
             
             
             break;

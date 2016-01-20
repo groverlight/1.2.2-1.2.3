@@ -1,26 +1,28 @@
 {
-  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "D1BDED7AE4C75B5FCC5A01A7E515922E48711AD7+++46E6616",
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "D37D9728B62A246172F2A2BA5082709C9A807C94+++95C6037",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
 
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
     "D1BDED7AE4C75B5FCC5A01A7E515922E48711AD7+++46E6616" : 0,
     "D1BDED7AE4C75B5FCC5A01A7E515922E48711AD7+++40815D6" : 0,
+    "5B06EB564F9C1D68C3A03113D1570E775E24593F+++15BEFC0" : 0,
     "D1BDED7AE4C75B5FCC5A01A7E515922E48711AD7+++EAA19CC" : 0,
     "5B06EB564F9C1D68C3A03113D1570E775E24593F+++C2D5955" : 0,
     "BD15A179E46F89FD21041E6658AE15C6D059DECE+++EC978B2" : 0,
     "5B06EB564F9C1D68C3A03113D1570E775E24593F+++31C3560" : 0,
-    "5B06EB564F9C1D68C3A03113D1570E775E24593F+++15BEFC0" : 0
+    "D37D9728B62A246172F2A2BA5082709C9A807C94+++95C6037" : 0
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "B5A4FED5-087B-4EE0-B058-35445AC6DDEB",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
     "D1BDED7AE4C75B5FCC5A01A7E515922E48711AD7+++46E6616" : "testing1.2.0%203\/",
     "D1BDED7AE4C75B5FCC5A01A7E515922E48711AD7+++40815D6" : "testing1.2.0\/",
+    "5B06EB564F9C1D68C3A03113D1570E775E24593F+++15BEFC0" : "typefaceAppStore%60\/",
     "D1BDED7AE4C75B5FCC5A01A7E515922E48711AD7+++EAA19CC" : "testingBrnach\/",
     "5B06EB564F9C1D68C3A03113D1570E775E24593F+++C2D5955" : "typefaceAppStore\/",
     "BD15A179E46F89FD21041E6658AE15C6D059DECE+++EC978B2" : "typefaceAppStore\/testing\/",
     "5B06EB564F9C1D68C3A03113D1570E775E24593F+++31C3560" : "typefaceAppStore%60\/",
-    "5B06EB564F9C1D68C3A03113D1570E775E24593F+++15BEFC0" : "typefaceAppStore%60\/"
+    "D37D9728B62A246172F2A2BA5082709C9A807C94+++95C6037" : "1.2.2\/"
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "Typeface",
   "DVTSourceControlWorkspaceBlueprintVersion" : 204,
@@ -60,6 +62,11 @@
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/groverlight\/testing1.2.0.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "D1BDED7AE4C75B5FCC5A01A7E515922E48711AD7+++EAA19CC"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/groverlight\/1.2.2.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "D37D9728B62A246172F2A2BA5082709C9A807C94+++95C6037"
     }
   ]
 }
