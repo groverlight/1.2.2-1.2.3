@@ -249,7 +249,8 @@
 
 -(void)contactPermission
 {
-    
+     _button.backgroundColor = [UIColor clearColor];
+
     CNContactStore* addressBook = [[CNContactStore alloc]init];
     CNAuthorizationStatus permissions = [CNContactStore authorizationStatusForEntityType:CNEntityTypeContacts];
     if(permissions == CNAuthorizationStatusNotDetermined) {
@@ -258,18 +259,22 @@
             
             if (granted)
             {
+
+                 [self contactsync];
                 _button.backgroundColor = [UIColor whiteColor];
                 [_button setTitleColor:[UIColor colorWithRed:1.00 green:0.28 blue:0.44 alpha:1.0] forState: UIControlStateNormal];
-                [self contactsync];
+
 
             }
             else
-            {}
+            {
+                _button.backgroundColor = [UIColor clearColor];
+                [_button setTitleColor:[UIColor whiteColor] forState: UIControlStateNormal];
+            }
         }];
     }
 
-    _button.backgroundColor = [UIColor clearColor];
-    [_button setTitleColor:[UIColor whiteColor] forState: UIControlStateNormal];
+
     
 }
 
