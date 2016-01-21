@@ -82,19 +82,19 @@
 
     //gradient.colors = [NSArray arrayWithObjects:(id)[UIColorFromRGB(0xFF4771) CGColor], (id)[[UIColor clearColor] CGColor], nil];
     [self.GradientView.layer insertSublayer:gradient atIndex:0];
-    self.GradientView.alpha =0.4;
+    self.GradientView.alpha = 0.4;
 
     _button.hidden = YES;
     _button.layer.borderWidth = 2.0f;
     _button.layer.backgroundColor = [UIColor clearColor].CGColor;
     _button.layer.borderColor = [UIColor whiteColor].CGColor;
-    _button.layer.cornerRadius = 6.0f;
+    _button.layer.cornerRadius = 20.0f;
 
     _button2.hidden = YES;
     _button2.layer.borderWidth = 2.0f;
     _button2.layer.backgroundColor = [UIColor clearColor].CGColor;
     _button2.layer.borderColor = [UIColor whiteColor].CGColor;
-    _button2.layer.cornerRadius = 6.0f;
+    _button2.layer.cornerRadius = 20.0f;
 
     
 
@@ -173,6 +173,7 @@
     {
     self.SwipeGesture.enabled = NO;
     self.pageControl.currentPage = 0;
+        self.GradientView.alpha =1.0;
     }
     else
     {
@@ -190,6 +191,7 @@
         NSString *string = @"This is how you practice safe text";
         NSString *string2 = @"Ready to typeface?";
         _label2.text = [NSString stringWithFormat:@"%@\r%@", string,string2];
+        self.pageControl.hidden = YES;
         
     }
     [self.avplayer play];
@@ -255,6 +257,8 @@
             
             if (granted)
             {
+                _button.backgroundColor = [UIColor whiteColor];
+                [_button setTitleColor:[UIColor colorWithRed:1.00 green:0.28 blue:0.44 alpha:1.0] forState: UIControlStateNormal];
                 [self contactsync];
 
             }
@@ -263,8 +267,8 @@
         }];
     }
 
-    _button.backgroundColor = [UIColor colorWithRed:1.00 green:0.28 blue:0.44 alpha:1.0];
-    [_button setTitleColor:[UIColor colorWithRed:1.00 green:0.28 blue:0.44 alpha:1.0] forState: UIControlStateNormal];
+    _button.backgroundColor = [UIColor clearColor];
+    [_button setTitleColor:[UIColor whiteColor] forState: UIControlStateNormal];
     
 }
 
@@ -291,6 +295,9 @@
                     
                     if (granted)
                     {
+                        _button.backgroundColor = [UIColor whiteColor];
+                        [_button setTitleColor:[UIColor colorWithRed:1.00 green:0.28 blue:0.44 alpha:1.0] forState: UIControlStateNormal];
+
                         NSLog(@"Said YES to Contacts Sync");
                         
                         Mixpanel *mixpanel = [Mixpanel sharedInstance];
@@ -356,6 +363,9 @@
                     else
                         
                     {
+                        _button.backgroundColor = [UIColor clearColor];
+                        [_button setTitleColor:[UIColor whiteColor] forState: UIControlStateNormal];
+
                         
                         NSLog(@"You said NO to Contacts");
                         
@@ -661,6 +671,9 @@
                                                           {
                                                               dispatch_async(dispatch_get_main_queue(), ^{
                                                                   [self presentViewController:alertController2 animated:YES completion:nil];
+
+                                                                  _button2.backgroundColor = [UIColor whiteColor];
+                                                                  [_button2 setTitleColor:[UIColor colorWithRed:1.00 green:0.28 blue:0.44 alpha:1.0] forState: UIControlStateNormal];
                                                               });
                                                           }
 
@@ -669,8 +682,8 @@
     }
     
 
-    _button2.backgroundColor = [UIColor whiteColor];
-    [_button2 setTitleColor:[UIColor colorWithRed:1.00 green:0.28 blue:0.44 alpha:1.0] forState: UIControlStateNormal];
+    _button2.backgroundColor = [UIColor clearColor];
+    [_button2 setTitleColor:[UIColor whiteColor] forState: UIControlStateNormal];
 }
 
 -(void)setUpVideo:(NSString*)fileName :(NSString*)extension
@@ -713,7 +726,7 @@
     POPBasicAnimation *disappear;
     disappear = [POPBasicAnimation animation];
     disappear.property = [POPAnimatableProperty propertyWithName:kPOPViewAlpha];
-    disappear.toValue = @(0);
+    disappear.toValue = @(0.5);
     
     if ([swipeRecogniser direction] == UISwipeGestureRecognizerDirectionRight)
     {
@@ -811,7 +824,7 @@
             _label2.text = [NSString stringWithFormat:@"%@\r%@", string,string2];
             _button.hidden = NO;
             [_button setTitle:@"Allow Camera"forState:UIControlStateNormal];
-            self.pageControl.hidden = YES;
+
 
             [self setUpVideo:@"Video5" :@"m4v"];
 
