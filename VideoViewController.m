@@ -88,15 +88,15 @@
     _button.layer.borderWidth = 2.0f;
     _button.layer.backgroundColor = [UIColor clearColor].CGColor;
     _button.layer.borderColor = [UIColor whiteColor].CGColor;
-    _button.layer.cornerRadius = 20.0f;
+    _button.layer.cornerRadius = 5.0f;
 
     _button2.hidden = YES;
     _button2.layer.borderWidth = 2.0f;
     _button2.layer.backgroundColor = [UIColor clearColor].CGColor;
     _button2.layer.borderColor = [UIColor whiteColor].CGColor;
-    _button2.layer.cornerRadius = 20.0f;
+    _button2.layer.cornerRadius = 5.0f;
 
-    
+
 
     
     
@@ -173,7 +173,7 @@
     {
     self.SwipeGesture.enabled = NO;
     self.pageControl.currentPage = 0;
-        self.GradientView.alpha =1.0;
+
     }
     else
     {
@@ -182,6 +182,7 @@
         _firstLabel.font = [UIFont fontWithName:@"AvenirNext-DemiBold" size:22];
         _firstLabel.textColor = [UIColor whiteColor];
         _firstLabel.text = @"typeface needs \n these allowed";
+        //self.GradientView.alpha =1.0;
         
         _firstLabel.hidden = NO;
         _label2.hidden = YES;

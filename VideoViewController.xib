@@ -32,7 +32,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="never be misunderstood again" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hm2-qI-aVS">
-                            <rect key="frame" x="67" y="191" width="187" height="103"/>
+                            <rect key="frame" x="67" y="130" width="187" height="103"/>
                             <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="23"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
@@ -65,11 +65,11 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ul0-3J-dl7">
-                    <rect key="frame" x="67" y="344" width="186" height="44"/>
+                    <rect key="frame" x="60" y="344" width="200" height="44"/>
                     <color key="backgroundColor" red="1" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="bXe-2F-PCc"/>
-                        <constraint firstAttribute="width" constant="186" id="nHx-aq-pkn"/>
+                        <constraint firstAttribute="width" constant="200" id="nHx-aq-pkn"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="17"/>
                     <state key="normal">
@@ -80,11 +80,11 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fGw-Bh-Nb5" userLabel="Button2">
-                    <rect key="frame" x="67" y="409" width="186" height="44"/>
+                    <rect key="frame" x="60" y="409" width="200" height="44"/>
                     <color key="backgroundColor" red="1" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="Npp-kJ-Ikw"/>
-                        <constraint firstAttribute="width" constant="186" id="PFS-zs-2lG"/>
+                        <constraint firstAttribute="width" constant="200" id="PFS-zs-2lG"/>
                     </constraints>
                     <state key="normal">
                         <attributedString key="attributedTitle">
