@@ -26,7 +26,6 @@
             <subviews>
                 <view contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="rwM-PA-vsE" userLabel="MovieView">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                 </view>
                 <view contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="dqE-qW-WKx" userLabel="GradientView">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -88,7 +87,7 @@
                     </constraints>
                     <state key="normal">
                         <attributedString key="attributedTitle">
-                            <fragment content="Get Notified &gt;">
+                            <fragment content="Get Notified ">
                                 <attributes>
                                     <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <font key="NSFont" size="16" name="AvenirNext-Bold"/>
@@ -109,6 +108,7 @@
                     </constraints>
                 </imageView>
             </subviews>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="dqE-qW-WKx" firstAttribute="top" secondItem="rwM-PA-vsE" secondAttribute="top" id="0Fb-b4-XnE"/>
                 <constraint firstItem="ul0-3J-dl7" firstAttribute="centerX" secondItem="1" secondAttribute="centerX" id="1zq-zZ-w2I"/>

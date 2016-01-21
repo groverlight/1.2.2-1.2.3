@@ -20,6 +20,7 @@
 #import "Reachability.h"
 #import "CameraPreview.h"
 #import "VideoCapture.h"
+#import "Colors.h"
 
 //__________________________________________________________________________________________________
 
@@ -237,7 +238,7 @@ static AppViewController* MainViewController = nil;
   [super loadView];
   NSLog(@"3 loadView");
 
- self.view.hidden= YES;
+
     
   ViewStack = [ViewStackView sharedInstance];
   self.view = ViewStack;
@@ -261,7 +262,8 @@ static AppViewController* MainViewController = nil;
     [ViewStack setTextViewContent:NavView animated:NO fromLeft:YES];
     [ViewStack activate];
     NSLog(@"7 loadView");
-    
+
+    self.view.hidden= NO;
 }
 //__________________________________________________________________________________________________
 
@@ -287,7 +289,7 @@ static AppViewController* MainViewController = nil;
           [self dismissViewControllerAnimated:YES completion:nil];
           
           dispatch_async(dispatch_get_main_queue(), ^(void){
-              [self presentViewController:Intro animated:YES completion:nil];      });
+              [self presentViewController:Intro animated:NO completion:nil];      });
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 3 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
             self.view.hidden=NO;
         [NavView showLoginFromStart:restart];

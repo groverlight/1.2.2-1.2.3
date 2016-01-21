@@ -15,6 +15,7 @@
 #import <addressbook/addressbook.h>
 #import "Mixpanel.h"
 #import "FriendSelectionView.h"
+#import "Colors.h"
 
 @interface VideoViewController ()
 
@@ -181,9 +182,19 @@
         _logo.hidden = NO;
         _firstLabel.font = [UIFont fontWithName:@"AvenirNext-DemiBold" size:22];
         _firstLabel.textColor = [UIColor whiteColor];
-        _firstLabel.text = @"typeface needs \n these allowed";
+        _firstLabel.text = @"typeface needs \n these allowed:";
         //self.GradientView.alpha =1.0;
-        
+
+        for (CALayer *layer in self.movieView.layer.sublayers) {
+            [layer removeFromSuperlayer];
+        }
+        self.movieView.backgroundColor = TypePink;
+
+
+        for (CALayer *layer in self.GradientView.layer.sublayers) {
+            [layer removeFromSuperlayer];
+        }
+        //self.GradientView.backgroundColor = TypePink;
         _firstLabel.hidden = NO;
         _label2.hidden = YES;
         _button.hidden = NO;
@@ -732,7 +743,7 @@
     POPBasicAnimation *disappear;
     disappear = [POPBasicAnimation animation];
     disappear.property = [POPAnimatableProperty propertyWithName:kPOPViewAlpha];
-    disappear.toValue = @(0.5);
+    disappear.toValue = @(0.0);
     
     if ([swipeRecogniser direction] == UISwipeGestureRecognizerDirectionRight)
     {
