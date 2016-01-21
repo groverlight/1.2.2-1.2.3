@@ -75,11 +75,14 @@
     [self.view addGestureRecognizer:swipeRight];
     
     //Config dark gradient view
-//    CAGradientLayer *gradient = [CAGradientLayer layer];
-//    gradient.frame = [[UIScreen mainScreen] bounds];
-//    gradient.colors = [NSArray arrayWithObjects:(id)[UIColorFromRGB(0xFF4771) CGColor], (id)[[UIColor clearColor] CGColor], nil];
-//    [self.GradientView.layer insertSublayer:gradient atIndex:0];
-//    self.GradientView.alpha =0.9;
+    CAGradientLayer *gradient = [CAGradientLayer layer];
+    gradient.frame = [[UIScreen mainScreen] bounds];
+    gradient.colors = [NSArray arrayWithObjects:(id)[UIColorFromRGB(0x000) CGColor], (id)[[UIColor clearColor] CGColor], nil];
+
+
+    //gradient.colors = [NSArray arrayWithObjects:(id)[UIColorFromRGB(0xFF4771) CGColor], (id)[[UIColor clearColor] CGColor], nil];
+    [self.GradientView.layer insertSublayer:gradient atIndex:0];
+    self.GradientView.alpha =0.4;
 
     _button.hidden = YES;
     _button.layer.borderWidth = 2.0f;
@@ -175,14 +178,14 @@
     {
         self.pageControl.currentPage = 4;
         _logo.hidden = NO;
-        _firstLabel.font = [UIFont fontWithName:@"AvenirNext-Bold" size:22];
+        _firstLabel.font = [UIFont fontWithName:@"AvenirNext-DemiBold" size:22];
         _firstLabel.textColor = [UIColor whiteColor];
-        _firstLabel.text = @"We need these allowed";
+        _firstLabel.text = @"typeface needs \n these allowed";
         
         _firstLabel.hidden = NO;
         _label2.hidden = YES;
         _button.hidden = NO;
-        [_button setTitle:@"Find Friends >" forState:UIControlStateNormal];
+        [_button setTitle:@"Find Friends" forState:UIControlStateNormal];
         _button2.hidden = NO;
         NSString *string = @"This is how you practice safe text";
         NSString *string2 = @"Ready to typeface?";
@@ -220,6 +223,9 @@
         if (granted) {
             // Permission has been granted. Use dispatch_async for any UI updating
             // code because this block may be executed in a thread.
+
+            _button.backgroundColor = [UIColor whiteColor];
+            [_button setTitleColor:[UIColor colorWithRed:1.00 green:0.28 blue:0.44 alpha:1.0] forState: UIControlStateNormal];
             
             dispatch_async(dispatch_get_main_queue(), ^{
             didLogin = YES;
@@ -231,8 +237,8 @@
             [self presentViewController:alertController animated:YES completion:nil];
             });
         }
-        _button.backgroundColor = [UIColor colorWithRed:1.00 green:0.28 blue:0.44 alpha:1.0];
-        [_button setTitleColor:[UIColor darkGrayColor] forState: UIControlStateNormal];
+        _button.backgroundColor = [UIColor clearColor];
+        [_button setTitleColor:[UIColor whiteColor] forState: UIControlStateNormal];
     }];
     
     
@@ -258,7 +264,7 @@
     }
 
     _button.backgroundColor = [UIColor colorWithRed:1.00 green:0.28 blue:0.44 alpha:1.0];
-    [_button setTitleColor:[UIColor darkGrayColor] forState: UIControlStateNormal];
+    [_button setTitleColor:[UIColor colorWithRed:1.00 green:0.28 blue:0.44 alpha:1.0] forState: UIControlStateNormal];
     
 }
 
@@ -663,8 +669,8 @@
     }
     
 
-    _button2.backgroundColor = [UIColor colorWithRed:1.00 green:0.28 blue:0.44 alpha:1.0];
-    [_button2 setTitleColor:[UIColor darkGrayColor] forState: UIControlStateNormal];
+    _button2.backgroundColor = [UIColor whiteColor];
+    [_button2 setTitleColor:[UIColor colorWithRed:1.00 green:0.28 blue:0.44 alpha:1.0] forState: UIControlStateNormal];
 }
 
 -(void)setUpVideo:(NSString*)fileName :(NSString*)extension
@@ -786,7 +792,7 @@
             _firstLabel.hidden = YES;
             _label2.hidden = NO;
             _label2.textColor = [UIColor whiteColor];
-            _label2.font = [UIFont fontWithName:@"AvenirNext-Bold" size:20];
+            _label2.font = [UIFont fontWithName:@"AvenirNext-DemiBold" size:20];
             _label2.text = @"type something \n then take a selfie";
             [self setUpVideo:@"Video2_adjusted" :@"m4v"];
             break;
@@ -807,7 +813,11 @@
             [_button setTitle:@"Allow Camera"forState:UIControlStateNormal];
 
             [self setUpVideo:@"Video5" :@"m4v"];
-            
+
+        
+
+
+
             
             break;
             
@@ -849,7 +859,7 @@
     
     if (_button.state == 1)
     {
-        _button.backgroundColor = [UIColor darkGrayColor];
+        _button.backgroundColor = [UIColor whiteColor];
             [_button setTitleColor:[UIColor colorWithRed:1.00 green:0.28 blue:0.44 alpha:1.0] forState: UIControlStateNormal];
    
     }
@@ -868,7 +878,7 @@
 - (IBAction)button2:(id)sender {
     if (_button2.state == 1)
     {
-        _button2.backgroundColor = [UIColor darkGrayColor];
+        _button2.backgroundColor = [UIColor whiteColor];
         [_button2 setTitleColor:[UIColor colorWithRed:1.00 green:0.28 blue:0.44 alpha:1.0] forState: UIControlStateNormal];
         
     }
