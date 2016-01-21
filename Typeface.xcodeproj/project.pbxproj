@@ -125,6 +125,8 @@
 		F4CEF4BC1BDAFCF800A1399D /* beep_prompt_2x.aif in Resources */ = {isa = PBXBuildFile; fileRef = F4CEF4BA1BDAFCF800A1399D /* beep_prompt_2x.aif */; };
 		F4D0F9F91BDAF3E40039C51D /* chime_blip_on.aif in Resources */ = {isa = PBXBuildFile; fileRef = F4D0F9F81BDAF3E40039C51D /* chime_blip_on.aif */; };
 		F4D5FDC41BDB06440048910D /* pop_digi_up.aif in Resources */ = {isa = PBXBuildFile; fileRef = F4D5FDC31BDB06440048910D /* pop_digi_up.aif */; };
+		F4D6D0CC1C5162AF001EE243 /* spelled_out_white.png in Resources */ = {isa = PBXBuildFile; fileRef = F4D6D0CB1C5162AF001EE243 /* spelled_out_white.png */; };
+		F4D6D0CE1C516C82001EE243 /* branding.png in Resources */ = {isa = PBXBuildFile; fileRef = F4D6D0CD1C516C82001EE243 /* branding.png */; };
 		F4F5854B1B82A9C80016D180 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F4F585451B82A9C80016D180 /* AppDelegate.m */; };
 		F4F5854C1B82A9C80016D180 /* AppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4F585471B82A9C80016D180 /* AppViewController.m */; };
 		F4F5854D1B82A9C80016D180 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4F585481B82A9C80016D180 /* Images.xcassets */; };
@@ -345,6 +347,8 @@
 		F4CEF4BA1BDAFCF800A1399D /* beep_prompt_2x.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = beep_prompt_2x.aif; sourceTree = SOURCE_ROOT; };
 		F4D0F9F81BDAF3E40039C51D /* chime_blip_on.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = chime_blip_on.aif; sourceTree = SOURCE_ROOT; };
 		F4D5FDC31BDB06440048910D /* pop_digi_up.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = pop_digi_up.aif; sourceTree = SOURCE_ROOT; };
+		F4D6D0CB1C5162AF001EE243 /* spelled_out_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spelled_out_white.png; sourceTree = SOURCE_ROOT; };
+		F4D6D0CD1C516C82001EE243 /* branding.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = branding.png; sourceTree = SOURCE_ROOT; };
 		F4F585441B82A9C80016D180 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Typeface/AppDelegate.h; sourceTree = SOURCE_ROOT; };
 		F4F585451B82A9C80016D180 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Typeface/AppDelegate.m; sourceTree = SOURCE_ROOT; };
 		F4F585461B82A9C80016D180 /* AppViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppViewController.h; path = Typeface/AppViewController.h; sourceTree = SOURCE_ROOT; };
@@ -749,6 +753,8 @@
 				27C180711C4EE73D00FEE015 /* Video4.m4v */,
 				27C180721C4EE73D00FEE015 /* Video5.m4v */,
 				27DB56F81C0F8B0A00022D9C /* spelled_out.png */,
+				F4D6D0CB1C5162AF001EE243 /* spelled_out_white.png */,
+				F4D6D0CD1C516C82001EE243 /* branding.png */,
 				27DB56F01C0F80D600022D9C /* logo_tut.png */,
 				27AA8F361BE18147009B363A /* VideoViewController.h */,
 				27AA8F371BE18147009B363A /* VideoViewController.m */,
@@ -861,7 +867,7 @@
 				ORGANIZATIONNAME = "";
 				TargetAttributes = {
 					B6E7AABD1868512800DBB0EB = {
-						DevelopmentTeam = KEKFU6H295;
+						DevelopmentTeam = 4THJ5Z3YGF;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -907,6 +913,7 @@
 				F466BDEE1BDF39A500683986 /* new20.aiff in Resources */,
 				F466BDF11BDF3B2400683986 /* liftoff20.aiff in Resources */,
 				F466BDCF1BDF2E0F00683986 /* swipe25.aiff in Resources */,
+				F4D6D0CC1C5162AF001EE243 /* spelled_out_white.png in Resources */,
 				B652A13E1A9E7D1F006222EE /* ImageAssets in Resources */,
 				27DB56F91C0F8B0A00022D9C /* spelled_out.png in Resources */,
 				F4CEF4BC1BDAFCF800A1399D /* beep_prompt_2x.aif in Resources */,
@@ -915,6 +922,7 @@
 				F4F5854D1B82A9C80016D180 /* Images.xcassets in Resources */,
 				F4172AC81C1F46F9006379E7 /* digi_alert.aif in Resources */,
 				27C180771C4EE73D00FEE015 /* Video5.m4v in Resources */,
+				F4D6D0CE1C516C82001EE243 /* branding.png in Resources */,
 				F466BDEF1BDF39A500683986 /* rolldown10.aiff in Resources */,
 				F466BDEB1BDF37D200683986 /* blurbout15.aiff in Resources */,
 				F466BDE71BDF34D200683986 /* back30.aiff in Resources */,
@@ -1173,7 +1181,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = KEKFU6H295.com.typeFace.AddressBook;
+				PRODUCT_BUNDLE_IDENTIFIER = com.groverlight.Typeface;
 				PRODUCT_NAME = Typeface;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1208,7 +1216,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = KEKFU6H295.com.typeFace.AddressBook;
+				PRODUCT_BUNDLE_IDENTIFIER = com.groverlight.Typeface;
 				PRODUCT_NAME = Typeface;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1279,7 +1287,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = KEKFU6H295.com.typeFace.AddressBook;
+				PRODUCT_BUNDLE_IDENTIFIER = com.groverlight.Typeface;
 				PRODUCT_NAME = Typeface;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;

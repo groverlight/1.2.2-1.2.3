@@ -48,7 +48,7 @@
                     </constraints>
                     <color key="currentPageIndicatorTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </pageControl>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="spelled_out.png" translatesAutoresizingMaskIntoConstraints="NO" id="kby-tV-9bV">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="spelled_out_white.png" translatesAutoresizingMaskIntoConstraints="NO" id="kby-tV-9bV">
                     <rect key="frame" x="123" y="539" width="73" height="12"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="73" id="34K-89-OVh"/>
@@ -101,7 +101,7 @@
                         <action selector="button2:" destination="-1" eventType="touchUpInside" id="MpB-kG-AGA"/>
                     </connections>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_tut.png" translatesAutoresizingMaskIntoConstraints="NO" id="5Qr-kA-fS4">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="branding.png" translatesAutoresizingMaskIntoConstraints="NO" id="5Qr-kA-fS4">
                     <rect key="frame" x="124" y="28" width="71" height="71"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="71" id="QgE-im-4PL"/>
@@ -138,7 +138,7 @@
         <swipeGestureRecognizer direction="right" id="jNl-bs-VTI"/>
     </objects>
     <resources>
-        <image name="logo_tut.png" width="273" height="188"/>
-        <image name="spelled_out.png" width="190" height="42"/>
+        <image name="branding.png" width="250" height="172"/>
+        <image name="spelled_out_white.png" width="190" height="42"/>
     </resources>
 </document>

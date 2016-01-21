@@ -5,6 +5,9 @@
       location = "group:StyledPageControl.h">
    </FileRef>
    <FileRef
+      location = "group:spelled_out_white.png">
+   </FileRef>
+   <FileRef
       location = "group:StyledPageControl.m">
    </FileRef>
    <FileRef
@@ -12,9 +15,6 @@
    </FileRef>
    <FileRef
       location = "group:branding.png">
-   </FileRef>
-   <FileRef
-      location = "group:/Users/grover/Desktop/1.2.2/Video3_adjusted.m4v">
    </FileRef>
    <FileRef
       location = "group:Typeface.xcodeproj">

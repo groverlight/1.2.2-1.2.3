@@ -811,6 +811,7 @@
             _label2.text = [NSString stringWithFormat:@"%@\r%@", string,string2];
             _button.hidden = NO;
             [_button setTitle:@"Allow Camera"forState:UIControlStateNormal];
+            self.pageControl.hidden = YES;
 
             [self setUpVideo:@"Video5" :@"m4v"];
 
