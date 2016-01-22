@@ -27,7 +27,7 @@
 {
   UIScrollView*   ScrollView;
   UILabel*        CompleteChunksLabel;
-  UITextView*     Editor;
+  //UITextView*     Editor;
   UIColor*        SavedDefaultCursorColor;
   NSMutableArray* CompleteChunksArray;
 
@@ -490,8 +490,10 @@
 
 - (void)activate
 {
+   //NSLog(@"activate real");
   Active = YES;
-  [self becomeFirstResponder];
+  [Editor becomeFirstResponder];
+  //[self becomeFirstResponder];
   dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^
   {
     [self alignToBottom];

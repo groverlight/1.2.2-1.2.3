@@ -6,6 +6,7 @@
 #import <UIKit/UIKit.h>
 #import "Message.h"
 #import "ViewStackView.h"
+#import "EditView.h"
 //__________________________________________________________________________________________________
 
 //! UIView based class that contains an editor to create the falling texts.
@@ -14,6 +15,7 @@
 @public
   BlockAction           GoButtonPressed;
   BlockFloatBlockAction PleaseFlashForDuration;
+  EditView*             TextView; 
 }
 //____________________
 
@@ -28,6 +30,8 @@
 
 //! Build a message from currently edited texts and snapshots.
 - (Message*)buildTheMessage;
+- (void)registerForKeyboardNotifications;
+- (void)reset;
 //____________________
 
 @end

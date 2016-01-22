@@ -19,6 +19,7 @@
   BoolBlockAction ShouldBeginEditingAction;
   BlockAction     DidDeleteLastChunk;
   BlockAction     DidPressGoButton;
+  UITextView*     Editor;
 }
 //____________________
 

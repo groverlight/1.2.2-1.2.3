@@ -21,7 +21,8 @@
 #import "CameraPreview.h"
 #import "VideoCapture.h"
 #import "Colors.h"
-
+#import <Contacts/Contacts.h>
+#import <addressbook/addressbook.h>
 //__________________________________________________________________________________________________
 
 #define BE_YOUR_BEST_FRIEND 0 //!< Define to 1 to declare the current user to be his own friend.
@@ -96,15 +97,27 @@ static AppViewController* MainViewController = nil;
 
 - (void)loginDone:(BOOL)newUser
 {
+    
     ParseUser* currentUser = GetCurrentParseUser();
     LoggedIn = YES;
     ///NSLog(@"LOGIN DONE %@",currentUser[@"phoneNumber"]);
-
-  set_myself;
-#if BE_YOUR_BEST_FRIEND
-  
     if ([PFUser currentUser] != nil)
     {
+        CNAuthorizationStatus permissions = [CNContactStore authorizationStatusForEntityType:CNEntityTypeContacts];
+        if((permissions != CNAuthorizationStatusAuthorized) || !ParseCheckPermissionForRemoteNotifications()) {
+            
+            dispatch_async(dispatch_get_main_queue(), ^(void){
+                [self dismissViewControllerAnimated:NO completion:nil];
+                [self presentViewController:Intro animated:NO completion:^(){
+                    [ViewStack.liveView  restorePreviewWithCompletion:^{
+                    
+                    }];
+                    
+                }];
+                
+            });
+
+        }
         PFQuery *friendquery = [PFUser query];
         
         [friendquery whereKey:@"friends" equalTo:[PFUser currentUser].objectId];
@@ -116,12 +129,19 @@ static AppViewController* MainViewController = nil;
                 }
         }];
     }
+
+set_myself;
+#if BE_YOUR_BEST_FRIEND
+
+
   // Add ourself as friend to be able to test push notifications with a single user. Do nothing if we are already in the friends list.
   [currentUser addFriend:currentUser completion:^(BOOL success, NSError *error)
   {
 #endif
+      
     [GetCurrentParseUser() loadFriendsListWithCompletion:^(NSArray* friends, NSError* loadError)
     {
+
         PFQuery *findMessages = [PFQuery queryWithClassName:@"ParseMessage"];
         [findMessages whereKey:@"placeHolder" equalTo:currentUser[@"phoneNumber"]];
         [findMessages findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
@@ -175,19 +195,7 @@ static AppViewController* MainViewController = nil;
         if (newUser)
         {
             
-            [self dismissViewControllerAnimated:YES completion:nil];
-            dispatch_async(dispatch_get_main_queue(), ^(void){
-            [self presentViewController:Intro animated:YES completion:nil];
-            
-                [ViewStack.liveView  restorePreviewWithCompletion:^{
-                    
-                }];
 
-                
-                
-                
-
-            });
 
           /*if (!ParseCheckPermissionForRemoteNotifications())
           {
@@ -202,7 +210,7 @@ static AppViewController* MainViewController = nil;
           
         else
         {
-          ParseRegisterForRemoteNotifications(^(BOOL notificationsAreEnabled)
+          /*ParseRegisterForRemoteNotifications(^(BOOL notificationsAreEnabled)
           {
             if (!notificationsAreEnabled)
             {
@@ -210,8 +218,9 @@ static AppViewController* MainViewController = nil;
               {
               });
             }
-          });
+          });*/
         }
+          
       }
       else
       {
@@ -227,26 +236,24 @@ static AppViewController* MainViewController = nil;
 - (void)loadView
 {
 
-   
-//  NSLog(@"1 loadView");
-  MainViewController = self;
-  // The global parameters should be set as soon as possible, at last before loading the user interface.
-  GlobalParams = InitGlobalParameters(self);
-  NSLog(@"2 loadView");
-
-  // The global parameters have been initialized. Now we can load the User Interface.
-  [super loadView];
-  NSLog(@"3 loadView");
-
-
+    //  NSLog(@"1 loadView");
+    MainViewController = self;
+    // The global parameters should be set as soon as possible, at last before loading the user interface.
+    GlobalParams = InitGlobalParameters(self);
+    //  NSLog(@"2 loadView");
     
-  ViewStack = [ViewStackView sharedInstance];
-  self.view = ViewStack;
-  NSLog(@"4 loadView");
-  NavView = [NavigationView new];
-  NavView.frame = CGRectMake(0, 0, GetScreenWidth(), GetScreenHeight());
+    // The global parameters have been initialized. Now we can load the User Interface.
+    [super loadView];
+    //  NSLog(@"3 loadView");
+    
+    ViewStack = [ViewStackView sharedInstance];
+    self.view = ViewStack;
+    //self.view.backgroundColor = TypePink;
+    //  NSLog(@"4 loadView");
+    NavView = [NavigationView new];
+    NavView.frame = CGRectMake(0, 0, GetScreenWidth(), GetScreenHeight());
     set_myself;
-    NSLog(@"5 loadView");
+    //  NSLog(@"5 loadView");
     NavView->PleaseBlurByThisFactorAction = ^(CGFloat blurFactor)
     {
         get_myself;
@@ -258,19 +265,39 @@ static AppViewController* MainViewController = nil;
         [myself->ViewStack flashForDuration:duration completion:completion];
     };
     
-    NSLog(@"6 loadView");
+    //  NSLog(@"6 loadView");
     [ViewStack setTextViewContent:NavView animated:NO fromLeft:YES];
     [ViewStack activate];
-    NSLog(@"7 loadView");
+    //  NSLog(@"7 loadView");
 
-    self.view.hidden= NO;
+        
 }
 //__________________________________________________________________________________________________
 
 //! The UI has been loaded, do whatever else is required.
 - (void)viewDidLoad
 {
-    
+    AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
+    if(authStatus == AVAuthorizationStatusAuthorized) {
+        // do your logic
+    } else if(authStatus == AVAuthorizationStatusDenied){
+        // denied
+    } else if(authStatus == AVAuthorizationStatusRestricted){
+        // restricted, normally won't happen
+    } else if(authStatus == AVAuthorizationStatusNotDetermined){
+        // not determined?!
+        dispatch_async(dispatch_get_main_queue(), ^(void){
+            [self dismissViewControllerAnimated:NO completion:nil];
+            [self presentViewController:Intro animated:NO completion:^(){
+                [NavView showLoginFromStart:YES];
+            }];
+        });
+        
+        
+    } else {
+        // impossible, unknown authorization status
+    }
+
 //  NSLog(@"1 viewDidLoad");
   [super viewDidLoad];
 //  NSLog(@"2 viewDidLoad");
@@ -286,14 +313,9 @@ static AppViewController* MainViewController = nil;
     {
       if (newUser)
       {
-          [self dismissViewControllerAnimated:YES completion:nil];
           
-          dispatch_async(dispatch_get_main_queue(), ^(void){
-              [self presentViewController:Intro animated:NO completion:nil];      });
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 3 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-            self.view.hidden=NO;
-        [NavView showLoginFromStart:restart];
-                             });
+          
+          
       }
       else
       {
@@ -316,7 +338,11 @@ static AppViewController* MainViewController = nil;
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    
+    NSLog(@"viewdidappear");
+    if (LoggedIn == YES)
+    {
+        [NavView->TypingMessageView->TextView->Editor becomeFirstResponder];
+    }
 }
 //__________________________________________________________________________________________________
 
@@ -368,12 +394,14 @@ static AppViewController* MainViewController = nil;
     }];
     if (ViewStack != nil)
     {
+        NSLog(@"hi");
       [ViewStack restoreLiveView];
     }
   }
   else
   {
-    [ViewStack showLiveViewAnimated:NO];
+      NSLog(@"hi2");
+     [ViewStack showLiveViewAnimated:NO];
   }
 }
 //__________________________________________________________________________________________________
@@ -469,7 +497,7 @@ void DidReceiveRemoteNotification(NSDictionary* userInfo, BlockBoolAction comple
 //! The application did just become active.
 void ApplicationDidBecomeActive(void)
 {
-//  NSLog(@"ApplicationDidBecomeActive");
+  NSLog(@"ApplicationDidBecomeActive");
   if (MainViewController != nil)
   {
     [MainViewController applicationDidBecomeActive];

@@ -492,7 +492,7 @@
     UIView*                   topSeparatorLine  = [cell getCellItemAtIndex:2];
     UIView*                   botSeparatorLine  = [cell getCellItemAtIndex:3];
     GlobalParameters*         parameters        = GetGlobalParameters();
-    BOOL isSelected         = (SelectedItem != nil) && (SelectedItem.section == cell.tableSection) && (SelectedItem.row == cell.tableRow);
+    //BOOL isSelected         = (SelectedItem != nil) && (SelectedItem.section == cell.tableSection) && (SelectedItem.row == cell.tableRow);
     pseudoButton.size       = [pseudoButton sizeThatFits:self.size];
     fullName.width          = [fullName sizeThatFits:self.size].width;
     fullName.height         = fullName.font.lineHeight;

@@ -6,6 +6,7 @@
 #import <UIKit/UIKit.h>
 #import "BaseView.h"
 #import "Blocks.h"
+#import "TypingView.h"
 //__________________________________________________________________________________________________
 
 @class UnreadMessages;
@@ -21,6 +22,7 @@
   BlockAction           ScrolledToSendToPage;
   BlockFloatAction      PleaseBlurByThisFactorAction;
   BlockFloatBlockAction PleaseFlashForDuration;
+  TypingView*           TypingMessageView;
 }
 //____________________
 

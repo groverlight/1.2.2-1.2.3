@@ -41,11 +41,13 @@
 @implementation VideoViewController
 {
     AppViewController *rootController;
-    UIAlertController * alertController;
-    UIAlertController * alertController2;
+    UIAlertController * CameraAlert;
+    UIAlertController * NotifAlert;
+    UIAlertController * ContactsAlert;
     BOOL didLogin;
     BOOL contactBOOL;
     BOOL notificationBOOL;
+    CAGradientLayer *gradient;
 
 }
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -76,7 +78,7 @@
     [self.view addGestureRecognizer:swipeRight];
     
     //Config dark gradient view
-    CAGradientLayer *gradient = [CAGradientLayer layer];
+    gradient = [CAGradientLayer layer];
     gradient.frame = [[UIScreen mainScreen] bounds];
     gradient.colors = [NSArray arrayWithObjects:(id)[UIColorFromRGB(0x000) CGColor], (id)[[UIColor clearColor] CGColor], nil];
 
@@ -101,15 +103,19 @@
 
     
     
-    alertController =[ UIAlertController
+    CameraAlert =[ UIAlertController
                       alertControllerWithTitle:@"Camera access is required"
                       message:@" To continue, you must enable camera access in the Settings app."
                       preferredStyle:UIAlertControllerStyleAlert];
     
-    alertController2 =[ UIAlertController
+    NotifAlert =[ UIAlertController
                        alertControllerWithTitle:@"Please enable notifications"
                        message:@"To be alerted when friends message you, please enable notifications in the Settings app."
                        preferredStyle:UIAlertControllerStyleAlert];
+    ContactsAlert =  [ UIAlertController
+                     alertControllerWithTitle:@"Access to your Contacts is required"
+                     message:@" To continue, you must enable access to your Contacts in the Settings app."
+                     preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *cancelAction = [UIAlertAction
                                    actionWithTitle:@"Cancel"
                                    style:UIAlertActionStyleCancel
@@ -131,10 +137,12 @@
                                    _label2.text = @" Ready to continue?";
                                }];
     
-    [alertController addAction:cancelAction];
-    [alertController addAction:okAction];
-    [alertController2 addAction:cancelAction];
-    [alertController2 addAction:okAction];
+    [CameraAlert addAction:cancelAction];
+    [CameraAlert addAction:okAction];
+    [NotifAlert addAction:cancelAction];
+    [NotifAlert addAction:okAction];
+    [ContactsAlert addAction:cancelAction];
+    [ContactsAlert addAction:okAction];
 
  
 
@@ -174,28 +182,25 @@
     {
     self.SwipeGesture.enabled = NO;
     self.pageControl.currentPage = 0;
-
+    [self.avplayer play];
     }
     else
     {
+
+            
+            self.movieView.layer.sublayers = nil;
+            [gradient removeFromSuperlayer];
+           
+        
+        self.movieView.backgroundColor = TypePink;
         self.pageControl.currentPage = 4;
         _logo.hidden = NO;
         _firstLabel.font = [UIFont fontWithName:@"AvenirNext-DemiBold" size:22];
         _firstLabel.textColor = [UIColor whiteColor];
         _firstLabel.text = @"typeface needs \n these allowed:";
-        //self.GradientView.alpha =1.0;
-
-        for (CALayer *layer in self.movieView.layer.sublayers) {
-            [layer removeFromSuperlayer];
-        }
-        self.movieView.backgroundColor = TypePink;
-
-
-        for (CALayer *layer in self.GradientView.layer.sublayers) {
-            [layer removeFromSuperlayer];
-        }
-        //self.GradientView.backgroundColor = TypePink;
         _firstLabel.hidden = NO;
+        self.GradientView.alpha =1.0;
+        //self.GradientView.backgroundColor = TypePink;
         _label2.hidden = YES;
         _button.hidden = NO;
         [_button setTitle:@"Find Friends" forState:UIControlStateNormal];
@@ -205,8 +210,9 @@
         _label2.text = [NSString stringWithFormat:@"%@\r%@", string,string2];
         self.pageControl.hidden = YES;
         
+
     }
-    [self.avplayer play];
+    
 }
 
 - (void)dealloc
@@ -243,12 +249,13 @@
             
             dispatch_async(dispatch_get_main_queue(), ^{
             didLogin = YES;
+                
             [self dismissViewControllerAnimated:YES completion:nil];
             });
         } else {
             // Permission has been denied.
             dispatch_async(dispatch_get_main_queue(), ^{
-            [self presentViewController:alertController animated:YES completion:nil];
+            [self presentViewController:CameraAlert animated:YES completion:nil];
             });
         }
         _button.backgroundColor = [UIColor clearColor];
@@ -281,6 +288,10 @@
             {
                 _button.backgroundColor = [UIColor clearColor];
                 [_button setTitleColor:[UIColor whiteColor] forState: UIControlStateNormal];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self presentViewController:ContactsAlert animated:YES completion:nil];
+                });
+                
             }
         }];
     }
@@ -380,11 +391,10 @@
                     else
                         
                     {
+                        NSLog(@"You said NO to Contacts");
                         _button.backgroundColor = [UIColor clearColor];
                         [_button setTitleColor:[UIColor whiteColor] forState: UIControlStateNormal];
-
                         
-                        NSLog(@"You said NO to Contacts");
                         
                         Mixpanel *mixpanel = [Mixpanel sharedInstance];
                         
@@ -405,6 +415,7 @@
             
             else
             {
+
                 NSLog(@"did not ask permissions");
             }
         }
@@ -634,7 +645,7 @@
     if (contactBOOL && notificationBOOL)
     {
         dispatch_async(dispatch_get_main_queue(), ^{
-            [self dismissViewControllerAnimated:YES completion:nil];
+            [self dismissViewControllerAnimated:NO completion:nil];
         });
     }
     
@@ -680,14 +691,14 @@
                                                               if (contactBOOL && notificationBOOL)
                                                               {
                                                                   dispatch_async(dispatch_get_main_queue(), ^{
-                                                                      [self dismissViewControllerAnimated:YES completion:nil];
+                                                                      [self dismissViewControllerAnimated:NO completion:nil];
                                                                   });
                                                               }
                                                           }
                                                           else
                                                           {
                                                               dispatch_async(dispatch_get_main_queue(), ^{
-                                                                  [self presentViewController:alertController2 animated:YES completion:nil];
+                                                                  [self presentViewController:NotifAlert animated:YES completion:nil];
 
                                                                   _button2.backgroundColor = [UIColor whiteColor];
                                                                   [_button2 setTitleColor:[UIColor colorWithRed:1.00 green:0.28 blue:0.44 alpha:1.0] forState: UIControlStateNormal];

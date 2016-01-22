@@ -28,7 +28,7 @@
   CGFloat               KeyboardHeight;             //!< The height of the currently displayed keyboard.
   CGFloat               KeyboardTop;                //!< The vertical position of the top of the keyboard.
   PopLabel*             CharactersLeftLabel;        //!< Label displaying the number of character available to add to the current text.
-  EditView*             TextView;                   //!< The text editor view.
+  //EditView*             TextView;                   //!< The text editor view.
   WhiteButton*          FaceButton;                 //!< The FACE white button.
   NSInteger             NumCharactersLeft;          //!< Number of character available to add to the current text.
   NSInteger             FaceCount;
@@ -543,6 +543,7 @@
 
 - (void)activate
 {
+    //NSLog(@"activate text view");
   [TextView activate];
 }
 //__________________________________________________________________________________________________

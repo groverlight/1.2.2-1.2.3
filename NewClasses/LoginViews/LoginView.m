@@ -1109,6 +1109,8 @@ typedef enum
         }
             break;
         case E_LoginState_Username:
+            [UpperEditor resignFirstResponder];
+            [LowerEditor resignFirstResponder];
             
             // Transition from username to LoggedIn.
             if ((RecoveredUser != nil))

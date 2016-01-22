@@ -17,7 +17,7 @@
 
 @property (readonly) UIImageView*         photoView;        //!< The fixed image view.
 @property CameraPreview*       liveView;         //!< The live camera preview view.
-@property (readonly) BaseView*            textView;         //!< The view that will contain the text editor and the messages display.
+@property  BaseView*            textView;         //!< The view that will contain the text editor and the messages display.
 @property            CGFloat              blurRadius;       //!< The intensity of the blur effect.
 //____________________
 

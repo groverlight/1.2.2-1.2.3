@@ -71,6 +71,7 @@ typedef void(^BlockBfrAction)(UIBackgroundFetchResult result);
   RootViewController = [[AppViewController alloc] init];
   [self.window setRootViewController:RootViewController];
   [self.window makeKeyAndVisible];
+    
   return YES;
 
 

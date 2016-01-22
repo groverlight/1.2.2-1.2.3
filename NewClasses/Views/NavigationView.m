@@ -31,7 +31,7 @@
     SendToFriendSelectionView*    SendToListView;
     HeaderBarView*                HeaderBar;
     PagedScrollView*              ScrollView;
-    TypingView*                   TypingMessageView;
+// TypingView*                   TypingMessageView;
     BaseView*                     FriendsBundleView;
     LoginView*                    Login;
     PlayerView*                   Player;
@@ -59,6 +59,7 @@ static NavigationView* Myself;
 @implementation NavigationView
 
 SystemSoundID           soundEffect;
+
 
 //! Initialize the object however it has been created.
 -(void)Initialize
@@ -688,12 +689,15 @@ SystemSoundID           soundEffect;
     
     Login.loginDoneAction = ^(BOOL newUser)
     {
+        NSLog(@"login Done");
         get_myself;
         GetGlobalParameters().loginDone(newUser);
         //    [myself->OverlayView showHomeCardAnimated:NO];
         [myself ScrollToTypingPageAnimated:NO];
         [myself->HeaderBar  showAnimated:YES];
         [myself->Login      hideAnimated:YES];
+        ///[myself->TypingMessageView->TextView->Editor becomeFirstResponder];
+
     };
     
     [Login hideAnimated:NO];
