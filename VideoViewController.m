@@ -48,6 +48,7 @@
     BOOL contactBOOL;
     BOOL notificationBOOL;
     CAGradientLayer *gradient;
+    SystemSoundID           soundEffect;
 
 }
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -244,8 +245,7 @@
             // Permission has been granted. Use dispatch_async for any UI updating
             // code because this block may be executed in a thread.
 
-            _button.backgroundColor = [UIColor whiteColor];
-            [_button setTitleColor:[UIColor colorWithRed:1.00 green:0.28 blue:0.44 alpha:1.0] forState: UIControlStateNormal];
+
             
             dispatch_async(dispatch_get_main_queue(), ^{
             didLogin = YES;
@@ -258,8 +258,7 @@
             [self presentViewController:CameraAlert animated:YES completion:nil];
             });
         }
-        _button.backgroundColor = [UIColor clearColor];
-        [_button setTitleColor:[UIColor whiteColor] forState: UIControlStateNormal];
+
     }];
     
     
@@ -279,15 +278,12 @@
             {
 
                  [self contactsync];
-                _button.backgroundColor = [UIColor whiteColor];
-                [_button setTitleColor:[UIColor colorWithRed:1.00 green:0.28 blue:0.44 alpha:1.0] forState: UIControlStateNormal];
 
 
             }
             else
             {
-                _button.backgroundColor = [UIColor clearColor];
-                [_button setTitleColor:[UIColor whiteColor] forState: UIControlStateNormal];
+
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [self presentViewController:ContactsAlert animated:YES completion:nil];
                 });
@@ -323,8 +319,6 @@
                     
                     if (granted)
                     {
-                        _button.backgroundColor = [UIColor whiteColor];
-                        [_button setTitleColor:[UIColor colorWithRed:1.00 green:0.28 blue:0.44 alpha:1.0] forState: UIControlStateNormal];
 
                         NSLog(@"Said YES to Contacts Sync");
                         
@@ -392,8 +386,7 @@
                         
                     {
                         NSLog(@"You said NO to Contacts");
-                        _button.backgroundColor = [UIColor clearColor];
-                        [_button setTitleColor:[UIColor whiteColor] forState: UIControlStateNormal];
+
                         
                         
                         Mixpanel *mixpanel = [Mixpanel sharedInstance];
@@ -700,8 +693,7 @@
                                                               dispatch_async(dispatch_get_main_queue(), ^{
                                                                   [self presentViewController:NotifAlert animated:YES completion:nil];
 
-                                                                  _button2.backgroundColor = [UIColor whiteColor];
-                                                                  [_button2 setTitleColor:[UIColor colorWithRed:1.00 green:0.28 blue:0.44 alpha:1.0] forState: UIControlStateNormal];
+
                                                               });
                                                           }
 
@@ -710,9 +702,7 @@
     }
     
 
-    _button2.backgroundColor = [UIColor clearColor];
-    [_button2 setTitleColor:[UIColor whiteColor] forState: UIControlStateNormal];
-}
+   }
 
 -(void)setUpVideo:(NSString*)fileName :(NSString*)extension
 {
@@ -751,10 +741,20 @@
 
 - (void)swipe:(UISwipeGestureRecognizer *)swipeRecogniser
 {
+
+    NSString *soundPath = [[NSBundle mainBundle] pathForResource:@"click_lo"ofType:@"aif"];
+    NSURL *soundURL = [NSURL fileURLWithPath:soundPath];
+    AudioServicesCreateSystemSoundID(CFBridgingRetain(soundURL), &soundEffect);
+
+    AudioServicesPlaySystemSound(soundEffect);
+
+
     POPBasicAnimation *disappear;
     disappear = [POPBasicAnimation animation];
     disappear.property = [POPAnimatableProperty propertyWithName:kPOPViewAlpha];
     disappear.toValue = @(0.0);
+
+
     
     if ([swipeRecogniser direction] == UISwipeGestureRecognizerDirectionRight)
     {
@@ -901,8 +901,7 @@
     
     if (_button.state == 1)
     {
-        _button.backgroundColor = [UIColor whiteColor];
-            [_button setTitleColor:[UIColor colorWithRed:1.00 green:0.28 blue:0.44 alpha:1.0] forState: UIControlStateNormal];
+
    
     }
     if ([_button.titleLabel.text isEqualToString:@"Allow Camera"])
@@ -920,9 +919,7 @@
 - (IBAction)button2:(id)sender {
     if (_button2.state == 1)
     {
-        _button2.backgroundColor = [UIColor whiteColor];
-        [_button2 setTitleColor:[UIColor colorWithRed:1.00 green:0.28 blue:0.44 alpha:1.0] forState: UIControlStateNormal];
-        
+
     }
     POPSpringAnimation *spring = [POPSpringAnimation animationWithPropertyNamed:kPOPViewScaleXY];
     spring.toValue = [NSValue valueWithCGPoint:CGPointMake(1.0, 1.0)];

@@ -5,6 +5,9 @@
       location = "group:StyledPageControl.h">
    </FileRef>
    <FileRef
+      location = "group:click_lo.aif">
+   </FileRef>
+   <FileRef
       location = "group:spelled_out_white.png">
    </FileRef>
    <FileRef
