@@ -845,6 +845,7 @@
             _logo.hidden = NO;
             _firstLabel.hidden = NO;
             _label2.hidden = YES;
+            _button.hidden = YES;
             [self setUpVideo:@"Video1" :@"m4v"];
             break;
         case 1:
@@ -854,15 +855,19 @@
             _label2.textColor = [UIColor whiteColor];
             _label2.font = [UIFont fontWithName:@"AvenirNext-DemiBold" size:20];
             _label2.text = @"type something \n then take a selfie";
+            _button.hidden = YES;
             [self setUpVideo:@"Video2_adjusted" :@"m4v"];
+        
             break;
         case 2:
             _label2.text = @"press & hold a name \n to send the message";
             [self setUpVideo:@"Video3" :@"m4v"];
+            _button.hidden = YES;
             break;
         case 3:
             _label2.text = @"do the same thing \n to read a reply";
             [self setUpVideo:@"Video4" :@"m4v"];
+            _button.hidden = YES;
             break;
         case 4:
             string = @"practice safe text";
@@ -898,12 +903,11 @@
 
 - (IBAction)button:(id)sender {
     if (_button.state == 1)
-    //NSLog(@"%lu", _button.state);
-
-    {
-
+    {NSLog (@"I pressed camera button");
+        _button.backgroundColor = [UIColor whiteColor];
+        [_button setTitleColor:[UIColor colorWithRed:1.00 green:0.28 blue:0.44 alpha:1.0] forState: UIControlStateNormal];
     }
-    
+
     POPSpringAnimation *spring = [POPSpringAnimation animationWithPropertyNamed:kPOPViewScaleXY];
     spring.toValue = [NSValue valueWithCGPoint:CGPointMake(1.0, 1.0)];
     spring.velocity = [NSValue valueWithCGPoint:CGPointMake(2, 2)];
@@ -926,9 +930,12 @@
 
 - (IBAction)button2:(id)sender {
     if (_button2.state == 1)
-    {
+    { NSLog (@"I pressed notify button");
+        _button2.backgroundColor = [UIColor whiteColor];
+        [_button2 setTitleColor:[UIColor colorWithRed:1.00 green:0.28 blue:0.44 alpha:1.0] forState: UIControlStateNormal];
 
     }
+
     POPSpringAnimation *spring = [POPSpringAnimation animationWithPropertyNamed:kPOPViewScaleXY];
     spring.toValue = [NSValue valueWithCGPoint:CGPointMake(1.0, 1.0)];
     spring.velocity = [NSValue valueWithCGPoint:CGPointMake(2, 2)];
@@ -936,14 +943,14 @@
 
     [spring setCompletionBlock:^(POPAnimation *anim, BOOL finished) {
         if (finished)
-        {
+        { NSLog (@"I pressed notfication button");
             POPBasicAnimation* scaleAnimation = [POPBasicAnimation animationWithPropertyNamed:kPOPViewScaleXY];
             scaleAnimation.duration = 0.1;
             scaleAnimation.toValue = [NSValue valueWithCGPoint:CGPointMake(1, 1)];
             [_button2 pop_addAnimation:scaleAnimation forKey:@"scale"];
         }
     }];
-        [_button2 pop_addAnimation:spring forKey:@"springy"];
+    [_button2 pop_addAnimation:spring forKey:@"springy"];
     
     notificationBOOL = YES;
     [self notificationPermission];
@@ -951,9 +958,12 @@
 
 - (IBAction)button3:(id)sender {
     if (_button3.state == 1)
-    {
+    { NSLog(@"I pressed contacts button");
+        _button3.backgroundColor = [UIColor whiteColor];
+        [_button3 setTitleColor:[UIColor colorWithRed:1.00 green:0.28 blue:0.44 alpha:1.0] forState: UIControlStateNormal];
 
     }
+
     POPSpringAnimation *spring = [POPSpringAnimation animationWithPropertyNamed:kPOPViewScaleXY];
     spring.toValue = [NSValue valueWithCGPoint:CGPointMake(1.0, 1.0)];
     spring.velocity = [NSValue valueWithCGPoint:CGPointMake(2, 2)];
