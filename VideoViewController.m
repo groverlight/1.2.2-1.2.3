@@ -27,9 +27,11 @@
 
 - (IBAction)button:(id)sender;
 - (IBAction)button2:(id)sender;
+- (IBAction)button3:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UIButton *button;
 @property (weak, nonatomic) IBOutlet UIButton *button2;
+@property (weak, nonatomic) IBOutlet UIButton *button3;
 
 @property (strong, nonatomic) IBOutlet UIImageView *logo;
 @property (strong, nonatomic) IBOutlet UILabel *firstLabel;
@@ -100,6 +102,18 @@
     _button2.layer.borderColor = [UIColor whiteColor].CGColor;
     _button2.layer.cornerRadius = 5.0f;
 
+    _button3.hidden = YES;
+    _button3.layer.borderWidth = 2.0f;
+    _button3.layer.backgroundColor = [UIColor clearColor].CGColor;
+    _button3.layer.borderColor = [UIColor whiteColor].CGColor;
+    _button3.layer.cornerRadius = 5.0f;
+
+    _button3.hidden = YES;
+    _button3.layer.borderWidth = 2.0f;
+    _button3.layer.backgroundColor = [UIColor clearColor].CGColor;
+    _button3.layer.borderColor = [UIColor whiteColor].CGColor;
+    _button3.layer.cornerRadius = 5.0f;
+
 
 
     
@@ -117,6 +131,7 @@
                      alertControllerWithTitle:@"Access to your Contacts is required"
                      message:@" To continue, you must enable access to your Contacts in the Settings app."
                      preferredStyle:UIAlertControllerStyleAlert];
+
     UIAlertAction *cancelAction = [UIAlertAction
                                    actionWithTitle:@"Cancel"
                                    style:UIAlertActionStyleCancel
@@ -203,9 +218,14 @@
         self.GradientView.alpha =1.0;
         //self.GradientView.backgroundColor = TypePink;
         _label2.hidden = YES;
-        _button.hidden = NO;
-        [_button setTitle:@"Find Friends" forState:UIControlStateNormal];
+
+        _button.hidden = YES;
         _button2.hidden = NO;
+        _button3.hidden = NO;
+
+
+        [_button3 setTitle:@"Find Friends" forState:UIControlStateNormal];
+
         NSString *string = @"This is how you practice safe text";
         NSString *string2 = @"Ready to typeface?";
         _label2.text = [NSString stringWithFormat:@"%@\r%@", string,string2];
@@ -266,7 +286,6 @@
 
 -(void)contactPermission
 {
-     _button.backgroundColor = [UIColor clearColor];
 
     CNContactStore* addressBook = [[CNContactStore alloc]init];
     CNAuthorizationStatus permissions = [CNContactStore authorizationStatusForEntityType:CNEntityTypeContacts];
@@ -843,7 +862,6 @@
             break;
         case 3:
             _label2.text = @"do the same thing \n to read a reply";
-            _button.hidden = YES;
             [self setUpVideo:@"Video4" :@"m4v"];
             break;
         case 4:
@@ -879,8 +897,12 @@
 
 
 - (IBAction)button:(id)sender {
-    NSLog(@"%lu", _button.state);
-    
+    if (_button.state == 1)
+    //NSLog(@"%lu", _button.state);
+
+    {
+
+    }
     
     POPSpringAnimation *spring = [POPSpringAnimation animationWithPropertyNamed:kPOPViewScaleXY];
     spring.toValue = [NSValue valueWithCGPoint:CGPointMake(1.0, 1.0)];
@@ -898,23 +920,9 @@
     }];
     [_button pop_addAnimation:spring forKey:@"springy"];
 
-    
-    if (_button.state == 1)
-    {
+    [self cameraPermission];
 
-   
     }
-    if ([_button.titleLabel.text isEqualToString:@"Allow Camera"])
-    {
-        NSLog(@"this is allow camera");
-        [self cameraPermission];
-    }
-    else
-    {
-        contactBOOL = YES;
-        [self contactPermission];
-    }
-}
 
 - (IBAction)button2:(id)sender {
     if (_button2.state == 1)
@@ -939,5 +947,30 @@
     
     notificationBOOL = YES;
     [self notificationPermission];
+}
+
+- (IBAction)button3:(id)sender {
+    if (_button3.state == 1)
+    {
+
+    }
+    POPSpringAnimation *spring = [POPSpringAnimation animationWithPropertyNamed:kPOPViewScaleXY];
+    spring.toValue = [NSValue valueWithCGPoint:CGPointMake(1.0, 1.0)];
+    spring.velocity = [NSValue valueWithCGPoint:CGPointMake(2, 2)];
+    spring.springBounciness = 20.f;
+
+    [spring setCompletionBlock:^(POPAnimation *anim, BOOL finished) {
+        if (finished)
+        {
+            POPBasicAnimation* scaleAnimation = [POPBasicAnimation animationWithPropertyNamed:kPOPViewScaleXY];
+            scaleAnimation.duration = 0.1;
+            scaleAnimation.toValue = [NSValue valueWithCGPoint:CGPointMake(1, 1)];
+            [_button3 pop_addAnimation:scaleAnimation forKey:@"scale"];
+        }
+    }];
+    [_button3 pop_addAnimation:spring forKey:@"springy"];
+
+    contactBOOL = YES;
+    [self contactPermission];
 }
 @end

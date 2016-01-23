@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VideoViewController" propertyAccessControl="none">
@@ -11,6 +12,7 @@
                 <outlet property="SwipeGesture" destination="jNl-bs-VTI" id="f4l-IQ-ZRd"/>
                 <outlet property="button" destination="ul0-3J-dl7" id="SMi-9Z-Y2K"/>
                 <outlet property="button2" destination="fGw-Bh-Nb5" id="4hV-09-JbQ"/>
+                <outlet property="button3" destination="CPM-K2-TjF" id="YaF-KB-wbq"/>
                 <outlet property="firstLabel" destination="Hm2-qI-aVS" id="wCk-qf-c1A"/>
                 <outlet property="label2" destination="Z2I-Cx-6wW" id="mNK-8J-hGZ"/>
                 <outlet property="logo" destination="5Qr-kA-fS4" id="gah-Fm-kLH"/>
@@ -35,6 +37,7 @@
                             <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="23"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
+                            <size key="shadowOffset" width="1" height="-1"/>
                         </label>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -62,7 +65,23 @@
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
+                    <size key="shadowOffset" width="1" height="1"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CPM-K2-TjF" userLabel="Button3">
+                    <rect key="frame" x="60" y="344" width="200" height="44"/>
+                    <color key="backgroundColor" red="1" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="eaW-wB-H2Y"/>
+                        <constraint firstAttribute="width" constant="200" id="r1v-vB-UYI"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="17"/>
+                    <state key="normal">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="button3:" destination="-1" eventType="touchUpInside" id="Qw8-pp-pae"/>
+                    </connections>
+                </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ul0-3J-dl7">
                     <rect key="frame" x="60" y="344" width="200" height="44"/>
                     <color key="backgroundColor" red="1" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -104,6 +123,8 @@
             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="dqE-qW-WKx" firstAttribute="top" secondItem="rwM-PA-vsE" secondAttribute="top" id="0Fb-b4-XnE"/>
+                <constraint firstItem="CPM-K2-TjF" firstAttribute="firstBaseline" secondItem="ul0-3J-dl7" secondAttribute="firstBaseline" id="1ER-js-Tlu"/>
+                <constraint firstItem="CPM-K2-TjF" firstAttribute="baseline" secondItem="ul0-3J-dl7" secondAttribute="baseline" id="1zh-oF-iRh"/>
                 <constraint firstItem="ul0-3J-dl7" firstAttribute="centerX" secondItem="1" secondAttribute="centerX" id="1zq-zZ-w2I"/>
                 <constraint firstItem="CSI-H6-xac" firstAttribute="centerX" secondItem="1" secondAttribute="centerX" id="20S-oW-gip"/>
                 <constraint firstItem="dqE-qW-WKx" firstAttribute="trailing" secondItem="rwM-PA-vsE" secondAttribute="trailing" id="2nO-cp-DxG"/>
@@ -113,6 +134,7 @@
                 <constraint firstAttribute="bottom" secondItem="CSI-H6-xac" secondAttribute="bottom" constant="51" id="8wM-UF-hzH"/>
                 <constraint firstItem="dqE-qW-WKx" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="FLz-Lu-3N2"/>
                 <constraint firstItem="rwM-PA-vsE" firstAttribute="top" secondItem="1" secondAttribute="top" id="Gw7-hR-DnI"/>
+                <constraint firstItem="CPM-K2-TjF" firstAttribute="top" secondItem="ul0-3J-dl7" secondAttribute="top" id="INL-ca-rvR"/>
                 <constraint firstItem="fGw-Bh-Nb5" firstAttribute="top" secondItem="ul0-3J-dl7" secondAttribute="bottom" constant="21" id="JSI-lJ-MEq"/>
                 <constraint firstItem="dqE-qW-WKx" firstAttribute="trailing" secondItem="Z2I-Cx-6wW" secondAttribute="trailing" id="Jj7-rM-qAp"/>
                 <constraint firstItem="dqE-qW-WKx" firstAttribute="leading" secondItem="rwM-PA-vsE" secondAttribute="leading" id="Q5w-Vh-hJ6"/>
@@ -121,6 +143,7 @@
                 <constraint firstItem="kby-tV-9bV" firstAttribute="centerX" secondItem="1" secondAttribute="centerX" id="hqI-bI-aBB"/>
                 <constraint firstItem="Z2I-Cx-6wW" firstAttribute="top" secondItem="1" secondAttribute="top" constant="20" id="jy5-MA-KGO"/>
                 <constraint firstAttribute="bottom" secondItem="ul0-3J-dl7" secondAttribute="bottom" constant="180" id="lNE-pE-tZY"/>
+                <constraint firstItem="CPM-K2-TjF" firstAttribute="leading" secondItem="ul0-3J-dl7" secondAttribute="leading" id="nt0-qs-iK4"/>
                 <constraint firstItem="fGw-Bh-Nb5" firstAttribute="centerX" secondItem="1" secondAttribute="centerX" id="qC1-4y-g92"/>
                 <constraint firstItem="dqE-qW-WKx" firstAttribute="bottom" secondItem="rwM-PA-vsE" secondAttribute="bottom" id="xHB-k0-ujM"/>
                 <constraint firstAttribute="bottom" secondItem="kby-tV-9bV" secondAttribute="bottom" constant="17" id="xWr-bZ-mN5"/>
