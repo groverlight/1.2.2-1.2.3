@@ -5,6 +5,21 @@
       location = "group:StyledPageControl.h">
    </FileRef>
    <FileRef
+      location = "group:TF_T1_1242_2208.mov">
+   </FileRef>
+   <FileRef
+      location = "group:TF_T2_1242_2208.mov">
+   </FileRef>
+   <FileRef
+      location = "group:TF_T3_1242_2208.mov">
+   </FileRef>
+   <FileRef
+      location = "group:TF_T4_1242_2208.mov">
+   </FileRef>
+   <FileRef
+      location = "group:TF_T5_1242_2208.mov">
+   </FileRef>
+   <FileRef
       location = "group:click_lo.aif">
    </FileRef>
    <FileRef

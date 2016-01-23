@@ -51,6 +51,9 @@
     BOOL notificationBOOL;
     CAGradientLayer *gradient;
     SystemSoundID           soundEffect;
+    NSString *soundPath;
+    NSURL *soundURL;
+
 
 }
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -170,7 +173,7 @@
     [[AVAudioSession sharedInstance] setActive:YES error:&sessionError];
     
     //Set up player
-    [self setUpVideo:@"Video1" :@"m4v"];
+    [self setUpVideo:@"Video1" :@"mov"];
 
     
     //Config player
@@ -265,14 +268,14 @@
             // Permission has been granted. Use dispatch_async for any UI updating
             // code because this block may be executed in a thread.
 
-
-            
             dispatch_async(dispatch_get_main_queue(), ^{
             didLogin = YES;
                 
             [self dismissViewControllerAnimated:YES completion:nil];
             });
         } else {
+
+
             // Permission has been denied.
             dispatch_async(dispatch_get_main_queue(), ^{
             [self presentViewController:CameraAlert animated:YES completion:nil];
@@ -846,7 +849,7 @@
             _firstLabel.hidden = NO;
             _label2.hidden = YES;
             _button.hidden = YES;
-            [self setUpVideo:@"Video1" :@"m4v"];
+            [self setUpVideo:@"Video1" :@"mov"];
             break;
         case 1:
             _logo.hidden = YES;
@@ -856,17 +859,17 @@
             _label2.font = [UIFont fontWithName:@"AvenirNext-DemiBold" size:20];
             _label2.text = @"type something \n then take a selfie";
             _button.hidden = YES;
-            [self setUpVideo:@"Video2_adjusted" :@"m4v"];
+            [self setUpVideo:@"Video2" :@"mov"];
         
             break;
         case 2:
             _label2.text = @"press & hold a name \n to send the message";
-            [self setUpVideo:@"Video3" :@"m4v"];
+            [self setUpVideo:@"Video3" :@"mov"];
             _button.hidden = YES;
             break;
         case 3:
             _label2.text = @"do the same thing \n to read a reply";
-            [self setUpVideo:@"Video4" :@"m4v"];
+            [self setUpVideo:@"Video4" :@"mov"];
             _button.hidden = YES;
             break;
         case 4:
@@ -877,7 +880,7 @@
             [_button setTitle:@"Allow Camera"forState:UIControlStateNormal];
 
 
-            [self setUpVideo:@"Video5" :@"m4v"];
+            [self setUpVideo:@"Video5" :@"mov"];
 
         
 
@@ -904,6 +907,13 @@
 - (IBAction)button:(id)sender {
     if (_button.state == 1)
     {NSLog (@"I pressed camera button");
+
+        soundPath = [[NSBundle mainBundle] pathForResource:@"button20" ofType:@"aiff"];
+        soundURL = [NSURL fileURLWithPath:soundPath];
+        AudioServicesCreateSystemSoundID(CFBridgingRetain(soundURL), &soundEffect);
+
+        AudioServicesPlaySystemSound(soundEffect);
+
         _button.backgroundColor = [UIColor whiteColor];
         [_button setTitleColor:[UIColor colorWithRed:1.00 green:0.28 blue:0.44 alpha:1.0] forState: UIControlStateNormal];
     }
@@ -931,6 +941,11 @@
 - (IBAction)button2:(id)sender {
     if (_button2.state == 1)
     { NSLog (@"I pressed notify button");
+
+        soundPath = [[NSBundle mainBundle] pathForResource:@"button20" ofType:@"aiff"];
+        soundURL = [NSURL fileURLWithPath:soundPath];
+        AudioServicesCreateSystemSoundID(CFBridgingRetain(soundURL), &soundEffect);
+
         _button2.backgroundColor = [UIColor whiteColor];
         [_button2 setTitleColor:[UIColor colorWithRed:1.00 green:0.28 blue:0.44 alpha:1.0] forState: UIControlStateNormal];
 
@@ -959,6 +974,11 @@
 - (IBAction)button3:(id)sender {
     if (_button3.state == 1)
     { NSLog(@"I pressed contacts button");
+
+        soundPath = [[NSBundle mainBundle] pathForResource:@"button20" ofType:@"aiff"];
+        soundURL = [NSURL fileURLWithPath:soundPath];
+        AudioServicesCreateSystemSoundID(CFBridgingRetain(soundURL), &soundEffect);
+
         _button3.backgroundColor = [UIColor whiteColor];
         [_button3 setTitleColor:[UIColor colorWithRed:1.00 green:0.28 blue:0.44 alpha:1.0] forState: UIControlStateNormal];
 
