@@ -32,8 +32,8 @@
                 <view contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="dqE-qW-WKx" userLabel="GradientView">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hm2-qI-aVS">
-                            <rect key="frame" x="64" y="126" width="193" height="103"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hm2-qI-aVS">
+                            <rect key="frame" x="64" y="119" width="193" height="95"/>
                             <attributedString key="attributedText">
                                 <fragment content="never be misunderstood again">
                                     <attributes>
@@ -94,21 +94,6 @@
                         <action selector="button3:" destination="-1" eventType="touchUpInside" id="Qw8-pp-pae"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ul0-3J-dl7">
-                    <rect key="frame" x="60" y="344" width="200" height="44"/>
-                    <color key="backgroundColor" red="1" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="44" id="bXe-2F-PCc"/>
-                        <constraint firstAttribute="width" constant="200" id="nHx-aq-pkn"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="17"/>
-                    <state key="normal">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="button:" destination="-1" eventType="touchUpInside" id="CSL-Tg-Leo"/>
-                    </connections>
-                </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fGw-Bh-Nb5" userLabel="Button2">
                     <rect key="frame" x="60" y="409" width="200" height="44"/>
                     <color key="backgroundColor" red="1" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -131,12 +116,27 @@
                         <constraint firstAttribute="width" constant="71" id="cVb-5R-40D"/>
                     </constraints>
                 </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ul0-3J-dl7">
+                    <rect key="frame" x="60" y="409" width="200" height="44"/>
+                    <color key="backgroundColor" red="1" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="bXe-2F-PCc"/>
+                        <constraint firstAttribute="width" constant="200" id="nHx-aq-pkn"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="17"/>
+                    <state key="normal">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="button:" destination="-1" eventType="touchUpInside" id="CSL-Tg-Leo"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="dqE-qW-WKx" firstAttribute="top" secondItem="rwM-PA-vsE" secondAttribute="top" id="0Fb-b4-XnE"/>
-                <constraint firstItem="CPM-K2-TjF" firstAttribute="firstBaseline" secondItem="ul0-3J-dl7" secondAttribute="firstBaseline" id="1ER-js-Tlu"/>
-                <constraint firstItem="CPM-K2-TjF" firstAttribute="baseline" secondItem="ul0-3J-dl7" secondAttribute="baseline" id="1zh-oF-iRh"/>
+                <constraint firstItem="CPM-K2-TjF" firstAttribute="firstBaseline" secondItem="ul0-3J-dl7" secondAttribute="firstBaseline" constant="-65" id="1ER-js-Tlu"/>
+                <constraint firstItem="CPM-K2-TjF" firstAttribute="baseline" secondItem="ul0-3J-dl7" secondAttribute="baseline" constant="-65" id="1zh-oF-iRh"/>
                 <constraint firstItem="ul0-3J-dl7" firstAttribute="centerX" secondItem="1" secondAttribute="centerX" id="1zq-zZ-w2I"/>
                 <constraint firstItem="CSI-H6-xac" firstAttribute="centerX" secondItem="1" secondAttribute="centerX" id="20S-oW-gip"/>
                 <constraint firstItem="dqE-qW-WKx" firstAttribute="trailing" secondItem="rwM-PA-vsE" secondAttribute="trailing" id="2nO-cp-DxG"/>
@@ -146,15 +146,15 @@
                 <constraint firstAttribute="bottom" secondItem="CSI-H6-xac" secondAttribute="bottom" constant="51" id="8wM-UF-hzH"/>
                 <constraint firstItem="dqE-qW-WKx" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="FLz-Lu-3N2"/>
                 <constraint firstItem="rwM-PA-vsE" firstAttribute="top" secondItem="1" secondAttribute="top" id="Gw7-hR-DnI"/>
-                <constraint firstItem="CPM-K2-TjF" firstAttribute="top" secondItem="ul0-3J-dl7" secondAttribute="top" id="INL-ca-rvR"/>
-                <constraint firstItem="fGw-Bh-Nb5" firstAttribute="top" secondItem="ul0-3J-dl7" secondAttribute="bottom" constant="21" id="JSI-lJ-MEq"/>
+                <constraint firstItem="CPM-K2-TjF" firstAttribute="top" secondItem="ul0-3J-dl7" secondAttribute="top" constant="-65" id="INL-ca-rvR"/>
+                <constraint firstItem="fGw-Bh-Nb5" firstAttribute="top" secondItem="ul0-3J-dl7" secondAttribute="bottom" constant="-44" id="JSI-lJ-MEq"/>
                 <constraint firstItem="dqE-qW-WKx" firstAttribute="trailing" secondItem="Z2I-Cx-6wW" secondAttribute="trailing" id="Jj7-rM-qAp"/>
                 <constraint firstItem="dqE-qW-WKx" firstAttribute="leading" secondItem="rwM-PA-vsE" secondAttribute="leading" id="Q5w-Vh-hJ6"/>
                 <constraint firstItem="5Qr-kA-fS4" firstAttribute="centerX" secondItem="1" secondAttribute="centerX" id="eaw-gx-x5K"/>
                 <constraint firstAttribute="bottom" secondItem="dqE-qW-WKx" secondAttribute="bottom" id="flb-36-zBq"/>
                 <constraint firstItem="kby-tV-9bV" firstAttribute="centerX" secondItem="1" secondAttribute="centerX" id="hqI-bI-aBB"/>
                 <constraint firstItem="Z2I-Cx-6wW" firstAttribute="top" secondItem="1" secondAttribute="top" constant="20" id="jy5-MA-KGO"/>
-                <constraint firstAttribute="bottom" secondItem="ul0-3J-dl7" secondAttribute="bottom" constant="180" id="lNE-pE-tZY"/>
+                <constraint firstAttribute="bottom" secondItem="ul0-3J-dl7" secondAttribute="bottom" constant="115" id="lNE-pE-tZY"/>
                 <constraint firstItem="CPM-K2-TjF" firstAttribute="leading" secondItem="ul0-3J-dl7" secondAttribute="leading" id="nt0-qs-iK4"/>
                 <constraint firstItem="fGw-Bh-Nb5" firstAttribute="centerX" secondItem="1" secondAttribute="centerX" id="qC1-4y-g92"/>
                 <constraint firstItem="dqE-qW-WKx" firstAttribute="bottom" secondItem="rwM-PA-vsE" secondAttribute="bottom" id="xHB-k0-ujM"/>
