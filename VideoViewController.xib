@@ -32,15 +32,27 @@
                 <view contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="dqE-qW-WKx" userLabel="GradientView">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="never be misunderstood again" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hm2-qI-aVS">
-                            <rect key="frame" x="67" y="130" width="187" height="103"/>
-                            <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="23"/>
-                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hm2-qI-aVS">
+                            <rect key="frame" x="64" y="126" width="193" height="103"/>
+                            <attributedString key="attributedText">
+                                <fragment content="never be misunderstood again">
+                                    <attributes>
+                                        <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <font key="NSFont" size="23" name="AvenirNext-Bold"/>
+                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                    </attributes>
+                                </fragment>
+                            </attributedString>
                             <nil key="highlightedColor"/>
                             <size key="shadowOffset" width="1" height="-1"/>
                         </label>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="Hm2-qI-aVS" firstAttribute="top" secondItem="dqE-qW-WKx" secondAttribute="top" constant="119" id="6Wh-t8-VCb"/>
+                        <constraint firstAttribute="trailing" secondItem="Hm2-qI-aVS" secondAttribute="trailing" constant="63" id="J9n-X7-cQS"/>
+                        <constraint firstItem="Hm2-qI-aVS" firstAttribute="leading" secondItem="dqE-qW-WKx" secondAttribute="leading" constant="64" id="SDl-ts-gke"/>
+                    </constraints>
                 </view>
                 <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="CSI-H6-xac">
                     <rect key="frame" x="119" y="480" width="82" height="37"/>

@@ -117,10 +117,19 @@
     _button3.layer.borderColor = [UIColor whiteColor].CGColor;
     _button3.layer.cornerRadius = 5.0f;
 
+    _firstLabel.text = @"never be \n misunderstood \n again";
 
 
-    
-    
+
+
+
+//    NSMutableAttributedString *strText = [[NSMutableAttributedString alloc] initWithString:@"Setting different for label text"];
+//
+//    [strText addAttribute:NSFontAttributeName
+//                    value:[UIFont fontWithName:@"Helvetica-Italic" size:22]
+//                    range:NSMakeRange(10, 10)];
+
+
     CameraAlert =[ UIAlertController
                       alertControllerWithTitle:@"Camera access is required"
                       message:@" To continue, you must enable camera access in the Settings app."
@@ -840,6 +849,13 @@
     
     NSLog(@" page Control : %lu", (long)self.pageControl.currentPage);
     NSInteger page = self.pageControl.currentPage;
+
+//        NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:@"Setting different for label text"];
+//    
+//        [string addAttribute:NSFontAttributeName
+//                        value:[UIFont fontWithName:@"Helvetica-Italic" size:22]
+//                        range:NSMakeRange(10, 10)];
+
     NSString *string;
     NSString *string2;
     switch (page)

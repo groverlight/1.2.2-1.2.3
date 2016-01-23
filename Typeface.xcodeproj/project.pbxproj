@@ -122,10 +122,10 @@
 		F4D6D0CE1C516C82001EE243 /* branding.png in Resources */ = {isa = PBXBuildFile; fileRef = F4D6D0CD1C516C82001EE243 /* branding.png */; };
 		F4D6D0D21C52E83F001EE243 /* click_lo.aif in Resources */ = {isa = PBXBuildFile; fileRef = F4D6D0D11C52E83F001EE243 /* click_lo.aif */; };
 		F4D6D0D81C532631001EE243 /* Video1.mov in Resources */ = {isa = PBXBuildFile; fileRef = F4D6D0D31C532631001EE243 /* Video1.mov */; };
-		F4D6D0D91C532631001EE243 /* Video2.mov in Resources */ = {isa = PBXBuildFile; fileRef = F4D6D0D41C532631001EE243 /* Video2.mov */; };
 		F4D6D0DA1C532631001EE243 /* Video3.mov in Resources */ = {isa = PBXBuildFile; fileRef = F4D6D0D51C532631001EE243 /* Video3.mov */; };
 		F4D6D0DB1C532631001EE243 /* Video4.mov in Resources */ = {isa = PBXBuildFile; fileRef = F4D6D0D61C532631001EE243 /* Video4.mov */; };
 		F4D6D0DC1C532631001EE243 /* Video5.mov in Resources */ = {isa = PBXBuildFile; fileRef = F4D6D0D71C532631001EE243 /* Video5.mov */; };
+		F4D6D0DE1C533DB6001EE243 /* Video2.mov in Resources */ = {isa = PBXBuildFile; fileRef = F4D6D0DD1C533DB6001EE243 /* Video2.mov */; };
 		F4F5854B1B82A9C80016D180 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F4F585451B82A9C80016D180 /* AppDelegate.m */; };
 		F4F5854C1B82A9C80016D180 /* AppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4F585471B82A9C80016D180 /* AppViewController.m */; };
 		F4F5854D1B82A9C80016D180 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4F585481B82A9C80016D180 /* Images.xcassets */; };
@@ -343,10 +343,10 @@
 		F4D6D0CD1C516C82001EE243 /* branding.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = branding.png; sourceTree = SOURCE_ROOT; };
 		F4D6D0D11C52E83F001EE243 /* click_lo.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = click_lo.aif; sourceTree = SOURCE_ROOT; };
 		F4D6D0D31C532631001EE243 /* Video1.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = Video1.mov; sourceTree = SOURCE_ROOT; };
-		F4D6D0D41C532631001EE243 /* Video2.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = Video2.mov; sourceTree = SOURCE_ROOT; };
 		F4D6D0D51C532631001EE243 /* Video3.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = Video3.mov; sourceTree = SOURCE_ROOT; };
 		F4D6D0D61C532631001EE243 /* Video4.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = Video4.mov; sourceTree = SOURCE_ROOT; };
 		F4D6D0D71C532631001EE243 /* Video5.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = Video5.mov; sourceTree = SOURCE_ROOT; };
+		F4D6D0DD1C533DB6001EE243 /* Video2.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = Video2.mov; sourceTree = SOURCE_ROOT; };
 		F4F585441B82A9C80016D180 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Typeface/AppDelegate.h; sourceTree = SOURCE_ROOT; };
 		F4F585451B82A9C80016D180 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Typeface/AppDelegate.m; sourceTree = SOURCE_ROOT; };
 		F4F585461B82A9C80016D180 /* AppViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppViewController.h; path = Typeface/AppViewController.h; sourceTree = SOURCE_ROOT; };
@@ -757,7 +757,7 @@
 				F4F585461B82A9C80016D180 /* AppViewController.h */,
 				F4F585471B82A9C80016D180 /* AppViewController.m */,
 				F4D6D0D31C532631001EE243 /* Video1.mov */,
-				F4D6D0D41C532631001EE243 /* Video2.mov */,
+				F4D6D0DD1C533DB6001EE243 /* Video2.mov */,
 				F4D6D0D51C532631001EE243 /* Video3.mov */,
 				F4D6D0D61C532631001EE243 /* Video4.mov */,
 				F4D6D0D71C532631001EE243 /* Video5.mov */,
@@ -905,7 +905,6 @@
 				F4D6D0D81C532631001EE243 /* Video1.mov in Resources */,
 				F466BDFB1BDF42F600683986 /* zap_shake.aif in Resources */,
 				F466BDE51BDF343500683986 /* next30.aiff in Resources */,
-				F4D6D0D91C532631001EE243 /* Video2.mov in Resources */,
 				F4D6D0DB1C532631001EE243 /* Video4.mov in Resources */,
 				F466BDEA1BDF37D200683986 /* blurbin15.aiff in Resources */,
 				F466BDEE1BDF39A500683986 /* new20.aiff in Resources */,
@@ -922,6 +921,7 @@
 				F4F5854D1B82A9C80016D180 /* Images.xcassets in Resources */,
 				F4172AC81C1F46F9006379E7 /* digi_alert.aif in Resources */,
 				F4D6D0CE1C516C82001EE243 /* branding.png in Resources */,
+				F4D6D0DE1C533DB6001EE243 /* Video2.mov in Resources */,
 				F466BDEF1BDF39A500683986 /* rolldown10.aiff in Resources */,
 				F466BDEB1BDF37D200683986 /* blurbout15.aiff in Resources */,
 				F466BDE71BDF34D200683986 /* back30.aiff in Resources */,
