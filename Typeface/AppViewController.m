@@ -100,10 +100,28 @@ static AppViewController* MainViewController = nil;
     
     ParseUser* currentUser = GetCurrentParseUser();
     LoggedIn = YES;
-    ///NSLog(@"LOGIN DONE %@",currentUser[@"phoneNumber"]);
-    if ([PFUser currentUser] != nil)
+    NSLog(@"LOGIN DONE %@",currentUser[@"phoneNumber"]);
+    if (currentUser != nil)
     {
         CNAuthorizationStatus permissions = [CNContactStore authorizationStatusForEntityType:CNEntityTypeContacts];
+        
+        
+        AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
+        if(authStatus == AVAuthorizationStatusAuthorized) {
+            
+            if((permissions == CNAuthorizationStatusNotDetermined) || (!ParseCheckPermissionForRemoteNotifications())) {
+                {
+                    dispatch_async(dispatch_get_main_queue(), ^(void){
+                        [self dismissViewControllerAnimated:NO completion:nil];
+                        [self presentViewController:Intro animated:NO completion:^(){
+                        }];
+                    });
+                    
+                }
+                // do your logic
+            }
+        }
+       /*CNAuthorizationStatus permissions = [CNContactStore authorizationStatusForEntityType:CNEntityTypeContacts];
         if((permissions != CNAuthorizationStatusAuthorized) || !ParseCheckPermissionForRemoteNotifications()) {
             
             dispatch_async(dispatch_get_main_queue(), ^(void){
@@ -117,7 +135,7 @@ static AppViewController* MainViewController = nil;
                 
             });
 
-        }
+    }*/
         PFQuery *friendquery = [PFUser query];
         
         [friendquery whereKey:@"friends" equalTo:[PFUser currentUser].objectId];
@@ -277,9 +295,26 @@ set_myself;
 //! The UI has been loaded, do whatever else is required.
 - (void)viewDidLoad
 {
+    CNAuthorizationStatus permissions = [CNContactStore authorizationStatusForEntityType:CNEntityTypeContacts];
+    
+        
     AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
-    if(authStatus == AVAuthorizationStatusAuthorized) {
+    if((authStatus == AVAuthorizationStatusAuthorized) &&
+       (permissions == CNAuthorizationStatusNotDetermined) &&
+       (!ParseCheckPermissionForRemoteNotifications())) {
+        
+        /*if((permissions == CNAuthorizationStatusNotDetermined) && (!ParseCheckPermissionForRemoteNotifications())) {
+            {
+                dispatch_async(dispatch_get_main_queue(), ^(void){
+                    [self dismissViewControllerAnimated:NO completion:nil];
+                    [self presentViewController:Intro animated:NO completion:^(){
+                    }];
+                });
+
+            }
         // do your logic
+        }*/
+       [NavView showLoginFromStart:YES];
     } else if(authStatus == AVAuthorizationStatusDenied){
         // denied
     } else if(authStatus == AVAuthorizationStatusRestricted){
@@ -289,7 +324,7 @@ set_myself;
         dispatch_async(dispatch_get_main_queue(), ^(void){
             [self dismissViewControllerAnimated:NO completion:nil];
             [self presentViewController:Intro animated:NO completion:^(){
-                [NavView showLoginFromStart:YES];
+            [NavView showLoginFromStart:YES];
             }];
         });
         

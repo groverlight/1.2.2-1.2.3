@@ -159,8 +159,8 @@
                                handler:^(UIAlertAction *action)
                                {
                                    
-                                   NSURL *appSettings = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
-                                   [[UIApplication sharedApplication] openURL:appSettings];
+                                   [[UIApplication sharedApplication] openURL:[NSURL URLWithString:
+                                                                               UIApplicationOpenSettingsURLString]];
                                    
                                    _label2.text = @" Ready to continue?";
                                }];
@@ -201,24 +201,16 @@
     
 }
 
-
-
-- (void)viewDidAppear:(BOOL)animated
+- (void)viewWillAppear:(BOOL)animated
 {
-    [super viewDidAppear:animated];
-    if (!didLogin)
-    {
-    self.SwipeGesture.enabled = NO;
-    self.pageControl.currentPage = 0;
-    [self.avplayer play];
-    }
-    else
-    {
+    [super viewWillAppear:animated];
+    AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
 
-            
-            self.movieView.layer.sublayers = nil;
-            [gradient removeFromSuperlayer];
-           
+    CNAuthorizationStatus permissions = [CNContactStore authorizationStatusForEntityType:CNEntityTypeContacts];
+    if(((permissions == CNAuthorizationStatusNotDetermined) || (!ParseCheckPermissionForRemoteNotifications())) && (authStatus == AVAuthorizationStatusAuthorized)) {
+        self.movieView.layer.sublayers = nil;
+        [gradient removeFromSuperlayer];
+        
         
         self.movieView.backgroundColor = TypePink;
         self.pageControl.currentPage = 4;
@@ -230,21 +222,34 @@
         self.GradientView.alpha =1.0;
         //self.GradientView.backgroundColor = TypePink;
         _label2.hidden = YES;
-
+        
         _button.hidden = YES;
         _button2.hidden = NO;
         _button3.hidden = NO;
-
-
+        
+        
         [_button3 setTitle:@"Find Friends" forState:UIControlStateNormal];
-
+        
         NSString *string = @"This is how you practice safe text";
         NSString *string2 = @"Ready to typeface?";
         _label2.text = [NSString stringWithFormat:@"%@\r%@", string,string2];
         self.pageControl.hidden = YES;
-        
 
     }
+    else
+    {
+        self.SwipeGesture.enabled = NO;
+        self.pageControl.currentPage = 0;
+    }
+
+
+
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+
     
 }
 
