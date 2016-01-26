@@ -31,7 +31,7 @@ typedef void(^BlockBfrAction)(UIBackgroundFetchResult result);
 {
     [Parse enableLocalDatastore];
 
-    #define MIXPANEL_TOKEN @"bfcb77fdbcaaa747ac994c1bdba999aa"
+    //#define MIXPANEL_TOKEN @"bfcb77fdbcaaa747ac994c1bdba999aa"
 
 
     // Initialize the library with your
