@@ -208,7 +208,7 @@ SystemSoundID           soundEffect;
                              [myself->AzFriendsListView activate];
                          });
                          
-                         if (recentListUsers == nil)
+                         if (myself->SendToListView.allFriends  == nil)
                          {
                             
                              dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 3 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
@@ -228,7 +228,7 @@ SystemSoundID           soundEffect;
                          
                          
                          
-                         if (recentListUsers == nil)
+                         if (myself->SendToListView.allFriends == nil)
                          {
                              NSLog(@"Hi");
                              dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 3 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{

@@ -51,7 +51,8 @@ static AppViewController* MainViewController = nil;
   NavigationView* NavView;
   BOOL            LoadingMessages;
   VideoViewController *Intro;
-    UILabel *noInternet;
+  UILabel *noInternet;
+  UIView *pinkbackground;
 }
 //@synthesize cardNavigator;
 //____________________
@@ -263,15 +264,23 @@ set_myself;
     // The global parameters have been initialized. Now we can load the User Interface.
     [super loadView];
     //  NSLog(@"3 loadView");
-    
+    pinkbackground = [[UIView alloc] initWithFrame:CGRectMake(0, 0, GetScreenWidth(), GetScreenHeight())];
+    pinkbackground.backgroundColor = TypePink;
     ViewStack = [ViewStackView sharedInstance];
     self.view = ViewStack;
-    //self.view.backgroundColor = TypePink;
-    //  NSLog(@"4 loadView");
+    [self.view addSubview:pinkbackground ];
+    [self.view bringSubviewToFront:pinkbackground];
+     /*NSLayoutConstraint *xCenterConstraint = [NSLayoutConstraint constraintWithItem:pinkbackground attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:view2 attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0];
+     [superview addConstraint:xCenterConstraint];
+     
+     NSLayoutConstraint *yCenterConstraint = [NSLayoutConstraint constraintWithItem:view1 attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:view2 attribute:NSLayoutAttributeCenterY multiplier:1.0 constant:0];
+     [superview addConstraint:yCenterConstraint];*/
+    NSLog(@"4 loadView");
     NavView = [NavigationView new];
+    //NavView.hidden = YES;
     NavView.frame = CGRectMake(0, 0, GetScreenWidth(), GetScreenHeight());
     set_myself;
-    //  NSLog(@"5 loadView");
+      NSLog(@"5 loadView");
     NavView->PleaseBlurByThisFactorAction = ^(CGFloat blurFactor)
     {
         get_myself;
@@ -324,6 +333,7 @@ set_myself;
         dispatch_async(dispatch_get_main_queue(), ^(void){
             [self dismissViewControllerAnimated:NO completion:nil];
             [self presentViewController:Intro animated:NO completion:^(){
+            [pinkbackground removeFromSuperview];
             [NavView showLoginFromStart:YES];
             }];
         });
@@ -354,8 +364,10 @@ set_myself;
       }
       else
       {
+        [pinkbackground removeFromSuperview];  
         [NavView ScrollToTypingPageAnimated:NO];
         GlobalParams.loginDone(NO);
+          
       }
     }
     else

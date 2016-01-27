@@ -4,6 +4,9 @@
 
 @interface VideoViewController : UIViewController 
 {
-    		
+
 }
+
+-(void) contactsync;
+
 @end

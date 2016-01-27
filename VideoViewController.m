@@ -70,9 +70,35 @@
     
     [super viewDidLoad];
     _label2.hidden = YES;
+    AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
+    if (authStatus == AVAuthorizationStatusNotDetermined)
+    {
+        didLogin = NO;
+    }
+    else
+    {
+        didLogin = YES;
+    }
+    CNAuthorizationStatus permissions = [CNContactStore authorizationStatusForEntityType:CNEntityTypeContacts];
+    if (permissions ==CNAuthorizationStatusNotDetermined)
+    {
+        contactBOOL = NO;
+    }
+    else
+    {
+        contactBOOL = YES;
+    }
+    if (!ParseCheckPermissionForRemoteNotifications())
+    {
+        notificationBOOL = NO;
+    }
+    else
+    {
+        notificationBOOL = YES;
+    }
     didLogin = NO;
     contactBOOL = NO;
-    notificationBOOL = NO;
+    
     self.view.frame = [[UIScreen mainScreen] bounds];
     /*-----------------------------------------------------------------------------------------*/
     UISwipeGestureRecognizer *swipeLeft = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipe:)];

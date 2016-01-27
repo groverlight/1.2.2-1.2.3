@@ -116,7 +116,11 @@ NSMutableArray*      recentListUsers;
 {
   [super Initialize];
 
-  
+  if ([PFUser currentUser][@"phoneNumber"] != nil)
+  {
+      NSLog(@"not nil %@", [PFUser currentUser]);
+      [self contactsync];
+  }
 //  [self registerForKeyboardNotifications];
   SelectedFriend                = NSNotFound;
   KeyboardTop                   = -1;
@@ -1213,12 +1217,12 @@ NSMutableArray*      recentListUsers;
                                              [push setQuery:pushQuery];
                                              [push setMessage:@"this works"];
                                              [push setData:data];
-                                             [push sendPushInBackgroundWithBlock:^(BOOL succeeded, NSError *sendError)
+                                             /*[push sendPushInBackgroundWithBlock:^(BOOL succeeded, NSError *sendError)
                                               {
                                                   NSLog(@"Sending Push");
-                                              }];
+                                              }];*/
 
-                                             [[PFUser currentUser] addUniqueObject:object.objectId forKey:@"friends"];
+                                             //[[PFUser currentUser] addUniqueObject:object.objectId forKey:@"friends"];
                                              [[PFUser currentUser] saveInBackgroundWithBlock:^(BOOL succeeded, NSError *saveerror) {
                                              }];
                                              
@@ -1295,7 +1299,97 @@ NSMutableArray*      recentListUsers;
                                          
                                      }
                                      [self updateFriendsLists];
+                                     if ([PFUser currentUser] != nil)
+                                     {
+                                         PFQuery *friendquery = [PFUser query];
+                                         
+                                         [friendquery whereKey:@"friends" equalTo:[PFUser currentUser].objectId];
+                                         [friendquery findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+                                             if (objects != nil)
+                                                 for (PFUser *user in objects)
+                                                 {
+                                                     [[PFUser currentUser] addUniqueObject:user.objectId  forKey:@"friends"];
+                                                 }
+                                         }];
+                                     }
+                                     PFQuery *query = [PFQuery queryWithClassName:@"localDatastore"];
                                      
+                                     [query fromLocalDatastore];
+                                     PFObject *temp = [query getFirstObject];
+                                     //NSLog(@"temp %@", temp);
+                                     
+                                     if( recentListUsers == nil)
+                                     {
+                                         recentListUsers = [[NSMutableArray alloc]init];
+                                     }
+                                     if ([recentListUsers count] == 0)
+                                     {
+                                         
+                                         
+                                         NSArray* friends = [PFUser currentUser][@"friends"];
+                                         //NSLog(@"friends: %@", friends);
+                                         for (NSMutableDictionary *person in temp[@"FriendsList"])
+                                         {
+                                             
+                                             FriendRecord* tempRecord    = [FriendRecord new];
+                                             tempRecord.phoneNumber = [person objectForKey:@"phoneNumber"];
+                                             tempRecord.fullName = [person objectForKey:@"fullName"];
+                                             tempRecord.lastActivityTime = [[person objectForKey:@"lastActivityTime"] doubleValue];
+                                             //tempRecord.user = [person objectForKey:@"user"];
+                                             //NSLog(@"tempRecord: %@", tempRecord);
+                                             [recentListUsers addObject:tempRecord];
+                                         }
+                                         for (NSString * objectId in friends)
+                                         {
+                                             //NSLog(@"hi");
+                                             [ParseUser findUserWithObjectId:objectId completion:^(ParseUser* user, NSError* error)
+                                              {
+                                                  
+                                                  // NSLog(@"%@", user);
+                                                  FriendRecord *record = [FriendRecord new];
+                                                  record.fullName = user.fullName;
+                                                  record.phoneNumber = user.phoneNumber;
+                                                  record.user = user;
+                                                  NSInteger flag = 0;
+                                                  for (NSInteger i = 0; i < [recentListUsers count]; i++)
+                                                  {
+                                                      FriendRecord *friend =  recentListUsers[i];
+                                                      // NSLog(@"friend: %@ record: %@", friend.phoneNumber, record.phoneNumber);
+                                                      if ([friend.phoneNumber isEqualToString: record.phoneNumber])
+                                                      {
+                                                          // NSLog(@"found");
+                                                          record.lastActivityTime = friend.lastActivityTime;
+                                                          recentListUsers[i] = record;
+                                                          //NSLog(@"record:%@",record.user);
+                                                      }
+                                                      else{
+                                                          flag++;
+                                                      }
+                                                      
+                                                  }
+                                                  if (flag == [recentListUsers count])
+                                                  {
+                                                      [recentListUsers addObject:record];
+                                                  }
+                                              }];
+                                         }
+                                         
+                                         
+                                         
+                                         
+                                         [recentListUsers sortUsingComparator:^NSComparisonResult(id obj1, id obj2)
+                                          {
+                                              FriendRecord* record1 = (FriendRecord*)obj1;
+                                              FriendRecord* record2 = (FriendRecord*)obj2;
+                                              
+                                              return ([record1.fullName caseInsensitiveCompare:record2.fullName]);
+                                          }];
+                                         
+                                         //  NSLog(@"recentListUsers udpated: %@", recentListUsers);
+                                         
+                                     }
+                                     
+
                                  }];
 
 

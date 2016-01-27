@@ -14,7 +14,6 @@
 
 @class ParseUser;
 extern NSMutableArray* recentListUsers;
-
 //__________________________________________________________________________________________________
 
 //! UIView based class that show a list of friends and some other objects.
@@ -68,6 +67,7 @@ extern NSMutableArray* recentListUsers;
 
 - (void)clearEditor;
 //____________________
+
 
 @end
 //__________________________________________________________________________________________________
