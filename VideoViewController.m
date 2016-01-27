@@ -236,7 +236,7 @@
     if(((permissions == CNAuthorizationStatusNotDetermined) || (!ParseCheckPermissionForRemoteNotifications())) && (authStatus == AVAuthorizationStatusAuthorized)) {
         self.movieView.layer.sublayers = nil;
         [gradient removeFromSuperlayer];
-        
+        _SwipeGesture.enabled = NO;
         
         self.movieView.backgroundColor = TypePink;
         self.pageControl.currentPage = 4;
@@ -260,6 +260,7 @@
         NSString *string2 = @"Ready to typeface?";
         _label2.text = [NSString stringWithFormat:@"%@\r%@", string,string2];
         self.pageControl.hidden = YES;
+        
 
     }
     else

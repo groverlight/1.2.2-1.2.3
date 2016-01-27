@@ -115,6 +115,9 @@ static AppViewController* MainViewController = nil;
                     dispatch_async(dispatch_get_main_queue(), ^(void){
                         [self dismissViewControllerAnimated:NO completion:nil];
                         [self presentViewController:Intro animated:NO completion:^(){
+                            [ViewStack.liveView  restorePreviewWithCompletion:^{
+                            }];
+                            
                         }];
                     });
                     
@@ -441,13 +444,13 @@ set_myself;
     }];
     if (ViewStack != nil)
     {
-        NSLog(@"hi");
+        
       [ViewStack restoreLiveView];
     }
   }
   else
   {
-      NSLog(@"hi2");
+      
      [ViewStack showLiveViewAnimated:NO];
   }
 }

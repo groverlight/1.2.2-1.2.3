@@ -367,7 +367,7 @@ SystemSoundID           soundEffect;
     ActivityListView->RefreshRequest = ^
     {
         get_myself;
-        //    NSLog(@"ActivityListView->RefreshRequest");
+            NSLog(@"ActivityListView->RefreshRequest");
         [myself loadReceivedMessages:^(BOOL hasNewData)
          { // Do nothing!
          }];
@@ -610,11 +610,13 @@ SystemSoundID           soundEffect;
         
         
         NSLog(@"PlayerChunkCompletionAction");
+        
         if (done)
         {
-            
+
             if (!myself->ScrollView.scrollView.scrollEnabled)
             {
+                NSLog(@"started from the bottom");
                 UnreadMessages* messages = GetSharedUnreadMessages();
                 PFQuery *pushQuery = [PFInstallation query];
                 [pushQuery whereKey:@"user" equalTo:myself->MessageToPlay->FromUser];
@@ -642,6 +644,7 @@ SystemSoundID           soundEffect;
                  }];
                 
                 [messages deleteMessage:myself->MessageToPlay];
+                NSLog(@"message deleted %lu", messages->Messages.count);
                 ParseSetBadge(messages->Messages.count);  // Update the icon badge number with the number of unread messages.
                 if (messages->Messages.count == 0)
                 {
@@ -847,7 +850,7 @@ SystemSoundID           soundEffect;
 
 - (void)loadReceivedMessages:(BlockBoolAction)completion
 {
-    // NSLog(@"-- loadReceivedMessages");
+     NSLog(@"-- loadReceivedMessages");
     NSArray* friends = [PFUser currentUser][@"friends"];
     for (NSString * objectId in friends)
     {
