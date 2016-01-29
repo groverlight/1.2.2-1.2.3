@@ -274,10 +274,10 @@
                               constant:0.0]];
     [pageControl setPageControlStyle:PageControlStyleStrokedCircle];
     [pageControl setNumberOfPages:5];
-    [pageControl setStrokeNormalColor:TypePink];
-    [pageControl setStrokeSelectedColor:TypePink];
-    [pageControl setCoreNormalColor:TypePink];
-    [pageControl setCoreSelectedColor:TypePink];
+    [pageControl setStrokeNormalColor:White];
+    [pageControl setStrokeSelectedColor:White];
+    [pageControl setCoreNormalColor:White];
+    [pageControl setCoreSelectedColor:White];
     self.pageControlFake.hidden = YES;
     self.pageControlFake.enabled = NO;
     
