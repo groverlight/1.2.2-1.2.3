@@ -241,20 +241,21 @@
                               attribute:NSLayoutAttributeWidth
                               multiplier:1
                               constant:0.0]];*/
+    pageControl.userInteractionEnabled = NO;
     [self.view addConstraint:[NSLayoutConstraint constraintWithItem:pageControl
                                                          attribute:NSLayoutAttributeHeight
                                                          relatedBy:NSLayoutRelationEqual
                                                             toItem:nil
                                                          attribute:NSLayoutAttributeNotAnAttribute
                                                         multiplier:1
-                                                          constant:200]];
+                                                          constant:100]];
     [self.view addConstraint: [NSLayoutConstraint constraintWithItem:pageControl
                                   attribute:NSLayoutAttributeWidth
                                   relatedBy:NSLayoutRelationEqual
                                      toItem:nil
                                   attribute:NSLayoutAttributeNotAnAttribute
                                  multiplier:1
-                                   constant:200]];
+                                   constant:100]];
     [self.view addConstraint:[NSLayoutConstraint
                               constraintWithItem:pageControl
                               attribute:NSLayoutAttributeCenterX
