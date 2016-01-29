@@ -926,6 +926,10 @@ typedef enum
             FullPhoneNumber = [FullPhoneNumber stringByReplacingOccurrencesOfString:@" "withString:@""]; // Remove all blank spaces from the string.
             break;
         case E_LoginState_VerificationCode:
+            if (textField.text.length > 5)
+            {
+                textField.text = [textField.text substringToIndex:[textField.text length] - 1];
+            }
             VerificationCode = textField.text;
             [defaults setObject:VerificationCode forKey:LOGIN_VERIFICATION_CODE_DEFAULTS_KEY];
             if ([VerificationCode isEqualToString:@""])

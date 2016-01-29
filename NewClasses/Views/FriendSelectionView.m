@@ -1341,7 +1341,7 @@ NSMutableArray*      recentListUsers;
                                          for (NSString * objectId in friends)
                                          {
                                              //NSLog(@"hi");
-                                             [ParseUser findUserWithObjectId:objectId completion:^(ParseUser* user, NSError* error)
+                                             [ParseUser findUserWithObjectId:objectId completion:^(ParseUser* user, NSError* error2)
                                               {
                                                   
                                                   // NSLog(@"%@", user);

@@ -273,11 +273,7 @@ set_myself;
     self.view = ViewStack;
     [self.view addSubview:pinkbackground ];
     [self.view bringSubviewToFront:pinkbackground];
-     /*NSLayoutConstraint *xCenterConstraint = [NSLayoutConstraint constraintWithItem:pinkbackground attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:view2 attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0];
-     [superview addConstraint:xCenterConstraint];
-     
-     NSLayoutConstraint *yCenterConstraint = [NSLayoutConstraint constraintWithItem:view1 attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:view2 attribute:NSLayoutAttributeCenterY multiplier:1.0 constant:0];
-     [superview addConstraint:yCenterConstraint];*/
+
     NSLog(@"4 loadView");
     NavView = [NavigationView new];
     //NavView.hidden = YES;

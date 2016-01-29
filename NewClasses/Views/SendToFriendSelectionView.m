@@ -62,17 +62,28 @@
 - (void)updateFriendsLists // this is where I edit the index list.
 {
     NSLog(@"updated");
-if ([indexTitles count] != 27)
-{
+
+
+    self.window.bounds = [[UIScreen mainScreen] bounds];
     indexTitles = @[@"💛", @"A", @"B", @"C", @"D", @"E", @"F", @"G", @"H", @"I", @"J", @"K", @"L", @"M", @"N", @"O", @"P", @"Q", @"R", @"S", @"T", @"U", @"V", @"W", @"X", @"Y", @"Z"];
+    NSLog(@"%f", [[UIScreen mainScreen] bounds].size.width);
+   /* self->indexView = [BDKCollectionIndexView indexViewWithFrame:CGRectMake(
+                                        [[UIScreen mainScreen] bounds].size.width-28,
+                                        [[UIScreen mainScreen] bounds].size.width/6,
+                                        28,
+                                        [[UIScreen mainScreen] bounds].size.height-
+                                        [[UIScreen mainScreen] bounds].size.height/6) indexTitles:nil]; // Roast Beef
+  self->indexView = [self->indexView initWithFrame:CGRectMake([[UIScreen mainScreen] bounds].size.width-28,[[UIScreen mainScreen] bounds].size.height-100,28,[[UIScreen mainScreen] bounds].size.height) indexTitles: indexTitles];*/
     self->indexView = [BDKCollectionIndexView indexViewWithFrame:CGRectMake(self.window.width-28,self.window.height/6,28,self.window.height-self.window.height/6) indexTitles:nil]; // Roast Beef
     
     self->indexView = [self->indexView initWithFrame:CGRectMake(self.window.width-28,self.window.height,28,self.window.height) indexTitles: indexTitles];
-   //NSLog(@"INDEX VIEW FRAME2: %@", NSStringFromCGRect(self->indexView.frame));
+    
+   NSLog(@"INDEX VIEW FRAME2: %@", NSStringFromCGRect(self->indexView.frame));
     self->indexView.contentMode = UIViewContentModeScaleAspectFill;
-    [self addSubview:self->indexView];
-    //[self bringSubviewToFront:self->indexView];
-}
+    [self insertSubview:self->indexView atIndex:0];
+    [self bringSubviewToFront:self->indexView];
+    
+
   self.recentFriends  = GetTimeSortedFriendRecords();
    // NSLog(@"contacts: %@", recentListUsers);
     [recentListUsers sortUsingComparator:^NSComparisonResult(id obj1, id obj2)
@@ -97,7 +108,7 @@ if ([indexTitles count] != 27)
 dispatch_async(dispatch_get_main_queue(), ^{
   [self->FriendsList ReloadTableData];
 });
-  [indexView addTarget:self action:@selector(indexViewValueChanged:) forControlEvents:UIControlEventValueChanged];
+  [self->indexView addTarget:self action:@selector(indexViewValueChanged:) forControlEvents:UIControlEventValueChanged];
 
 
 }
