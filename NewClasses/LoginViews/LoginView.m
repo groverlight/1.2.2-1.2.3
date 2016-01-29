@@ -832,13 +832,82 @@ typedef enum
     [RollDownErrorView hide];
 }
 //__________________________________________________________________________________________________
-
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    if (State == E_LoginState_PhoneNumber)
+    {
+        int length = (int)[self getLength:textField.text];
+        //NSLog(@"Length  =  %d ",length);
+        
+        if(length == 10)
+        {
+            if(range.length == 0)
+                return NO;
+        }
+        
+        if(length == 3)
+        {
+            NSString *num = [self formatNumber:textField.text];
+            textField.text = [NSString stringWithFormat:@"(%@)-",num];
+            
+            if(range.length > 0)
+                textField.text = [NSString stringWithFormat:@"%@",[num substringToIndex:3]];
+        }
+        else if(length == 6)
+        {
+            NSString *num = [self formatNumber:textField.text];
+            //NSLog(@"%@",[num  substringToIndex:3]);
+            //NSLog(@"%@",[num substringFromIndex:3]);
+            textField.text = [NSString stringWithFormat:@"(%@)-%@-",[num  substringToIndex:3],[num substringFromIndex:3]];
+            
+            if(range.length > 0)
+                textField.text = [NSString stringWithFormat:@"(%@)-%@",[num substringToIndex:3],[num substringFromIndex:3]];
+        }
+        
+        return YES;
+    }
+    else
+    {
+        return 0;
+    }
+}
 -(void)editorTextChanged:(UITextField *)textField
 {
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    NSInteger length;
+    
     switch (State)
     {
         case E_LoginState_PhoneNumber:
+            length = [self getLength:textField.text];
+            NSLog(@"textField: %@", textField.text);
+
+            switch (length)
+            {
+                case 3:
+                {
+                    NSString *num = [self formatNumber:textField.text];
+                    textField.text = [NSString stringWithFormat:@"(%@) ",num];
+                    
+                    textField.text = [NSString stringWithFormat:@"%@",[num substringToIndex:3]];
+                    break;
+                }
+                case 6:
+                {
+                    NSString *num = [self formatNumber:textField.text];
+                    //NSLog(@"%@",[num  substringToIndex:3]);
+                    //NSLog(@"%@",[num substringFromIndex:3]);
+                    textField.text = [NSString stringWithFormat:@"(%@) %@-",[num  substringToIndex:3],[num substringFromIndex:3]];
+                    textField.text = [NSString stringWithFormat:@"(%@) %@",[num substringToIndex:3],[num substringFromIndex:3]];
+                    break;
+                }
+                case 10:
+                {
+                    
+                }
+                default:
+                break;
+            }
             PhoneNumber = textField.text;
             [defaults setObject:PhoneNumber forKey:LOGIN_PHONE_NUMBER_DEFAULTS_KEY];
             if ([PhoneNumber isEqualToString:@""])
@@ -1312,7 +1381,42 @@ typedef enum
     }
 }
 //__________________________________________________________________________________________________
-
+-(NSInteger)getLength:(NSString*)mobileNumber
+{
+    
+    mobileNumber = [mobileNumber stringByReplacingOccurrencesOfString:@"(" withString:@""];
+    mobileNumber = [mobileNumber stringByReplacingOccurrencesOfString:@")" withString:@""];
+    mobileNumber = [mobileNumber stringByReplacingOccurrencesOfString:@" " withString:@""];
+    mobileNumber = [mobileNumber stringByReplacingOccurrencesOfString:@"-" withString:@""];
+    mobileNumber = [mobileNumber stringByReplacingOccurrencesOfString:@"+" withString:@""];
+    
+    NSInteger length = [mobileNumber length];
+    
+    return length;
+    
+    
+}
+-(NSString*)formatNumber:(NSString*)mobileNumber
+{
+    
+    mobileNumber = [mobileNumber stringByReplacingOccurrencesOfString:@"(" withString:@""];
+    mobileNumber = [mobileNumber stringByReplacingOccurrencesOfString:@")" withString:@""];
+    mobileNumber = [mobileNumber stringByReplacingOccurrencesOfString:@" " withString:@""];
+    mobileNumber = [mobileNumber stringByReplacingOccurrencesOfString:@"-" withString:@""];
+    mobileNumber = [mobileNumber stringByReplacingOccurrencesOfString:@"+" withString:@""];
+    
+    
+    
+    NSInteger length = [mobileNumber length];
+    if(length > 10)
+    {
+        mobileNumber = [mobileNumber substringFromIndex: length-10];
+        
+    }
+    
+    
+    return mobileNumber;
+}
 //================================ Keyboard notification methods ===================================
 
 // Call this method somewhere in your view controller setup code.

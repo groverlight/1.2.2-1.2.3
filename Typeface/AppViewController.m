@@ -418,7 +418,12 @@ set_myself;
 //! The application did just become active.
 - (void)applicationDidBecomeActive
 {
-
+    CNAuthorizationStatus permissions = [CNContactStore authorizationStatusForEntityType:CNEntityTypeContacts];
+    AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
+    if ((permissions == CNAuthorizationStatusNotDetermined || !ParseCheckPermissionForRemoteNotifications()) && authStatus == AVAuthorizationStatusAuthorized)
+    {
+        [pinkbackground removeFromSuperview];
+    }
     NSLog(@"app launched from background");
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
@@ -438,6 +443,8 @@ set_myself;
 
   if ((GetCurrentParseUser() != nil) && MainViewController->LoggedIn)
   {
+      NSLog(@"logged in");
+    
     [self loadReceivedMessages:^(BOOL hasNewData)
     { // Do nothing!
       [NavView updateFriendsLists];

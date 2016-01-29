@@ -15,9 +15,10 @@
                 <outlet property="button3" destination="CPM-K2-TjF" id="YaF-KB-wbq"/>
                 <outlet property="firstLabel" destination="Hm2-qI-aVS" id="wCk-qf-c1A"/>
                 <outlet property="label2" destination="Z2I-Cx-6wW" id="mNK-8J-hGZ"/>
+                <outlet property="label3" destination="WlO-yD-kJK" id="Z4Q-c3-D7W"/>
                 <outlet property="logo" destination="5Qr-kA-fS4" id="gah-Fm-kLH"/>
                 <outlet property="movieView" destination="rwM-PA-vsE" id="DfL-cQ-rO9"/>
-                <outlet property="pageControl" destination="CSI-H6-xac" id="rfd-4v-7A0"/>
+                <outlet property="pageControlFake" destination="CSI-H6-xac" id="7by-bz-K30"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
         </placeholder>
@@ -78,6 +79,15 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                     <size key="shadowOffset" width="1" height="1"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WlO-yD-kJK">
+                    <rect key="frame" x="139" y="191" width="42" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="42" id="0I9-OZ-Zp9"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CPM-K2-TjF" userLabel="Button3">
                     <rect key="frame" x="60" y="344" width="200" height="44"/>
@@ -156,7 +166,9 @@
                 <constraint firstItem="Z2I-Cx-6wW" firstAttribute="top" secondItem="1" secondAttribute="top" constant="20" id="jy5-MA-KGO"/>
                 <constraint firstAttribute="bottom" secondItem="ul0-3J-dl7" secondAttribute="bottom" constant="115" id="lNE-pE-tZY"/>
                 <constraint firstItem="CPM-K2-TjF" firstAttribute="leading" secondItem="ul0-3J-dl7" secondAttribute="leading" id="nt0-qs-iK4"/>
+                <constraint firstItem="WlO-yD-kJK" firstAttribute="top" secondItem="Z2I-Cx-6wW" secondAttribute="bottom" constant="71" id="poa-PY-iCZ"/>
                 <constraint firstItem="fGw-Bh-Nb5" firstAttribute="centerX" secondItem="1" secondAttribute="centerX" id="qC1-4y-g92"/>
+                <constraint firstItem="WlO-yD-kJK" firstAttribute="centerX" secondItem="5Qr-kA-fS4" secondAttribute="centerX" id="uQT-EH-fgj"/>
                 <constraint firstItem="dqE-qW-WKx" firstAttribute="bottom" secondItem="rwM-PA-vsE" secondAttribute="bottom" id="xHB-k0-ujM"/>
                 <constraint firstAttribute="bottom" secondItem="kby-tV-9bV" secondAttribute="bottom" constant="17" id="xWr-bZ-mN5"/>
             </constraints>

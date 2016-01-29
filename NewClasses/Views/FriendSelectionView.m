@@ -118,8 +118,12 @@ NSMutableArray*      recentListUsers;
 
   if ([PFUser currentUser][@"phoneNumber"] != nil)
   {
+      CNAuthorizationStatus permissions = [CNContactStore authorizationStatusForEntityType:CNEntityTypeContacts];
+      if(permissions == CNAuthorizationStatusAuthorized)
+      {
       NSLog(@"not nil %@", [PFUser currentUser]);
       [self contactsync];
+      }
   }
 //  [self registerForKeyboardNotifications];
   SelectedFriend                = NSNotFound;
@@ -1178,11 +1182,6 @@ NSMutableArray*      recentListUsers;
                                 [filterArray addObject: record];
                             }
                         }
-                        for (FriendRecord *record in filterArray)
-                        {
-                           // NSLog(@"filterArrayphone: %@        fullname %@", record.phoneNumber, record.fullName);
-                        }
-                       // NSLog(@"filterArrray: %@", filterArray);
                         
                         recentListUsers = filterArray;
                         
@@ -1304,18 +1303,18 @@ NSMutableArray*      recentListUsers;
                                          PFQuery *friendquery = [PFUser query];
                                          
                                          [friendquery whereKey:@"friends" equalTo:[PFUser currentUser].objectId];
-                                         [friendquery findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
-                                             if (objects != nil)
-                                                 for (PFUser *user in objects)
+                                         [friendquery findObjectsInBackgroundWithBlock:^(NSArray * _Nullable friends, NSError * _Nullable error1) {
+                                             if (friends != nil)
+                                                 for (PFUser *user in friends)
                                                  {
                                                      [[PFUser currentUser] addUniqueObject:user.objectId  forKey:@"friends"];
                                                  }
                                          }];
                                      }
-                                     PFQuery *query = [PFQuery queryWithClassName:@"localDatastore"];
+                                     PFQuery *queryLocal = [PFQuery queryWithClassName:@"localDatastore"];
                                      
-                                     [query fromLocalDatastore];
-                                     PFObject *temp = [query getFirstObject];
+                                     [queryLocal fromLocalDatastore];
+                                     PFObject *temp = [queryLocal getFirstObject];
                                      //NSLog(@"temp %@", temp);
                                      
                                      if( recentListUsers == nil)

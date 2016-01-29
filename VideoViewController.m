@@ -16,12 +16,12 @@
 #import "Mixpanel.h"
 #import "FriendSelectionView.h"
 #import "Colors.h"
-
+#import "StyledPageControl.h"
 @interface VideoViewController ()
 
 @property (nonatomic, strong) AVPlayer *avplayer;
 @property (strong, nonatomic) IBOutlet UIView *movieView;
-@property (strong, nonatomic) IBOutlet UIPageControl *pageControl;
+@property (strong, nonatomic) IBOutlet UIPageControl *pageControlFake;
 @property (strong, nonatomic) IBOutlet UIView *GradientView;
 @property (strong, nonatomic) IBOutlet UISwipeGestureRecognizer *SwipeGesture;
 
@@ -35,7 +35,9 @@
 
 @property (strong, nonatomic) IBOutlet UIImageView *logo;
 @property (strong, nonatomic) IBOutlet UILabel *firstLabel;
-@property (weak, nonatomic) IBOutlet UILabel *label2;
+@property (strong, nonatomic) IBOutlet UILabel *label2;
+@property (strong, nonatomic) IBOutlet UILabel *label3;
+
 
 @end
 
@@ -53,7 +55,9 @@
     SystemSoundID           soundEffect;
     NSString *soundPath;
     NSURL *soundURL;
-
+    UISwipeGestureRecognizer *swipeRight;
+    UISwipeGestureRecognizer *swipeLeft;
+    StyledPageControl *pageControl;
 
 }
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -69,6 +73,7 @@
 {
     
     [super viewDidLoad];
+    
     _label2.hidden = YES;
     AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
     if (authStatus == AVAuthorizationStatusNotDetermined)
@@ -101,11 +106,11 @@
     
     self.view.frame = [[UIScreen mainScreen] bounds];
     /*-----------------------------------------------------------------------------------------*/
-    UISwipeGestureRecognizer *swipeLeft = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipe:)];
+    swipeLeft = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipe:)];
     swipeLeft.direction = UISwipeGestureRecognizerDirectionLeft;
     [self.view addGestureRecognizer:swipeLeft];
     
-    UISwipeGestureRecognizer *swipeRight = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipe:)];
+    swipeRight = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipe:)];
     swipeRight.direction = UISwipeGestureRecognizerDirectionRight;
     [self.view addGestureRecognizer:swipeRight];
     
@@ -144,7 +149,8 @@
     _button3.layer.cornerRadius = 5.0f;
 
     _firstLabel.text = @"never be \n misunderstood \n again";
-
+    _label3.text = @"hey grover";
+    _label3.hidden = YES;
 
 
 
@@ -216,6 +222,7 @@
     [self.avplayer setVolume:0.0f];
     [self.avplayer setActionAtItemEnd:AVPlayerActionAtItemEndNone];
 
+    
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(playerItemDidReachEnd:)
                                                  name:AVPlayerItemDidPlayToEndTimeNotification
@@ -223,11 +230,60 @@
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(playerStartPlaying)
                                                  name:UIApplicationDidBecomeActiveNotification object:nil];
-    
+    pageControl = [[StyledPageControl alloc]initWithFrame:self.pageControlFake.frame];
+    [pageControl setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [self.view addSubview:pageControl];
+    /*[self.view addConstraint:[NSLayoutConstraint
+                              constraintWithItem:pageControl
+                              attribute:NSLayoutAttributeWidth
+                              relatedBy:NSLayoutRelationEqual
+                              toItem:_pageControl
+                              attribute:NSLayoutAttributeWidth
+                              multiplier:1
+                              constant:0.0]];*/
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:pageControl
+                                                         attribute:NSLayoutAttributeHeight
+                                                         relatedBy:NSLayoutRelationEqual
+                                                            toItem:nil
+                                                         attribute:NSLayoutAttributeNotAnAttribute
+                                                        multiplier:1
+                                                          constant:200]];
+    [self.view addConstraint: [NSLayoutConstraint constraintWithItem:pageControl
+                                  attribute:NSLayoutAttributeWidth
+                                  relatedBy:NSLayoutRelationEqual
+                                     toItem:nil
+                                  attribute:NSLayoutAttributeNotAnAttribute
+                                 multiplier:1
+                                   constant:200]];
+    [self.view addConstraint:[NSLayoutConstraint
+                              constraintWithItem:pageControl
+                              attribute:NSLayoutAttributeCenterX
+                              relatedBy:NSLayoutRelationEqual
+                              toItem:self.pageControlFake
+                              attribute:NSLayoutAttributeCenterX
+                              multiplier:1.0
+                              constant:0.0]];
+    [self.view addConstraint:[NSLayoutConstraint
+                              constraintWithItem:pageControl
+                              attribute:NSLayoutAttributeCenterY
+                              relatedBy:NSLayoutRelationEqual
+                              toItem:self.pageControlFake
+                              attribute:NSLayoutAttributeCenterY
+                              multiplier:1.0
+                              constant:0.0]];
+    [pageControl setPageControlStyle:PageControlStyleStrokedCircle];
+    [pageControl setNumberOfPages:5];
+    [pageControl setStrokeNormalColor:TypePink];
+    [pageControl setStrokeSelectedColor:TypePink];
+    [pageControl setCoreNormalColor:TypePink];
+    [pageControl setCoreSelectedColor:TypePink];
+    self.pageControlFake.hidden = YES;
+    self.pageControlFake.enabled = NO;
     
 }
 
 - (void)viewWillAppear:(BOOL)animated
+
 {
     [super viewWillAppear:animated];
     AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
@@ -236,10 +292,11 @@
     if(((permissions == CNAuthorizationStatusNotDetermined) || (!ParseCheckPermissionForRemoteNotifications())) && (authStatus == AVAuthorizationStatusAuthorized)) {
         self.movieView.layer.sublayers = nil;
         [gradient removeFromSuperlayer];
-        _SwipeGesture.enabled = NO;
+        swipeRight.enabled = NO;
+        swipeLeft.enabled = NO;
         
         self.movieView.backgroundColor = TypePink;
-        self.pageControl.currentPage = 4;
+        pageControl.currentPage = 4;
         _logo.hidden = NO;
         _firstLabel.font = [UIFont fontWithName:@"AvenirNext-DemiBold" size:22];
         _firstLabel.textColor = [UIColor whiteColor];
@@ -259,14 +316,14 @@
         NSString *string = @"This is how you practice safe text";
         NSString *string2 = @"Ready to typeface?";
         _label2.text = [NSString stringWithFormat:@"%@\r%@", string,string2];
-        self.pageControl.hidden = YES;
+        pageControl.hidden = YES;
         
 
     }
     else
     {
         self.SwipeGesture.enabled = NO;
-        self.pageControl.currentPage = 0;
+        pageControl.currentPage = 0;
     }
 
 
@@ -821,7 +878,7 @@
     
     if ([swipeRecogniser direction] == UISwipeGestureRecognizerDirectionRight)
     {
-        if (!(self.pageControl.currentPage == 0))
+        if (!(pageControl.currentPage == 0))
         {
             
             [disappear setCompletionBlock:^(POPAnimation *anim, BOOL finished) {
@@ -843,7 +900,7 @@
     }
         else if ([swipeRecogniser direction] == UISwipeGestureRecognizerDirectionLeft)
         {
-            if (!(self.pageControl.currentPage == 3))
+            if (!(pageControl.currentPage == 3))
             {
                 
                 [disappear setCompletionBlock:^(POPAnimation *anim, BOOL finished) {
@@ -865,22 +922,22 @@
         if ([swipeRecogniser direction] == UISwipeGestureRecognizerDirectionRight)
         {
 
-            self.pageControl.currentPage -=1;
+            pageControl.currentPage -=1;
             
 
         }
         else if  ([swipeRecogniser direction] == UISwipeGestureRecognizerDirectionLeft)
         {
 
-                self.pageControl.currentPage +=1;
+                pageControl.currentPage +=1;
             
 
         }
     
 
     
-    NSLog(@" page Control : %lu", (long)self.pageControl.currentPage);
-    NSInteger page = self.pageControl.currentPage;
+    NSLog(@" page Control : %lu", (long)pageControl.currentPage);
+    NSInteger page = pageControl.currentPage;
 
 //        NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:@"Setting different for label text"];
 //    
@@ -896,12 +953,14 @@
             _logo.hidden = NO;
             _firstLabel.hidden = NO;
             _label2.hidden = YES;
+            _label3.hidden = YES;
             _button.hidden = YES;
             [self setUpVideo:@"Video1" :@"mov"];
             break;
         case 1:
             _logo.hidden = YES;
             _firstLabel.hidden = YES;
+            _label3.hidden = NO;
             _label2.hidden = NO;
             _label2.textColor = [UIColor whiteColor];
             _label2.font = [UIFont fontWithName:@"AvenirNext-DemiBold" size:20];
@@ -912,6 +971,7 @@
             break;
         case 2:
             _label2.text = @"press & hold a name \n to send the message";
+            _label3.hidden = YES;
             [self setUpVideo:@"Video3" :@"mov"];
             _button.hidden = YES;
             break;
