@@ -834,9 +834,11 @@ typedef enum
 //__________________________________________________________________________________________________
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
+    NSLog(@"fix this");
+    int length = (int)[self getLength:textField.text];
     if (State == E_LoginState_PhoneNumber)
     {
-        int length = (int)[self getLength:textField.text];
+        
         //NSLog(@"Length  =  %d ",length);
         
         if(length == 10)
@@ -868,7 +870,9 @@ typedef enum
     }
     else
     {
-        return 0;
+
+        return YES;
+
     }
 }
 -(void)editorTextChanged:(UITextField *)textField
