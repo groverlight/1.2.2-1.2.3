@@ -973,7 +973,7 @@
             _firstLabel.hidden = YES;
             _label3.hidden = NO;
             _label3.numberOfLines = 3;
-            _label3.text = @"the text blurbs highlight \n when selfie is snapped \n";
+            _label3.text = @"the text blurbs highlight \n when a selfie is snapped \n";
             _label2.hidden = NO;
             _label2.textColor = [UIColor whiteColor];
             _label2.font = [UIFont fontWithName:@"AvenirNext-DemiBold" size:20];
