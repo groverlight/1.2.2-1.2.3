@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -47,10 +47,29 @@
                             <nil key="highlightedColor"/>
                             <size key="shadowOffset" width="1" height="-1"/>
                         </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WlO-yD-kJK">
+                            <rect key="frame" x="47" y="95" width="227" height="73"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="227" id="0I9-OZ-Zp9"/>
+                                <constraint firstAttribute="height" constant="73" id="ayi-WQ-Ip7"/>
+                            </constraints>
+                            <attributedString key="attributedText">
+                                <fragment content="Label3">
+                                    <attributes>
+                                        <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <font key="NSFont" size="14" name="AvenirNext-Medium"/>
+                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                    </attributes>
+                                </fragment>
+                            </attributedString>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="Hm2-qI-aVS" firstAttribute="top" secondItem="dqE-qW-WKx" secondAttribute="top" constant="119" id="6Wh-t8-VCb"/>
+                        <constraint firstItem="WlO-yD-kJK" firstAttribute="centerX" secondItem="Hm2-qI-aVS" secondAttribute="centerX" id="7jJ-aM-Cwn"/>
+                        <constraint firstItem="WlO-yD-kJK" firstAttribute="top" secondItem="dqE-qW-WKx" secondAttribute="top" constant="95" id="Gea-hG-8Gp"/>
                         <constraint firstAttribute="trailing" secondItem="Hm2-qI-aVS" secondAttribute="trailing" constant="63" id="J9n-X7-cQS"/>
                         <constraint firstItem="Hm2-qI-aVS" firstAttribute="leading" secondItem="dqE-qW-WKx" secondAttribute="leading" constant="64" id="SDl-ts-gke"/>
                     </constraints>
@@ -79,15 +98,6 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                     <size key="shadowOffset" width="1" height="1"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WlO-yD-kJK">
-                    <rect key="frame" x="139" y="191" width="42" height="21"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="42" id="0I9-OZ-Zp9"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CPM-K2-TjF" userLabel="Button3">
                     <rect key="frame" x="60" y="344" width="200" height="44"/>
@@ -166,9 +176,7 @@
                 <constraint firstItem="Z2I-Cx-6wW" firstAttribute="top" secondItem="1" secondAttribute="top" constant="20" id="jy5-MA-KGO"/>
                 <constraint firstAttribute="bottom" secondItem="ul0-3J-dl7" secondAttribute="bottom" constant="115" id="lNE-pE-tZY"/>
                 <constraint firstItem="CPM-K2-TjF" firstAttribute="leading" secondItem="ul0-3J-dl7" secondAttribute="leading" id="nt0-qs-iK4"/>
-                <constraint firstItem="WlO-yD-kJK" firstAttribute="top" secondItem="Z2I-Cx-6wW" secondAttribute="bottom" constant="71" id="poa-PY-iCZ"/>
                 <constraint firstItem="fGw-Bh-Nb5" firstAttribute="centerX" secondItem="1" secondAttribute="centerX" id="qC1-4y-g92"/>
-                <constraint firstItem="WlO-yD-kJK" firstAttribute="centerX" secondItem="5Qr-kA-fS4" secondAttribute="centerX" id="uQT-EH-fgj"/>
                 <constraint firstItem="dqE-qW-WKx" firstAttribute="bottom" secondItem="rwM-PA-vsE" secondAttribute="bottom" id="xHB-k0-ujM"/>
                 <constraint firstAttribute="bottom" secondItem="kby-tV-9bV" secondAttribute="bottom" constant="17" id="xWr-bZ-mN5"/>
             </constraints>

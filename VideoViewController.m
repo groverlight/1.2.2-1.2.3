@@ -75,6 +75,10 @@
     [super viewDidLoad];
     
     _label2.hidden = YES;
+
+    _label3.textColor = [[UIColor whiteColor] colorWithAlphaComponent:0.6];
+    _label3.font = [UIFont fontWithName:@"AvenirNext-MediumItalic" size:14];
+
     AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
     if (authStatus == AVAuthorizationStatusNotDetermined)
     {
@@ -148,7 +152,7 @@
     _button3.layer.borderColor = [UIColor whiteColor].CGColor;
     _button3.layer.cornerRadius = 5.0f;
 
-    _firstLabel.text = @"never be \n misunderstood \n again";
+    _firstLabel.text = @"never be \n misunderstood \n again!";
     _label3.text = @"hey grover";
     _label3.hidden = YES;
 
@@ -940,14 +944,20 @@
     NSLog(@" page Control : %lu", (long)pageControl.currentPage);
     NSInteger page = pageControl.currentPage;
 
-//        NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:@"Setting different for label text"];
-//    
-//        [string addAttribute:NSFontAttributeName
-//                        value:[UIFont fontWithName:@"Helvetica-Italic" size:22]
-//                        range:NSMakeRange(10, 10)];
 
-    NSString *string;
-    NSString *string2;
+    NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:@"overanalyzing texts \n finding THAT emoji \n fighting with bae"];
+
+
+    [string addAttribute:NSStrikethroughStyleAttributeName
+                   value:@1
+
+                   range:NSMakeRange(0, [string length])];
+
+
+    [string addAttribute:NSStrikethroughColorAttributeName value: TypePink range:NSMakeRange(0, [string length])];
+
+//    NSString *string;
+//    NSString *string2;
     switch (page)
     {
         case 0:
@@ -962,6 +972,8 @@
             _logo.hidden = YES;
             _firstLabel.hidden = YES;
             _label3.hidden = NO;
+            _label3.numberOfLines = 3;
+            _label3.text = @"the text blurbs highlight \n when selfie is snapped \n";
             _label2.hidden = NO;
             _label2.textColor = [UIColor whiteColor];
             _label2.font = [UIFont fontWithName:@"AvenirNext-DemiBold" size:20];
@@ -971,20 +983,31 @@
         
             break;
         case 2:
-            _label2.text = @"press & hold a name \n to send the message";
-            _label3.hidden = YES;
+            _label2.text = @"press & hold a name \n to send the message ";
+            _label3.hidden = NO;
+            _label3.numberOfLines = 3;
+            _label3.text = @"watch selfies + text play \n to see how you came off \n";
             [self setUpVideo:@"Video3" :@"mov"];
             _button.hidden = YES;
             break;
         case 3:
             _label2.text = @"do the same thing \n to read a reply";
             [self setUpVideo:@"Video4" :@"mov"];
+            _label3.hidden = NO;
+            _label3.numberOfLines = 3;
+            _label3.text = @"keep holding until the \n message disappears \n";
             _button.hidden = YES;
             break;
         case 4:
-            string = @"practice safe text";
-            string2 = @"ready to typeface?";
-            _label2.text = [NSString stringWithFormat:@"%@\r%@", string,string2];
+//            string = @"practice safe text";
+//            string2 = @"ready to typeface?";
+            _label3.attributedText = string;
+            _label3.numberOfLines = 3;
+            _label3.hidden = NO;
+            //_label3.text = @"your blurbs highlight \n when selfie is snapped";
+            _label2.hidden = NO;
+            _label2.text = @"it's like talking \n without sound";
+
             _button.hidden = NO;
             [_button setTitle:@"Allow Camera"forState:UIControlStateNormal];
 
