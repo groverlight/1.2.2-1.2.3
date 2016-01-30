@@ -244,7 +244,7 @@ parameters.blockedUserReasonMessage       = NSLocalizedString(@"You have been bl
   parameters.friendStateViewProgressCircleRadius          = 12;
   parameters.friendStateViewProgressDiskRadius            = 8.0;
   parameters.friendStateViewColor                         = TypePink;
-  parameters.friendStateViewProgressAnimationDuration     = 0.3;
+  parameters.friendStateViewProgressAnimationDuration     = 0.5;
 
   parameters.friendStateViewAnimParameters                = [PopAnimParameters new];
   parameters.friendStateViewAnimParameters.animationStyle = E_PopAnimationStyle_Spring;
