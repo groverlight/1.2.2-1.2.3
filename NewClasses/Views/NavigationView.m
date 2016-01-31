@@ -713,6 +713,8 @@ SystemSoundID           soundEffect;
     [Player hideAnimatedToPoint:FinalPlayerPoint andInitialRadius:GetGlobalParameters().friendStateViewCircleRadius completion:^
      {
          NSLog(@"[NavigationView HidePlayer] -> hideAnimatedToPoint completed!");
+
+         NSLog(@"Lift OFF");
          
      }];
 }

@@ -67,7 +67,7 @@
 //  NSLog(@"2 bounceDot");
   self.animationValue = 0.0;
   set_myself;
-  [self animateToValue:1.0 animateStep:^(CGFloat parameterValue)
+  [self animateToValue:0.0 animateStep:^(CGFloat parameterValue)
   {
     get_myself;
     if (myself != nil)
