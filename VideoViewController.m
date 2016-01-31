@@ -17,6 +17,8 @@
 #import "FriendSelectionView.h"
 #import "Colors.h"
 #import "StyledPageControl.h"
+#import "Mixpanel.h"
+
 @interface VideoViewController ()
 
 @property (nonatomic, strong) AVPlayer *avplayer;
@@ -1038,7 +1040,16 @@
 
 - (IBAction)button:(id)sender {
     if (_button.state == 1)
-    {NSLog (@"I pressed camera button");
+    {
+
+        Mixpanel *mixpanel = [Mixpanel sharedInstance];
+
+        [mixpanel track:@"pressed allow camera"];
+
+        [mixpanel identify:mixpanel.distinctId];
+
+
+        NSLog (@"I pressed camera button");
 
         soundPath = [[NSBundle mainBundle] pathForResource:@"button20" ofType:@"aiff"];
         soundURL = [NSURL fileURLWithPath:soundPath];
@@ -1072,7 +1083,15 @@
 
 - (IBAction)button2:(id)sender {
     if (_button2.state == 1)
-    { NSLog (@"I pressed notify button");
+    {
+        Mixpanel *mixpanel = [Mixpanel sharedInstance];
+
+        [mixpanel track:@"pressed get notified"];
+
+        [mixpanel identify:mixpanel.distinctId];
+
+
+        NSLog (@"I pressed notify button");
 
         soundPath = [[NSBundle mainBundle] pathForResource:@"button20" ofType:@"aiff"];
         soundURL = [NSURL fileURLWithPath:soundPath];
@@ -1105,7 +1124,17 @@
 
 - (IBAction)button3:(id)sender {
     if (_button3.state == 1)
-    { NSLog(@"I pressed contacts button");
+    {
+
+        NSLog(@"I pressed contacts button");
+
+        Mixpanel *mixpanel = [Mixpanel sharedInstance];
+
+        [mixpanel track:@"pressed find friends"];
+
+        [mixpanel identify:mixpanel.distinctId];
+
+
 
         soundPath = [[NSBundle mainBundle] pathForResource:@"button20" ofType:@"aiff"];
         soundURL = [NSURL fileURLWithPath:soundPath];

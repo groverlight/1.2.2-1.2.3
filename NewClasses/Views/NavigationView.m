@@ -542,6 +542,11 @@ SystemSoundID           soundEffect;
                                  NSString * shortresult = [[result substringToIndex: MIN(30, [result length])] stringByAppendingString:@"..."];
                                  NSLog(@"Here is the message: %@", [NSString stringWithFormat:GetGlobalParameters().parseNotificationFormatString, GetCurrentParseUser().fullName, shortresult]);
                                  NSLog(@"friendobjectiD %@", friend.objectId);
+
+
+
+
+
                                  //ParseSendPushNotificationToUser(friend.objectId, shortresult);
                                   ParseSendPushNotificationToUser(friend.objectId, [NSString stringWithFormat:GetGlobalParameters().parseNotificationFormatString, GetCurrentParseUser().fullName, shortresult]);
                              }
