@@ -88,14 +88,14 @@ typedef enum
     UILabel*                FirstLabel;             //!< The label at the top of the view.
     UILabel*                SecondLabel;            //!< The second label from the top of the view.
     UIView*                 FirstSeparatorView;     //!< The first separator line view.
-
+    
     UILabel*                OneLabel;
     UILabel*                TwoLabel;
     UILabel*                ThreeLabel;
-
+    
     UIView*                 ProgressLight;
     UIView*                 ProgressDark;
-
+    
     UILabel*                PrefixLabel;            //!< The country prefix label.
     UITextField*            UpperEditor;            //!< The user's full name editor.
     UITextField*            LowerEditor;            //!< The phone number, verification code and username editor.
@@ -129,9 +129,9 @@ typedef enum
     UIColor*                TextColor;              //!< Color of the user's full name texts.
     BOOL                    Animated;               //!< Temporary value for the animated flag for some methods when performed on main thread.
     SystemSoundID           soundEffect;
-
-
-
+    
+    
+    
 }
 
 //_______________________________
@@ -140,7 +140,7 @@ typedef enum
 -(void)Initialize
 {
     [super Initialize];
-
+    
     //[[UIApplication sharedApplication] setStatusBarHidden:YES];
     
     KeyboardHeight  = DEFAULT_KEYBOARD_HEIGHT;
@@ -157,14 +157,14 @@ typedef enum
     RollDownErrorView         = [RollDownView          new];
     FirstLabel                = [UILabel               new];
     SecondLabel               = [UILabel               new];
-
+    
     OneLabel                  = [UILabel               new];
     TwoLabel                  = [UILabel               new];
     ThreeLabel                = [UILabel               new];
-
+    
     ProgressLight             = [UIView                new];
     ProgressDark              = [UIView                new];
-
+    
     FirstSeparatorView        = [UIView                new];
     ThirdSeparatorView        = [UIView                new];
     PrefixLabel               = [UILabel               new];
@@ -175,16 +175,16 @@ typedef enum
     PickerView                = [IntlPhonePrefixPicker new];
     LeftButton                = [UIButton buttonWithType:UIButtonTypeSystem];
     RightButton               = [UIButton buttonWithType:UIButtonTypeSystem];
-
-
-
+    
+    
+    
     //Define all properties that ONLY stay the same
-
+    
     FirstLabel.font = [UIFont fontWithName:@"AvenirNext-DemiBold" size:21];
     FirstLabel.numberOfLines = 2;
     FirstLabel.textAlignment  = NSTextAlignmentCenter;
     FirstLabel.textColor = WarmGrey;
-
+    
     
     SecondLabel.font = [UIFont fontWithName:@"AvenirNext-Medium" size:13];
     SecondLabel.numberOfLines = 1;
@@ -194,26 +194,26 @@ typedef enum
     PrefixLabel.font = [UIFont fontWithName:@"AvenirNext-Bold" size:19];
     PrefixLabel.hidden    = NO;
     PrefixLabel.textColor = WarmGrey;
-
-
+    
+    
     OneLabel.font = [UIFont fontWithName:@"AvenirNext-Bold" size:12];
     OneLabel.numberOfLines = 1;
     OneLabel.textAlignment  = NSTextAlignmentCenter;
     OneLabel.textColor = WarmGrey;
-
+    
     TwoLabel.font = [UIFont fontWithName:@"AvenirNext-Bold" size:12];
     TwoLabel.numberOfLines = 1;
     TwoLabel.textAlignment  = NSTextAlignmentCenter;
     TwoLabel.textColor = WarmGrey;
-
+    
     ThreeLabel.font = [UIFont fontWithName:@"AvenirNext-Bold" size:12];
     ThreeLabel.numberOfLines = 1;
     ThreeLabel.textAlignment  = NSTextAlignmentCenter;
     ThreeLabel.textColor = WarmGrey;
-
+    
     
     UpperEditor.placeholder        = GlobalParams.fullNamePlaceholder;
-
+    
     UpperEditor.delegate           = self;
     UpperEditor.keyboardType       = UIKeyboardTypeASCIICapable;
     //UpperEditor.keyboardAppearance = UIKeyboardAppearanceDark;
@@ -225,8 +225,8 @@ typedef enum
     [UpperEditor setFont:[UIFont fontWithName:@"AvenirNext-Bold" size:19]];
     [UpperEditor setAdjustsFontSizeToFitWidth:NO];
     [UpperEditor setTextColor:WarmGrey];
-
-;
+    
+    ;
     LowerEditor.delegate            = self;
     LowerEditor.placeholder         = GlobalParams.phoneNumberPlaceholder;
     LowerEditor.keyboardType        = UIKeyboardTypePhonePad;
@@ -263,8 +263,8 @@ typedef enum
     FirstSeparatorView.backgroundColor  = [UIColor clearColor];
     SecondSeparatorView.backgroundColor = [UIColor clearColor];
     //ThirdSeparatorView.backgroundColor = [UIColor clearColor];
-
-
+    
+    
     
     [LeftButton   setTitle:GlobalParams.loginLeftButtonLabel  forState:UIControlStateNormal];
     [RightButton  setTitle:GlobalParams.loginRightButtonLabel forState:UIControlStateNormal];
@@ -277,7 +277,7 @@ typedef enum
     RightButton.enabled = NO;
     
     [PickerView setBackgroundColor:White];
-
+    
     
     [self addSubview:FirstLabel];
     [self addSubview:SecondLabel];
@@ -348,18 +348,18 @@ typedef enum
     RollDownErrorView.frame   = CGRectMake(0, 0, width, [RollDownErrorView sizeThatFits:self.frame.size].height);
     FirstLabel.frame          = CGRectMake(0, FIRST_LABEL_TOP_OFFSET , width, [FirstLabel  sizeThatFits:self.frame.size].height);
     SecondLabel.frame         = CGRectMake(0, SECOND_LABEL_TOP_OFFSET, width, [SecondLabel sizeThatFits:self.frame.size].height);
-
+    
     //OneLabel.frame            = CGRectMake(30, ONE_LABEL_TOP_OFFSET, width, [OneLabel sizeThatFits:self.frame.size].height);
     //TwoLabel.frame            = CGRectMake(0, TWO_LABEL_TOP_OFFSET, width, [TwoLabel sizeThatFits:self.frame.size].height);
     //ThreeLabel.frame          = CGRectMake(-30, THREE_LABEL_TOP_OFFSET, width, [ThreeLabel sizeThatFits:self.frame.size].height);
-
+    
     FirstSeparatorView.frame  = CGRectMake(SEPARATOR_END_MARGIN, FIRST_SEPARATOR_TOP_OFFSET , width - 2 * SEPARATOR_END_MARGIN, SEPARATOR_LINE_WIDTH);
     FirstSeparatorView.frame  = CGRectMake(SEPARATOR_END_MARGIN, FIRST_SEPARATOR_TOP_OFFSET , width - 2 * SEPARATOR_END_MARGIN, SEPARATOR_LINE_WIDTH);
-
-
-
-
-
+    
+    
+    
+    
+    
     //  UpperEditor.frame         = CGRectMake(0, UpperEditorTop         , width, [UpperEditor sizeThatFits:self.frame.size].height);
     FirstSeparatorView.frame  = CGRectMake(SEPARATOR_END_MARGIN, FIRST_SEPARATOR_TOP_OFFSET , width - 2 * SEPARATOR_END_MARGIN, SEPARATOR_LINE_WIDTH);
     if (!self.hidden)
@@ -513,28 +513,28 @@ typedef enum
             pickerAlpha = 1.0;
             UpperEditor.textAlignment = NSTextAlignmentCenter;
             LowerEditor.textAlignment = NSTextAlignmentCenter;
-
+            
             RightButton.tintColor = TypePink;
             LeftButton.tintColor = TypePink;
-
+            
             FirstLabel.text     = @"Quickly sign in with \n your mobile number";
             FirstLabel.numberOfLines = 2;
-
+            
             SecondLabel.text = @"";
             SecondLabel.numberOfLines = 2;
-
-
+            
+            
             OneLabel.text = @"1";
             OneLabel.font = [UIFont fontWithName:@"AvenirNext-Bold" size:13];
             OneLabel.numberOfLines = 1;
             OneLabel.textAlignment  = NSTextAlignmentLeft;
             OneLabel.textColor = WarmGrey;
-
-
+            
+            
             OneLabel.frame = CGRectMake((width/3)/2, KeyboardTop - 30, width, [OneLabel sizeThatFits:self.frame.size].height);
             TwoLabel.frame = CGRectMake(0, KeyboardTop - 30, width, [TwoLabel sizeThatFits:self.frame.size].height);
             ThreeLabel.frame = CGRectMake(-(width/3)/2, KeyboardTop - 30, width, [ThreeLabel sizeThatFits:self.frame.size].height);
-
+            
             TwoLabel.text = @"2";
             TwoLabel.font = [UIFont fontWithName:@"AvenirNext-Bold" size:13];
             TwoLabel.numberOfLines = 1;
@@ -545,34 +545,34 @@ typedef enum
             ThreeLabel.numberOfLines = 1;
             ThreeLabel.textAlignment  = NSTextAlignmentRight;
             ThreeLabel.textColor = [Grey colorWithAlphaComponent:0.4];
-
+            
             FirstSeparatorView.hidden = YES;
             ThirdSeparatorView.hidden = YES;
-
+            
             ProgressLight.hidden = NO;
             ProgressDark.hidden = NO;
-
+            
             ProgressLight.frame =       CGRectMake(0, KeyboardTop - 5, width, 2);
             ProgressDark.frame =        CGRectMake(0, KeyboardTop -9, width/4, 9);
-
+            
             ProgressLight.backgroundColor = [Grey colorWithAlphaComponent:0.4];
             ProgressDark.backgroundColor = TypePink;
-
+            
             PrefixLabel.backgroundColor = [LightGrey colorWithAlphaComponent:0.4];
             PrefixLabel.textAlignment = NSTextAlignmentCenter;
             PrefixLabel.layer.borderWidth = 1;
             PrefixLabel.layer.cornerRadius = 10;
             PrefixLabel.layer.borderColor = Transparent.CGColor;
             [PrefixLabel.layer setMasksToBounds:YES];
-
+            
             LowerEditor.attributedPlaceholder = [[NSAttributedString alloc] initWithString:GlobalParams.phoneNumberPlaceholder
                                                                                 attributes:@{NSForegroundColorAttributeName: ColorWithAlpha( LightGrey, 0.8)}];
-
-
+            
+            
             [RightButton setTitle:@"NEXT" forState:UIControlStateNormal];
             [RightButton setTitleColor:[TypePink colorWithAlphaComponent: 0.25] forState:UIControlStateDisabled];
-
-
+            
+            
             break;
         case E_LoginState_VerificationCode:
             UpperEditor.hidden  = YES;
@@ -594,17 +594,17 @@ typedef enum
             LeftButton.hidden = NO;
             RightButton.tintColor = TypePink;
             LeftButton.tintColor = TypePink;
-
+            
             OneLabel.text = @"1";
             OneLabel.font = [UIFont fontWithName:@"AvenirNext-Bold" size:13];
             OneLabel.numberOfLines = 1;
             OneLabel.textAlignment  = NSTextAlignmentLeft;
             OneLabel.textColor = [LightGrey colorWithAlphaComponent:0.9];
-
+            
             OneLabel.frame = CGRectMake((width/3)/2, KeyboardTop - 30, width, [OneLabel sizeThatFits:self.frame.size].height);
             TwoLabel.frame = CGRectMake(0, KeyboardTop - 30, width, [TwoLabel sizeThatFits:self.frame.size].height);
             ThreeLabel.frame = CGRectMake(-(width/3)/2, KeyboardTop - 30, width, [ThreeLabel sizeThatFits:self.frame.size].height);
-
+            
             TwoLabel.text = @"2";
             TwoLabel.font = [UIFont fontWithName:@"AvenirNext-Bold" size:13];
             TwoLabel.numberOfLines = 1;
@@ -615,24 +615,24 @@ typedef enum
             ThreeLabel.numberOfLines = 1;
             ThreeLabel.textAlignment  = NSTextAlignmentRight;
             ThreeLabel.textColor = [LightGrey colorWithAlphaComponent:0.9];
-
+            
             FirstSeparatorView.hidden = YES;
             ThirdSeparatorView.hidden = YES;
-
+            
             ProgressLight.hidden = NO;
             ProgressDark.hidden = NO;
-
+            
             ProgressLight.frame =       CGRectMake(0, KeyboardTop - 5, width, 2);
             ProgressDark.frame =        CGRectMake(0, KeyboardTop -9, width/2, 9);
-
-
+            
+            
             ProgressLight.backgroundColor = [Grey colorWithAlphaComponent:0.4];
             ProgressDark.backgroundColor = TypePink;
-
+            
             LowerEditor.attributedPlaceholder = [[NSAttributedString alloc] initWithString:GlobalParams.verificationCodePlaceholder
                                                                                 attributes:@{NSForegroundColorAttributeName: ColorWithAlpha( LightGrey, 0.8)}];
-
-
+            
+            
             FirstSeparatorView.hidden = YES;
             ThirdSeparatorView.hidden = YES;
             [RightButton setTitle:@"NEXT" forState:UIControlStateNormal];
@@ -653,17 +653,17 @@ typedef enum
             UpperEditor.textAlignment = NSTextAlignmentCenter;
             LowerEditor.textAlignment = NSTextAlignmentCenter;
             FirstLabel.text = @"Enter your full name \n and short username";
-
+            
             OneLabel.text = @"1";
             OneLabel.font = [UIFont fontWithName:@"AvenirNext-Bold" size:13];
             OneLabel.numberOfLines = 1;
             OneLabel.textAlignment  = NSTextAlignmentLeft;
             OneLabel.textColor = [LightGrey colorWithAlphaComponent:0.9];
-
+            
             OneLabel.frame = CGRectMake((width/3)/2, KeyboardTop - 30, width, [OneLabel sizeThatFits:self.frame.size].height);
             TwoLabel.frame = CGRectMake(0, KeyboardTop - 30, width, [TwoLabel sizeThatFits:self.frame.size].height);
             ThreeLabel.frame = CGRectMake(-(width/3)/2, KeyboardTop - 30, width, [ThreeLabel sizeThatFits:self.frame.size].height);
-
+            
             TwoLabel.text = @"2";
             TwoLabel.font = [UIFont fontWithName:@"AvenirNext-Bold" size:13];
             TwoLabel.numberOfLines = 1;
@@ -674,31 +674,31 @@ typedef enum
             ThreeLabel.numberOfLines = 1;
             ThreeLabel.textAlignment  = NSTextAlignmentRight;
             ThreeLabel.textColor = WarmGrey;
-
+            
             upperEditorFrame  = CGRectMake(PREFIX_LEFT_MARGIN, LowerEditorTop, editorWidth, EditorHeight);
             lowerEditorFrame  = CGRectMake(PREFIX_LEFT_MARGIN, LowerEditorTop + 30, editorWidth, EditorHeight);
-
-
-
+            
+            
+            
             FirstSeparatorView.hidden = YES;
             ThirdSeparatorView.hidden = YES;
-
+            
             ProgressLight.hidden = NO;
             ProgressDark.hidden = NO;
-
+            
             ProgressLight.frame =       CGRectMake(0, KeyboardTop - 5, width, 2);
             ProgressDark.frame =        CGRectMake(0, KeyboardTop -9, width- (width)/4, 9);
-
+            
             ProgressLight.backgroundColor = [Grey colorWithAlphaComponent:0.4];
             ProgressDark.backgroundColor = TypePink;
-
+            
             LowerEditor.attributedPlaceholder = [[NSAttributedString alloc] initWithString:GlobalParams.usernamePlaceholder
                                                                                 attributes:@{NSForegroundColorAttributeName: ColorWithAlpha( LightGrey, 0.8)}];
-
-
+            
+            
             UpperEditor.attributedPlaceholder = [[NSAttributedString alloc] initWithString:GlobalParams.fullNamePlaceholder
                                                                                 attributes:@{NSForegroundColorAttributeName: ColorWithAlpha( LightGrey, 0.8)}];
-
+            
             ThirdSeparatorView.hidden = YES;
             SecondSeparatorView.hidden = YES;
             FirstSeparatorView.hidden = NO;
@@ -716,10 +716,10 @@ typedef enum
             prefixAlpha       = 0.0;
             policyAlpha       = 0.0;
             pickerAlpha       = 0.0;
-
+            
             ProgressLight.frame =       CGRectMake(0, KeyboardTop - 5, width, 2);
             ProgressDark.frame =        CGRectMake(0, KeyboardTop -9, width, 9);
-
+            
             ProgressLight.backgroundColor = [Grey colorWithAlphaComponent:0.4];
             ProgressDark.backgroundColor = TypePink;
             break;
@@ -786,13 +786,13 @@ typedef enum
                                    Mixpanel *mixpanel = [Mixpanel sharedInstance];
                                    
                                    [mixpanel track:@"twillio sent"];
-
+                                   
                                    [mixpanel identify:mixpanel.distinctId];
                                    
                                    [mixpanel.people increment:@"twillio sent" by:[NSNumber numberWithInt:1]];
                                    
                                    FirstLabel.text = @"YOOOO";
-
+                                   
                                    LeftButton.hidden       = NO;
                                    RightButton.enabled     = NO;
                                    LowerEditor.placeholder = GlobalParams.verificationCodePlaceholder;
@@ -870,9 +870,9 @@ typedef enum
     }
     else
     {
-
+        
         return YES;
-
+        
     }
 }
 -(void)editorTextChanged:(UITextField *)textField
@@ -885,34 +885,34 @@ typedef enum
         case E_LoginState_PhoneNumber:
             length = [self getLength:textField.text];
             NSLog(@"textField: %@", textField.text);
-
+            
             switch (length)
+        {
+            case 3:
             {
-                case 3:
-                {
-                    NSString *num = [self formatNumber:textField.text];
-                    textField.text = [NSString stringWithFormat:@"(%@) ",num];
-                    
-                    textField.text = [NSString stringWithFormat:@"%@",[num substringToIndex:3]];
-                    break;
-                }
-                case 6:
-                {
-                    NSString *num = [self formatNumber:textField.text];
-                    //NSLog(@"%@",[num  substringToIndex:3]);
-                    //NSLog(@"%@",[num substringFromIndex:3]);
-                    textField.text = [NSString stringWithFormat:@"(%@) %@-",[num  substringToIndex:3],[num substringFromIndex:3]];
-                    textField.text = [NSString stringWithFormat:@"(%@) %@",[num substringToIndex:3],[num substringFromIndex:3]];
-                    break;
-                }
-                case 10:
-                {
-                    
-                }
-                default:
+                NSString *num = [self formatNumber:textField.text];
+                textField.text = [NSString stringWithFormat:@"(%@) ",num];
+                
+                textField.text = [NSString stringWithFormat:@"%@",[num substringToIndex:3]];
                 break;
             }
-            PhoneNumber = textField.text;
+            case 6:
+            {
+                NSString *num = [self formatNumber:textField.text];
+                //NSLog(@"%@",[num  substringToIndex:3]);
+                //NSLog(@"%@",[num substringFromIndex:3]);
+                textField.text = [NSString stringWithFormat:@"(%@) %@-",[num  substringToIndex:3],[num substringFromIndex:3]];
+                textField.text = [NSString stringWithFormat:@"(%@) %@",[num substringToIndex:3],[num substringFromIndex:3]];
+                break;
+            }
+            case 10:
+            {
+                
+            }
+            default:
+                break;
+        }
+            PhoneNumber = [self formatNumber:textField.text];
             [defaults setObject:PhoneNumber forKey:LOGIN_PHONE_NUMBER_DEFAULTS_KEY];
             if ([PhoneNumber isEqualToString:@""])
             {
@@ -957,7 +957,7 @@ typedef enum
             }
             else if (textField == LowerEditor)
             {
-
+                
                 // take away upppercase and spaces
                 
                 NSCharacterSet *invalidCharSet2 = [[NSCharacterSet characterSetWithCharactersInString:@"abcdefghijklmnopqrstuvwxyz1234567890"] invertedSet];
@@ -981,7 +981,7 @@ typedef enum
                 }
                 
             }
-
+            
             
             else
             {
@@ -993,7 +993,7 @@ typedef enum
         case E_LoginState_LoggedOut:
             break;
     }
-
+    
     //  [RollDownErrorView performSelectorOnMainThread:@selector(hide) withObject:nil waitUntilDone:NO];
     [RollDownErrorView hide];
     //  NSLog(@"editorTextChanged: %@", FullPhoneNumber);
@@ -1015,20 +1015,20 @@ typedef enum
 -(void)leftButtonPressed:(UIButton*)button
 {
     
-
+    
     
     NSLog(@"leftButtonPressed");
-
+    
     NSString *soundPath = [[NSBundle mainBundle] pathForResource:@"back30"ofType:@"aiff"];
     NSURL *soundURL = [NSURL fileURLWithPath:soundPath];
     AudioServicesCreateSystemSoundID(CFBridgingRetain(soundURL), &soundEffect);
-
+    
     AudioServicesPlaySystemSound(soundEffect);
     
     Mixpanel *mixpanel = [Mixpanel sharedInstance];
     
     [mixpanel track:@"didn't see code"];
-
+    
     [mixpanel identify:mixpanel.distinctId];
     
     [mixpanel.people increment:@"didn't see code" by:[NSNumber numberWithInt:1]];
@@ -1075,20 +1075,20 @@ typedef enum
 {
     
     NSLog(@"rightButtonPressed");
-
-
+    
+    
     NSString *soundPath = [[NSBundle mainBundle] pathForResource:@"next30"ofType:@"aiff"];
     NSURL *soundURL = [NSURL fileURLWithPath:soundPath];
     AudioServicesCreateSystemSoundID(CFBridgingRetain(soundURL), &soundEffect);
-
+    
     AudioServicesPlaySystemSound(soundEffect);
-
+    
     
     
     Mixpanel *mixpanel = [Mixpanel sharedInstance];
     
     [mixpanel track:@"Next"];
-
+    
     [mixpanel identify:mixpanel.distinctId];
     
     [mixpanel.people increment:@"Next" by:[NSNumber numberWithInt:1]];
@@ -1228,13 +1228,13 @@ typedef enum
          {
              NSLog(@"2 loginExistingUser");
              ParseUser* loggedUser = (ParseUser*)loginUser;
-
+             
              Mixpanel *mixpanel = [Mixpanel sharedInstance];
-
+             
              [mixpanel identify:@"$phone"];
-
+             
              [mixpanel flush];
-
+             
              if ((loggedUser.fullName == nil) && (FullName != nil) && (![FullName isEqualToString:@""]))
              {
                  NSLog(@"3 loginExistingUser");
@@ -1250,7 +1250,7 @@ typedef enum
              NSString *soundPath = [[NSBundle mainBundle] pathForResource:@"rolldown10"ofType:@"aiff"];
              NSURL *soundURL = [NSURL fileURLWithPath:soundPath];
              AudioServicesCreateSystemSoundID(CFBridgingRetain(soundURL), &soundEffect);
-
+             
              AudioServicesPlaySystemSound(soundEffect);
          }
      }];
@@ -1266,16 +1266,16 @@ typedef enum
     NSString *string = [formatter stringFromDate:[NSDate date]];
     
     Mixpanel *mixpanel = [Mixpanel sharedInstance];
-
+    
     [mixpanel identify:mixpanel.distinctId];
-
+    
     [mixpanel createAlias:@"$phone" forDistinctID:mixpanel.distinctId];
-
+    
     [mixpanel.people set:@{@"$name": FullName, @"username": Username, @"$phone": PhoneNumber, @"$created": string}];
-
+    
     [mixpanel flush];
-
-
+    
+    
     ParseIsUsernameAlreadyInUse(Username, ^(BOOL alreadyExists, NSError* error)
                                 {
                                     NSLog(@"ParseIsUsernameAlreadyInUse success: %d, error: %@", alreadyExists, error);
@@ -1502,5 +1502,4 @@ typedef enum
 }
 //__________________________________________________________________________________________________
 @end
-
 

@@ -301,7 +301,7 @@
         [gradient removeFromSuperlayer];
         swipeRight.enabled = NO;
         swipeLeft.enabled = NO;
-        
+        _label3.hidden = YES;
         self.movieView.backgroundColor = TypePink;
         pageControl.currentPage = 4;
         _logo.hidden = NO;
@@ -868,12 +868,12 @@
 
 - (void)swipe:(UISwipeGestureRecognizer *)swipeRecogniser
 {
-
-    NSString *soundPath = [[NSBundle mainBundle] pathForResource:@"click_lo"ofType:@"aif"];
-    NSURL *soundURL = [NSURL fileURLWithPath:soundPath];
+    BOOL restartVideo = YES;
+    soundPath = [[NSBundle mainBundle] pathForResource:@"click_lo"ofType:@"aif"];
+    soundURL = [NSURL fileURLWithPath:soundPath];
     AudioServicesCreateSystemSoundID(CFBridgingRetain(soundURL), &soundEffect);
 
-    AudioServicesPlaySystemSound(soundEffect);
+    
 
 
     POPBasicAnimation *disappear;
@@ -885,9 +885,11 @@
     
     if ([swipeRecogniser direction] == UISwipeGestureRecognizerDirectionRight)
     {
-        if (!(pageControl.currentPage == 0))
+       
+        if (pageControl.currentPage != 0)
         {
-            
+             NSLog(@"%lu",pageControl.currentPage);
+            --pageControl.currentPage;
             [disappear setCompletionBlock:^(POPAnimation *anim, BOOL finished) {
                 if (finished)
                 {
@@ -901,15 +903,21 @@
             
             
             
-            
+            AudioServicesPlaySystemSound(soundEffect);
             
         }
-    }
-        else if ([swipeRecogniser direction] == UISwipeGestureRecognizerDirectionLeft)
+        else
         {
-            if (!(pageControl.currentPage == 3))
+            restartVideo = NO;
+        }
+    }
+    else if ([swipeRecogniser direction] == UISwipeGestureRecognizerDirectionLeft)
+    {
+           
+            if (pageControl.currentPage != 4)
             {
-                
+                 NSLog(@"%lu",pageControl.currentPage);
+                ++pageControl.currentPage;
                 [disappear setCompletionBlock:^(POPAnimation *anim, BOOL finished) {
                     if (finished)
                     {
@@ -920,12 +928,19 @@
                 }];
                 [self.movieView pop_addAnimation:disappear forKey:@"disappear"];
                 
-                
+                AudioServicesPlaySystemSound(soundEffect);
+            }
+            else
+            {
+                restartVideo = NO;
             }
             
         }
+    else {
+            // do nothing
+        }
     
-
+    /*
         if ([swipeRecogniser direction] == UISwipeGestureRecognizerDirectionRight)
         {
 
@@ -940,10 +955,10 @@
             
 
         }
-    
+    */
 
     
-    NSLog(@" page Control : %lu", (long)pageControl.currentPage);
+    //NSLog(@" page Control : %lu", (long)pageControl.currentPage);
     NSInteger page = pageControl.currentPage;
 
 
@@ -968,7 +983,8 @@
             _label2.hidden = YES;
             _label3.hidden = YES;
             _button.hidden = YES;
-            [self setUpVideo:@"Video1" :@"mov"];
+            if (restartVideo)
+            {[self setUpVideo:@"Video1" :@"mov"];}
             break;
         case 1:
             _logo.hidden = YES;
@@ -981,6 +997,7 @@
             _label2.font = [UIFont fontWithName:@"AvenirNext-DemiBold" size:20];
             _label2.text = @"type something \n then take a selfie";
             _button.hidden = YES;
+            if (restartVideo)
             [self setUpVideo:@"Video2" :@"mov"];
         
             break;
@@ -989,11 +1006,13 @@
             _label3.hidden = NO;
             _label3.numberOfLines = 3;
             _label3.text = @"watch selfies + text play \n to see how you came off \n";
+            if (restartVideo)
             [self setUpVideo:@"Video3" :@"mov"];
             _button.hidden = YES;
             break;
         case 3:
             _label2.text = @"do the same thing \n to read a reply";
+            if (restartVideo)
             [self setUpVideo:@"Video4" :@"mov"];
             _label3.hidden = NO;
             _label3.numberOfLines = 3;
@@ -1013,7 +1032,7 @@
             _button.hidden = NO;
             [_button setTitle:@"Allow Camera"forState:UIControlStateNormal];
 
-
+            if (restartVideo)
             [self setUpVideo:@"Video5" :@"mov"];
 
         
