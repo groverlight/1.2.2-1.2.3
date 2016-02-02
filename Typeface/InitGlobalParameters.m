@@ -30,7 +30,7 @@ parameters.blockedUserReasonMessage       = NSLocalizedString(@"You have been bl
   parameters.fullNamePlaceholder            = NSLocalizedString(@"John Appleseed", @"");
   parameters.usernamePlaceholder            = NSLocalizedString(@"johnny", @"");
   parameters.phoneNumberPlaceholder       	= NSLocalizedString(@"(310)-589-3655", @"");
-  parameters.verificationCodePlaceholder  	= NSLocalizedString(@"•   •   •   •   •", @"");
+  parameters.verificationCodePlaceholder  	= NSLocalizedString(@"•   •   •   •", @"");
   parameters.termsAndPrivacyPolicyMessage 	= NSLocalizedString(@"By continuing, you agree to our <a href=\"1\">Terms</a> and\n <a href=\"2\">Privacy Policy</a>", @"");
   parameters.loginLeftButtonLabel         	= NSLocalizedString(@"BACK", @"");
   parameters.loginRightButtonLabel          = NSLocalizedString(@"NEXT", @"");
@@ -80,7 +80,7 @@ parameters.blockedUserReasonMessage       = NSLocalizedString(@"You have been bl
   parameters.findUserMessagingNotSupportedAction  = ^
   {
     Alert(NSLocalizedString(@"Failed to send iMessage", @""), NSLocalizedString(@"Messaging is not supported on this device!", @""), NSLocalizedString(@"OK", @""), nil, ^(NSInteger pressedButton)
-    { NSLog(@"I fucked Aria");
+    { NSLog(@"not sure");
 
     });
   };
@@ -169,12 +169,11 @@ parameters.blockedUserReasonMessage       = NSLocalizedString(@"You have been bl
   parameters.headerButtonAnimParameters.duration            = 0.2;
 
   parameters.headerButtonDotAnimParameters                  = [PopAnimParameters new];
-  //parameters.headerButtonDotAnimParameters.duration         = 0.2;
   parameters.headerButtonDotAnimParameters.animationStyle   = E_PopAnimationStyle_Spring;
   parameters.headerButtonDotAnimParameters.velocity         = 10;
   parameters.headerButtonDotAnimParameters.bounciness       = 2;
   parameters.headerButtonDotAnimParameters.springSpeed      = 50;
-  parameters.headerButtonDotAnimParameters.dynamicsFriction = 13;
+  parameters.headerButtonDotAnimParameters.dynamicsFriction = 10;
   parameters.headerButtonDotAnimParameters.dynamicsMass     = 2;
 
   parameters.networkActivityBackgroundColor         = Transparent;
@@ -207,17 +206,17 @@ parameters.blockedUserReasonMessage       = NSLocalizedString(@"You have been bl
   parameters.friendsListAllSectionHeaderTitle       = NSLocalizedString(@"ALL", @"");
     parameters.friendsListHeaderBackgroundColor       = Transparent;
   parameters.friendsListHeaderTextColor             = TypePink;
-  parameters.friendsListHeaderTextFont              = [UIFont fontWithName:@"AvenirNext-MediumItalic" size:17];
+  parameters.friendsListHeaderTextFont              = [UIFont fontWithName:@"AvenirNext-Regular" size:15];
   parameters.friendsListHeaderTextLeftMargin        = 132;
   parameters.friendsListParseRefreshThresholdOffset = -50;
   parameters.friendsProgressRadius                  = 23;
   parameters.friendsProgressLineWidth             	= 2;
   parameters.friendsProgressStrokeColor             = Transparent;
   parameters.friendsProgressFillColor               = parameters.secondaryButtonColor;
-  parameters.friendsSendToLabelTitle              	= NSLocalizedString(@"press & KEEP holding 🚀", @"");
-  parameters.friendsA_ZLabelTitle                 	= NSLocalizedString(@"find friends below 🔎", @"");
-  parameters.friendsActivityLabelTitle              = NSLocalizedString(@"press & KEEP holding 🎁", @"");
-  parameters.friendsLabelTitleColor                 = [TypePink colorWithAlphaComponent:0.30];
+  parameters.friendsSendToLabelTitle              	= NSLocalizedString(@"press, keep holding 🌀", @"");
+  parameters.friendsA_ZLabelTitle                 	= NSLocalizedString(@"find friends below ⬇️", @"");
+  parameters.friendsActivityLabelTitle              = NSLocalizedString(@"press, keep holding 🌀", @"");
+  parameters.friendsLabelTitleColor                 = Grey;
   parameters.friendsLabelTitleFontSize              = 16;
   parameters.friendsProgressDuration                = 2;
   parameters.friendsMaxRecentFriends                = 5; //  this is where we need to look at
@@ -244,7 +243,7 @@ parameters.blockedUserReasonMessage       = NSLocalizedString(@"You have been bl
   parameters.friendStateViewProgressCircleRadius          = 12;
   parameters.friendStateViewProgressDiskRadius            = 8.0;
   parameters.friendStateViewColor                         = TypePink;
-  parameters.friendStateViewProgressAnimationDuration     = 0.3;
+  parameters.friendStateViewProgressAnimationDuration     = 0.4;
 
   parameters.friendStateViewAnimParameters                = [PopAnimParameters new];
   parameters.friendStateViewAnimParameters.animationStyle = E_PopAnimationStyle_Spring;
@@ -297,14 +296,13 @@ parameters.blockedUserReasonMessage       = NSLocalizedString(@"You have been bl
 
 
 
-
         parameters.typingSmallFontSize                         = 22;
-        parameters.typingLargeFontSize                         = 30;
+        parameters.typingLargeFontSize                         = 28;
 
   //parameters.TypingButtonFont                     = [UIFont fontWithName:@"AvenirNext-DemiBold" size:17];
   parameters.typingFaceButtonTitle                = NSLocalizedString(@"FACE", @"");
-  parameters.typingMaxCharacterCount              = 100;
-  parameters.typingFontSizeCharacterCountTrigger  = 67;
+  parameters.typingMaxCharacterCount              = 70;
+  parameters.typingFontSizeCharacterCountTrigger  = 50;
   parameters.typingCharacterCountFontSize         = 12;
   parameters.typingCharacterCountColor            = [White colorWithAlphaComponent:0.5];;
   parameters.typingCharacterCountRightMargin      = 24;
@@ -334,14 +332,14 @@ parameters.blockedUserReasonMessage       = NSLocalizedString(@"You have been bl
 
 
   parameters.playerLabelCenterOffsetFromBottom                    = 160;
-  parameters.playerLabelLateralMargin                             = 50;
+  parameters.playerLabelLateralMargin                             = 30;
 
 
- parameters.playerShortTextFontSize                         = 32;
-parameters.playerLongTextFontSize                          = 22;
+  parameters.playerShortTextFontSize                         = 28;
+  parameters.playerLongTextFontSize                          = 22;
 
   parameters.playerTextColor                                      = WarmGrey;
-  parameters.playerFontSizeCharacterCountTrigger                  = 90;
+  parameters.playerFontSizeCharacterCountTrigger                  = 50;
 
   parameters.playerCircleToScreenAnimParameters                   = [PopAnimParameters new];
   parameters.playerCircleToScreenAnimParameters.animationStyle    = E_PopAnimationStyle_Spring;
@@ -351,6 +349,9 @@ parameters.playerLongTextFontSize                          = 22;
   parameters.playerCircleToScreenAnimParameters.dynamicsTension   = 300;
   parameters.playerCircleToScreenAnimParameters.dynamicsFriction  = 30;
   parameters.playerCircleToScreenAnimParameters.dynamicsMass      = 2;
+
+
+    
 
   parameters.playerChunkColorIntroAnimParameters                  = [PopAnimParameters new];
   parameters.playerChunkColorIntroAnimParameters.duration         = 0.25;
@@ -376,7 +377,7 @@ parameters.playerLongTextFontSize                          = 22;
 
   parameters.playerShortTextLength                                = 10;
   parameters.playerAdjustmentRatio                                = 16.5;
-  parameters.playerFont                                           = [UIFont fontWithName:@"AvenirNext-Demibold" size:30];
+  parameters.playerFont                                           = [UIFont fontWithName:@"AvenirNext-Demibold" size:28];
 
   return parameters;
 }
