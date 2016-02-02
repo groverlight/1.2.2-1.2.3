@@ -180,7 +180,7 @@ NSMutableArray*      recentListUsers;
   TopSeparator.backgroundColor    = parameters.separatorLineColor;
   BottomSeparator.backgroundColor = parameters.separatorLineColor;
   ListName.textColor              = parameters.friendsLabelTitleColor;
-  ListName.font                   = parameters.friendsListHeaderTextFont;
+  ListName.font                 = parameters.friendsListHeaderTextFont;
   Editor.delegate                 = self;
   Editor.returnKeyType            = UIReturnKeyDone;
   //Editor.keyboardAppearance = UIKeyboardAppearanceDark;
@@ -191,14 +191,14 @@ NSMutableArray*      recentListUsers;
 
 
 
-//  Editor.attributedPlaceholder = [[NSAttributedString alloc] initWithString:parameters.friendsEditorPlaceholderText
-//                                                                    attributes:@{NSFontAttributeName:[UIFont fontWithName:@"AvenirNext-MediumItalic" size:parameters.friendsEditorFontSize]}];
+  Editor.attributedPlaceholder = [[NSAttributedString alloc] initWithString:parameters.friendsEditorPlaceholderText
+                                                                    attributes:@{NSFontAttributeName:[UIFont fontWithName:@"AvenirNext-MediumItalic" size:parameters.friendsEditorFontSize]}];
 
   [Editor addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
   InviteButton.alpha  = 0.0;
   AddButton.alpha     = 0.0;
 
-  UIColor *color = [TypePink colorWithAlphaComponent:0.4];
+  UIColor *color = LightGrey;
   Editor.attributedPlaceholder = [[NSAttributedString alloc] initWithString:parameters.friendsEditorPlaceholderText
                                                                    attributes:@{NSForegroundColorAttributeName: color}];
 
@@ -483,20 +483,8 @@ NSMutableArray*      recentListUsers;
     KeyboardTop = self.height;
   }
   [ListName sizeToFit];
-  ListName.top = 80;
-
-  //ListName.frame = CGRectMake(40, 50, 240, 150);
-  //ListName.backgroundColor = [LightGrey colorWithAlphaComponent:0.5];
-  ListName.height =  36.5;
-  ListName.width = 190;
-  ListName.textAlignment = NSTextAlignmentCenter;
-  ListName.layer.borderColor = [DarkLightGrey CGColor];
-  ListName.layer.borderWidth = 1;
-  ListName.layer.cornerRadius = 10;
-  ListName.layer.backgroundColor = [DarkLightGrey CGColor];
-
   [ListName centerHorizontally];
-
+  ListName.top = 81;
 
   CGFloat editorOffset    = -Editor.font.descender / 2;
   TopSeparator.height     = EditorIsVisible? parameters.separatorLineWidth: 0;
