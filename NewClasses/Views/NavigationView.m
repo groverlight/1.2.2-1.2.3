@@ -499,7 +499,7 @@ SystemSoundID           soundEffect;
         FriendRecord * record = [myself->SendToListView getRecordAtIndex:myself->PreviewingForFriend];
         myself->MessageToSend->ToUser   = friend;
         NSArray * Messagetexts = myself->MessageToSend->Texts;
-        if (friend == nil)
+        if (friend == nil)          //backtoback
         {
             NSString * theMessage = @"";
             NSString * senderName = [PFUser currentUser][@"fullName"];
