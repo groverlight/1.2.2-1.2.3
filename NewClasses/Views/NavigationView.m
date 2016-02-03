@@ -648,6 +648,7 @@ SystemSoundID           soundEffect;
                 ParseSetBadge(messages->Messages.count);  // Update the icon badge number with the number of unread messages.
                 if (messages->Messages.count == 0)
                 {
+                    [myself ScrollToTypingPageAnimated:NO];
                     [myself hideLeftItemDot];
                     
                     NSLog(@"read message");
