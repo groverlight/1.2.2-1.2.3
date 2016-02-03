@@ -332,6 +332,8 @@ set_myself;
         dispatch_async(dispatch_get_main_queue(), ^(void){
             [self dismissViewControllerAnimated:NO completion:nil];
             [self presentViewController:Intro animated:NO completion:^(){
+            [ViewStack.liveView  restorePreviewWithCompletion:^{
+                    }];
             [pinkbackground removeFromSuperview];
             [NavView showLoginFromStart:YES];
             }];
@@ -358,12 +360,12 @@ set_myself;
       if (newUser)
       {
           
-          
+          [NavView showLoginFromStart:restart];
           
       }
       else
       {
-        [pinkbackground removeFromSuperview];  
+        [pinkbackground removeFromSuperview];
         [NavView ScrollToTypingPageAnimated:NO];
         GlobalParams.loginDone(NO);
           
@@ -385,8 +387,9 @@ set_myself;
 - (void)viewDidAppear:(BOOL)animated
 {
     NSLog(@"viewdidappear");
-    if (LoggedIn == YES)
+    if ((GetCurrentParseUser() != nil) && MainViewController->LoggedIn)
     {
+        [NavView layoutSubviews];
         [NavView->TypingMessageView->TextView->Editor becomeFirstResponder];
     }
 }
@@ -553,6 +556,7 @@ void ApplicationDidBecomeActive(void)
   NSLog(@"ApplicationDidBecomeActive");
   if (MainViewController != nil)
   {
+    
     [MainViewController applicationDidBecomeActive];
   }
 }
@@ -564,6 +568,7 @@ void ApplicationWillResignActive(void)
 //  NSLog(@"ApplicationWillResignActive");
   if (MainViewController != nil)
   {
+    
     [MainViewController applicationWillResignActive];
   }
 }

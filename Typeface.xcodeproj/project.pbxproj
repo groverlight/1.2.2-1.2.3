@@ -1172,7 +1172,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = KEKFU6H295.com.typeFace.AddressBook;
+				PRODUCT_BUNDLE_IDENTIFIER = com.grover.Typeface;
 				PRODUCT_NAME = Typeface;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1207,7 +1207,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = KEKFU6H295.com.typeFace.AddressBook;
+				PRODUCT_BUNDLE_IDENTIFIER = com.grover.Typeface;
 				PRODUCT_NAME = Typeface;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1278,7 +1278,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = KEKFU6H295.com.typeFace.AddressBook;
+				PRODUCT_BUNDLE_IDENTIFIER = com.grover.Typeface;
 				PRODUCT_NAME = Typeface;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;

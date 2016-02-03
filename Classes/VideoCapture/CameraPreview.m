@@ -39,7 +39,7 @@
         AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
         if(authStatus == AVAuthorizationStatusAuthorized) {
             // do your logic
-            NSLog(@"hi");
+            NSLog(@"camera is authorized");
             Capture               = [VideoCapture sharedCapture];
         } else if(authStatus == AVAuthorizationStatusDenied){
             // denied
