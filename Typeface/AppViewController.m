@@ -303,6 +303,48 @@ set_myself;
 //! The UI has been loaded, do whatever else is required.
 - (void)viewDidLoad
 {
+    CGFloat height = GetScreenHeight();
+    CGFloat width = GetScreenWidth();
+    UIImageView *iv = [[UIImageView alloc] initWithFrame:CGRectMake(width/2, height/2, width/8, height/8)];
+    iv.image = [UIImage imageNamed:@"logo_tut.png"];
+    [pinkbackground addSubview:iv];
+  [iv setTranslatesAutoresizingMaskIntoConstraints:NO];
+  [self.view addConstraint:[NSLayoutConstraint
+                              constraintWithItem:iv
+                              attribute:NSLayoutAttributeCenterX
+                              relatedBy:NSLayoutRelationEqual
+                              toItem:pinkbackground
+                              attribute:NSLayoutAttributeCenterX
+                              multiplier:1.0
+                              constant:0.0]];
+    [self.view addConstraint:[NSLayoutConstraint
+                              constraintWithItem:iv
+                              attribute:NSLayoutAttributeCenterY
+                              relatedBy:NSLayoutRelationEqual
+                              toItem:pinkbackground
+                              attribute:NSLayoutAttributeCenterY
+                              multiplier:1.0
+                              constant:0.0]];
+    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+    iv.transform = CGAffineTransformMakeScale(0.1, 0.1);
+    [UIView animateWithDuration: 0.7
+                          delay: 1.0
+         usingSpringWithDamping: 0.5
+          initialSpringVelocity: 0.5
+                        options:(UIViewAnimationOptionAutoreverse | UIViewAnimationOptionRepeat)
+                               animations:^
+                               {
+                                   iv.transform = CGAffineTransformMakeScale(1, 1);
+                               }
+                     completion:nil];
+    });
+   /* [UIView animateWithDuration:1.0f
+                          delay:0.0f
+                        options:(UIViewAnimationOptionAutoreverse | UIViewAnimationOptionRepeat)
+                     animations:^{
+                         self.backgroundColor = [UIColor colorWithRed:0.5 green:0.0 blue:0.0 alpha:1.0];
+                     } 
+                     completion:nil];*/
     CNAuthorizationStatus permissions = [CNContactStore authorizationStatusForEntityType:CNEntityTypeContacts];
     
         
@@ -311,18 +353,7 @@ set_myself;
        (permissions == CNAuthorizationStatusNotDetermined) &&
        (!ParseCheckPermissionForRemoteNotifications())) {
         
-        /*if((permissions == CNAuthorizationStatusNotDetermined) && (!ParseCheckPermissionForRemoteNotifications())) {
-            {
-                dispatch_async(dispatch_get_main_queue(), ^(void){
-                    [self dismissViewControllerAnimated:NO completion:nil];
-                    [self presentViewController:Intro animated:NO completion:^(){
-                    }];
-                });
-
-            }
-        // do your logic
-        }*/
-       [NavView showLoginFromStart:YES];
+              [NavView showLoginFromStart:YES];
     } else if(authStatus == AVAuthorizationStatusDenied){
         // denied
     } else if(authStatus == AVAuthorizationStatusRestricted){
@@ -330,6 +361,7 @@ set_myself;
     } else if(authStatus == AVAuthorizationStatusNotDetermined){
         // not determined?!
         dispatch_async(dispatch_get_main_queue(), ^(void){
+    
             [self dismissViewControllerAnimated:NO completion:nil];
             [self presentViewController:Intro animated:NO completion:^(){
             [ViewStack.liveView  restorePreviewWithCompletion:^{
