@@ -470,6 +470,8 @@ typedef enum
             break;
         case E_LoginState_Username:
             LowerEditor.keyboardType  = UIKeyboardTypeASCIICapable;
+            UpperEditor.keyboardType  = UIKeyboardTypeASCIICapable;
+            //[UpperEditor becomeFirstResponder];
             LowerEditor.placeholder   = GlobalParams.usernamePlaceholder;
             UpperEditor.placeholder   = GlobalParams.fullNamePlaceholder;
             RightButton.enabled = NO;
@@ -639,7 +641,6 @@ typedef enum
             [RightButton setTitleColor:[TypePink colorWithAlphaComponent: 0.25] forState:UIControlStateDisabled];
             break;
         case E_LoginState_Username:
-            UpperEditor.hidden  = NO;
             SecondLabel.hidden  = YES;
             editorWidth       	= width - PREFIX_LEFT_MARGIN - EDITOR_RIGHT_MARGIN;
             prefixFrame         = PrefixLabel.frame;
@@ -834,7 +835,7 @@ typedef enum
 //__________________________________________________________________________________________________
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
-    NSLog(@"fix this");
+    //NSLog(@"fix this");
     int length = (int)[self getLength:textField.text];
     if (State == E_LoginState_PhoneNumber)
     {
@@ -868,13 +869,18 @@ typedef enum
         
         return YES;
     }
-    else
+    else if (State == E_LoginState_Username)
     {
-        
+        UpperEditor.autocapitalizationType = UITextAutocapitalizationTypeWords;
         return YES;
         
     }
+    else
+    {
+        return YES;
+    }
 }
+
 -(void)editorTextChanged:(UITextField *)textField
 {
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
@@ -945,6 +951,7 @@ typedef enum
             
             if (textField == UpperEditor)
             {
+                //UpperEditor.autocapitalizationType = UITextAutocapitalizationTypeWords;
                 [UpperEditor setAutocapitalizationType:UITextAutocapitalizationTypeWords];
                 NSCharacterSet *invalidCharSet = [[NSCharacterSet characterSetWithCharactersInString:@"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "] invertedSet];
                 NSString *text = [[UpperEditor.text componentsSeparatedByCharactersInSet:invalidCharSet] componentsJoinedByString:@""];
@@ -1146,15 +1153,20 @@ typedef enum
                                                                              }
                                                                              else
                                                                              {
+                                                                                 //[UpperEditor resignFirstResponder];
                                                                                  [LowerEditor resignFirstResponder];  // Resign first responder to let change keyboard type.
                                                                                  LeftButton.enabled        = YES;
                                                                                  RightButton.enabled       = NO;
                                                                                  UpperEditor.placeholder   = GlobalParams.fullNamePlaceholder;
                                                                                  UpperEditor.text          = @"";
+                                                                                 UpperEditor.keyboardType  = UIKeyboardTypeASCIICapable;
                                                                                  LowerEditor.placeholder   = GlobalParams.usernamePlaceholder;
                                                                                  LowerEditor.text          = @"";
-                                                                                 LowerEditor.keyboardType  = UIKeyboardTypeASCIICapable;
-                                                                                 [LowerEditor becomeFirstResponder];  // Becomes first responder with the new keyboard type.
+                                                                                 //LowerEditor.keyboardType  = UIKeyboardTypeASCIICapable;
+                                                                                 UpperEditor.hidden  = NO;
+                                                                                 UpperEditor.keyboardType = UIKeyboardTypeASCIICapable;
+                                                                                 UpperEditor.autocapitalizationType = UITextAutocapitalizationTypeWords;
+                                                                                 [UpperEditor becomeFirstResponder];  // Becomes first responder with the new keyboard type.
                                                                              }
                                                                              State = E_LoginState_Username;
                                                                              [[NSUserDefaults standardUserDefaults] setInteger:State forKey:LOGIN_STATE_DEFAULTS_KEY];
@@ -1348,7 +1360,14 @@ typedef enum
     [self recoverSavedState:^
      {
          [self layoutEditorAnimated:NO];
-         [LowerEditor becomeFirstResponder];
+         if (State == E_LoginState_Username)
+         {
+             [UpperEditor becomeFirstResponder];
+         }
+         else
+         {
+             [LowerEditor becomeFirstResponder];
+         }
          if (animated)
          {
              self.alpha  = 0.0;

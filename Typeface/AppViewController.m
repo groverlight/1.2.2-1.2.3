@@ -331,17 +331,17 @@ set_myself;
                                                              toItem:nil
                                                           attribute:NSLayoutAttributeNotAnAttribute
                                                          multiplier:1
-                                                           constant:100]];//adjust this
+                                                           constant:62]];//adjust this
     [self.view addConstraint: [NSLayoutConstraint constraintWithItem:iv     //width
                                                            attribute:NSLayoutAttributeWidth
                                                            relatedBy:NSLayoutRelationEqual
                                                               toItem:nil
                                                            attribute:NSLayoutAttributeNotAnAttribute
                                                           multiplier:1
-                                                            constant:100 ]];// adjust this
+                                                            constant:85 ]];// adjust this
     dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
     iv.transform = CGAffineTransformMakeScale(0.1, 0.1);
-    [UIView animateWithDuration: 0.7
+    [UIView animateWithDuration: 2
                           delay: 1.0            // DELAY
          usingSpringWithDamping: 0.5
           initialSpringVelocity: 0.5
@@ -400,7 +400,7 @@ set_myself;
       if (newUser)
       {
           
-          [NavView showLoginFromStart:restart];
+          //[NavView showLoginFromStart:restart];
           
       }
       else
@@ -486,6 +486,10 @@ set_myself;
     
     [self loadReceivedMessages:^(BOOL hasNewData)
     { // Do nothing!
+       if (hasNewData)
+       {
+           [NavView ScrollToSendToPageAnimated:NO];
+       }
       [NavView updateFriendsLists];
     }];
     if (ViewStack != nil)
