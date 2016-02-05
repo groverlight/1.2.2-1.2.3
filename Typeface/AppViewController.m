@@ -118,6 +118,8 @@ static AppViewController* MainViewController = nil;
                             [ViewStack.liveView  restorePreviewWithCompletion:^{
                             }];
                             
+
+                            
                         }];
                     });
                     
@@ -216,7 +218,8 @@ set_myself;
 
         if (newUser)
         {
-            
+
+                [NavView showLoginFromStart:YES];
 
 
           /*if (!ParseCheckPermissionForRemoteNotifications())
@@ -303,6 +306,7 @@ set_myself;
 //! The UI has been loaded, do whatever else is required.
 - (void)viewDidLoad
 {
+    
     CGFloat height = GetScreenHeight();
     CGFloat width = GetScreenWidth();
     UIImageView *iv = [[UIImageView alloc] initWithFrame:CGRectMake(width/2, height/2, width/8, height/8)];
@@ -340,9 +344,20 @@ set_myself;
                                                           multiplier:1
                                                             constant:85 ]];// adjust this
     dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-    iv.transform = CGAffineTransformMakeScale(0.1, 0.1);
+    
+        [UIView animateWithDuration: 1
+                              delay: 0            // DELAY
+             usingSpringWithDamping: 0
+              initialSpringVelocity: 0
+                            options: 0
+                         animations:^
+         {
+             iv.transform = CGAffineTransformMakeScale(0.5, 0.5);
+         }
+                         completion:nil];
+    //iv.transform = CGAffineTransformMakeScale(0.5, 0.5);
     [UIView animateWithDuration: 2
-                          delay: 1.0            // DELAY
+                          delay: 0            // DELAY
          usingSpringWithDamping: 0.5
           initialSpringVelocity: 0.5
                         options:(UIViewAnimationOptionAutoreverse | UIViewAnimationOptionRepeat)
@@ -358,8 +373,8 @@ set_myself;
         
     AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
     if((authStatus == AVAuthorizationStatusAuthorized) &&
-       (permissions == CNAuthorizationStatusNotDetermined) &&
-       (!ParseCheckPermissionForRemoteNotifications())) {
+       ((permissions == CNAuthorizationStatusNotDetermined) || (!ParseCheckPermissionForRemoteNotifications())
+        )) {
         
               [NavView showLoginFromStart:YES];
     } else if(authStatus == AVAuthorizationStatusDenied){
@@ -368,7 +383,7 @@ set_myself;
         // restricted, normally won't happen
     } else if(authStatus == AVAuthorizationStatusNotDetermined){
         // not determined?!
-        dispatch_async(dispatch_get_main_queue(), ^(void){
+       dispatch_async(dispatch_get_main_queue(), ^(void){
     
             [self dismissViewControllerAnimated:NO completion:nil];
             [self presentViewController:Intro animated:NO completion:^(){
@@ -376,9 +391,11 @@ set_myself;
             [NavView showLoginFromStart:YES];
             }];
         });
+
         
-        
-    } else {
+    }
+
+    else {
         // impossible, unknown authorization status
     }
 
