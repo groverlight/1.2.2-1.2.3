@@ -346,7 +346,7 @@ set_myself;
                                                             constant:85 ]];// adjust this
     dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
     
-        [UIView animateWithDuration: 1
+       /* [UIView animateWithDuration: 1
                               delay: 0.0            // DELAY
              usingSpringWithDamping: 0
               initialSpringVelocity: 0
@@ -355,8 +355,9 @@ set_myself;
          {
              iv.transform = CGAffineTransformMakeScale(0.5, 0.5);
          }
-                         completion:nil];
-    //iv.transform = CGAffineTransformMakeScale(0.5, 0.5);
+                         completion:nil];*/
+    
+        iv.transform = CGAffineTransformMakeScale(0.5, 0.5);
     [UIView animateWithDuration: 1.5
                           delay: 0            // DELAY
          usingSpringWithDamping: 0.5
@@ -386,41 +387,27 @@ set_myself;
     {
       if (newUser)
       {
-          CNAuthorizationStatus permissions = [CNContactStore authorizationStatusForEntityType:CNEntityTypeContacts];
-          
-          
-          AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
-          if((authStatus == AVAuthorizationStatusAuthorized) &&
-             ((permissions == CNAuthorizationStatusNotDetermined) || (!ParseCheckPermissionForRemoteNotifications())
-              )) {
-                 [pinkbackground removeFromSuperview];
-                 [NavView showLoginFromStart:YES];
-             } else if(authStatus == AVAuthorizationStatusDenied){
-                 // denied
-             } else if(authStatus == AVAuthorizationStatusRestricted){
-                 // restricted, normally won't happen
-             } else if(authStatus == AVAuthorizationStatusNotDetermined){
-                 // not determined?!
-                 dispatch_async(dispatch_get_main_queue(), ^(void){
+
+            dispatch_async(dispatch_get_main_queue(), ^(void){
                      
                      [self dismissViewControllerAnimated:NO completion:nil];
                      [self presentViewController:Intro animated:NO completion:^(){
                          [pinkbackground removeFromSuperview];
+                         
                          [NavView showLoginFromStart:YES];
-                     }];
-                 });
+                 }];
+            });
+            
                  
                  
-             }
+             
           
-             else {
-                 // impossible, unknown authorization status
-             }
-         
+
           
       }
       else
       {
+        [pinkbackground removeFromSuperview];
         PFInstallation* currentInstallation = [PFInstallation currentInstallation];
         if (currentInstallation.badge > 0)
         {
@@ -430,7 +417,6 @@ set_myself;
             [NavView ScrollToTypingPageAnimated:NO];
 
         }
-        [pinkbackground removeFromSuperview];
         GlobalParams.loginDone(NO);
           
       }
@@ -499,7 +485,7 @@ set_myself;
 
     [mixpanel flush];
 
-
+  [NavView updateFriendsLists];
   if ((GetCurrentParseUser() != nil) && MainViewController->LoggedIn)
   {
       NSLog(@"logged in");
@@ -507,7 +493,7 @@ set_myself;
     [self loadReceivedMessages:^(BOOL hasNewData)
     { // Do nothing!
         
-      [NavView updateFriendsLists];
+     // [NavView updateFriendsLists];
     }];
     if (ViewStack != nil)
     {

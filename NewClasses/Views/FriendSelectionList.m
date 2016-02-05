@@ -151,10 +151,12 @@
     {
         if (ShowSectionHeaders)
         {
-            GlobalParameters* parameters  = GetGlobalParameters();
+            
             switch (section)
             {
                 case 0:
+                    return @"";
+                case 1:
                     return @"";
                 default:
                     break;
@@ -180,7 +182,7 @@
         }
     else
         {
-        return 1;
+        return 2;
         }
 }
 //__________________________________________________________________________________________________
