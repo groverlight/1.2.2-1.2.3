@@ -310,7 +310,7 @@
     {
       BOOL doNotBounceToSelected = InitialSelection || (CurrentButtonState == E_PopViewState_Highlighted) || IsSpringAnimation;
 
-      NSLog(@"1 %p HeaderButton setSelected doNotBounceToSelected: %d", self, doNotBounceToSelected);
+      //NSLog(@"1 %p HeaderButton setSelected doNotBounceToSelected: %d", self, doNotBounceToSelected);
       [self animateToState:doNotBounceToSelected? E_PopViewState_Selected: E_PopViewState_BounceToSelected];
 
         NSString *soundPath = [[NSBundle mainBundle] pathForResource:@"swipe25" ofType:@"aiff"];
@@ -321,7 +321,7 @@
     }
     else if (self.selected && !selected)
     {
-      NSLog(@"2 %p HeaderButton setSelected: E_PopViewState_Idle", self);
+      //NSLog(@"2 %p HeaderButton setSelected: E_PopViewState_Idle", self);
       [self animateToState:E_PopViewState_Idle];
     }
     Selected = selected;
@@ -386,7 +386,7 @@
 
 - (void)animateToState:(PopViewState)state
 {
-  NSLog(@"1 %p HeaderButton animateToState: %d, CurrentButtonState: %d", self, state, CurrentButtonState);
+  //NSLog(@"1 %p HeaderButton animateToState: %d, CurrentButtonState: %d", self, state, CurrentButtonState);
 
   if ((state != CurrentButtonState) && (!IsSpringAnimation || !((state == E_PopViewState_Selected) && (CurrentButtonState == E_PopViewState_Highlighted))))
   {
@@ -428,7 +428,7 @@
     {
       if (CurrentButtonState == E_PopViewState_BounceToSelected)
       {
-        NSLog(@"2 HeaderButton animateToState: %d", state);
+        //NSLog(@"2 HeaderButton animateToState: %d", state);
         [self animateToState:E_PopViewState_Selected];
       }
       else

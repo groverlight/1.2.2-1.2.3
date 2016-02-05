@@ -421,7 +421,7 @@
 
 - (void)goButtonPressed
 {
-  [TextView showGoKey:NO];
+  //[TextView showGoKey:NO];
   GoButtonPressed();
 }
 //__________________________________________________________________________________________________

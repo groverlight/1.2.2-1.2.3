@@ -78,7 +78,7 @@
     
     self->indexView = [self->indexView initWithFrame:CGRectMake(self.window.width-28,self.window.height,28,self.window.height) indexTitles: indexTitles];
     
-   NSLog(@"INDEX VIEW FRAME2: %@", NSStringFromCGRect(self->indexView.frame));
+    //NSLog(@"INDEX VIEW FRAME2: %@", NSStringFromCGRect(self->indexView.frame));
     self->indexView.contentMode = UIViewContentModeScaleAspectFill;
     [self insertSubview:self->indexView atIndex:0];
     [self bringSubviewToFront:self->indexView];

@@ -47,6 +47,7 @@
     CGFloat                       RightVerticalOffset;
     BOOL                          StartSending;
     BOOL                          PreviewEndPostponed;
+    BOOL                          hideplayer2;
 }
 @end
 //__________________________________________________________________________________________________
@@ -69,6 +70,7 @@ SystemSoundID           soundEffect;
     [super Initialize];
     StartSending        = NO;
     PreviewEndPostponed = NO;
+    hideplayer2         = NO;
     //  NSLog(@"2 Initialize");
     HeaderBar         = [HeaderBarView                new];
     //  NSLog(@"3 Initialize");
@@ -182,11 +184,12 @@ SystemSoundID           soundEffect;
                  {
                      myself.top = myself->MidVerticalOffset;
                  }];
-            }
+            
                 myself->ScrolledToTypingPage();
                 [myself->TypingMessageView activate];
                 [myself activateFriendsListView];
                 break;
+            }
             case 2:
             {
                 
@@ -402,9 +405,10 @@ SystemSoundID           soundEffect;
             //      NSLog(@"ActivityListView->TouchEnded enable scroll: %d", myself->ScrollView.scrollView.scrollEnabled);
         }
         NSLog(@"2 ActivityListView->TouchEnded");
+        [myself->Player stopPlayer];
         [myself hidePlayer];
         NSLog(@"3 ActivityListView->TouchEnded");
-        [myself->Player stopPlayer];
+        
         NSLog(@"4 ActivityListView->TouchEnded");
     };
     
@@ -412,6 +416,8 @@ SystemSoundID           soundEffect;
     {
         get_myself;
         myself->ScrollView.scrollView.scrollEnabled = YES;
+        //[myself->Player stopPlayer];
+        [myself hidePlayer];
         NSLog(@"ActivityListView->ProgressCancelled enable scroll: %d", myself->ScrollView.scrollView.scrollEnabled);
     };
     
@@ -487,6 +493,7 @@ SystemSoundID           soundEffect;
     {
         NSLog(@"SendToListView->ProgressCompleted: %f, %f", point.x, point.y);
         get_myself;
+        [myself->TypingMessageView->TextView showGoKey:NO];
         myself->StartSending = YES;
         myself->PreviewingForFriend = tableIndex;
         myself->FinalPlayerPoint = point;
@@ -608,12 +615,11 @@ SystemSoundID           soundEffect;
     {
         get_myself;
         
-        
         NSLog(@"PlayerChunkCompletionAction");
         
         if (done)
         {
-
+            myself->hideplayer2 = NO;
             if (!myself->ScrollView.scrollView.scrollEnabled)
             {
                 NSLog(@"started from the bottom");
@@ -648,9 +654,8 @@ SystemSoundID           soundEffect;
                 ParseSetBadge(messages->Messages.count);  // Update the icon badge number with the number of unread messages.
                 if (messages->Messages.count == 0)
                 {
-                    [myself ScrollToTypingPageAnimated:NO];
-                    [myself hideLeftItemDot];
-                    
+                    hideplayer2 = YES;
+
                     NSLog(@"read message");
                     
                     Mixpanel *mixpanel = [Mixpanel sharedInstance];
@@ -676,8 +681,9 @@ SystemSoundID           soundEffect;
             }
             myself->ScrollView.scrollView.scrollEnabled = YES;
             NSLog(@"PlayerChunkCompletionAction enable scroll: %d", myself->ScrollView.scrollView.scrollEnabled);
-            
+
             [myself hidePlayer];
+            
         }
         else
         {
@@ -710,7 +716,16 @@ SystemSoundID           soundEffect;
 
 - (void)hidePlayer
 {
-    [self ScrollToActivityPageAnimated:NO];
+    if (hideplayer2)
+    {
+        [self ScrollToTypingPageAnimated:NO];
+        [self hideLeftItemDot];
+        hideplayer2 = NO;
+    }
+    else
+    {
+        [self ScrollToActivityPageAnimated:NO];
+    }
     [Player hideAnimatedToPoint:FinalPlayerPoint andInitialRadius:GetGlobalParameters().friendStateViewCircleRadius completion:^
      {
          NSLog(@"[NavigationView HidePlayer] -> hideAnimatedToPoint completed!");
@@ -718,6 +733,7 @@ SystemSoundID           soundEffect;
      }];
 }
 //__________________________________________________________________________________________________
+
 
 - (void)dealloc
 {
