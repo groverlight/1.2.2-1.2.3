@@ -283,7 +283,7 @@
       }
       if (!found)
       {
-          [recentListUsers addObject:potentialFriend];
+        [recentListUsers addObject:potentialFriend];
         [PendingFriends addObject:potentialFriend];
       }
     }
@@ -342,8 +342,10 @@
           record.fullName         = user.fullName;
           record.lastActivityTime = 0;
           [PendingFriends addObject:record];
+          [recentListUsers addObject:record];
           [self clearEditor];
           [self updateFriendsLists];
+          
         }
       }
       else

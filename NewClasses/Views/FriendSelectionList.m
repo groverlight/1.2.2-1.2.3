@@ -141,7 +141,7 @@
 
 - (NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    if([AllFriendsList count] == [recentListUsers count])
+    if(AllFriendsList == recentListUsers)
     {
         
         return [arrayOfSectionTitles objectAtIndex:section];
@@ -176,7 +176,7 @@
 {
    // NSLog(@"SECTIONS CALLFRIENDSLIST %lu",[AllFriendsList count]);
     //4NSLog(@"SECTIONS contacts %lu",[recentListUsers count]);
-    if([AllFriendsList count] == [recentListUsers count])
+    if(AllFriendsList == recentListUsers)
         {
             return [arrayOfSectionTitles count];
         }
@@ -189,7 +189,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section   //HERE
 {
-    if([AllFriendsList count] == [recentListUsers count])
+    if(AllFriendsList == recentListUsers)
         {
             if (section == 0)
             {
@@ -419,7 +419,7 @@
 - (void)InitCell:(TableViewCell*)cell atIndexPath:(NSIndexPath*)indexPath
 {
 
-        if([AllFriendsList count] == [recentListUsers count])
+        if(AllFriendsList == recentListUsers)
         {
             FriendRecord* record;
             if (cell.tableSection == 0)

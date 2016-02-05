@@ -344,20 +344,20 @@ set_myself;
                                                            attribute:NSLayoutAttributeNotAnAttribute
                                                           multiplier:1
                                                             constant:85 ]];// adjust this
-    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
     
-       /* [UIView animateWithDuration: 1
+    
+        [UIView animateWithDuration: 1
                               delay: 0.0            // DELAY
-             usingSpringWithDamping: 0
-              initialSpringVelocity: 0
+             usingSpringWithDamping: 1
+              initialSpringVelocity: 1
                             options: 0
                          animations:^
          {
              iv.transform = CGAffineTransformMakeScale(0.5, 0.5);
          }
-                         completion:nil];*/
+                         completion:nil];
     
-        iv.transform = CGAffineTransformMakeScale(0.5, 0.5);
+        //iv.transform = CGAffineTransformMakeScale(0.5, 0.5);
     [UIView animateWithDuration: 1.5
                           delay: 0            // DELAY
          usingSpringWithDamping: 0.5
@@ -368,7 +368,8 @@ set_myself;
                                    iv.transform = CGAffineTransformMakeScale(1, 1);
                                }
                      completion:nil];
-    });
+    
+    
 
 
 
