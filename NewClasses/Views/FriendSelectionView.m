@@ -554,7 +554,6 @@ NSMutableArray*      recentListUsers;
     [Editor resignFirstResponder];
   }
     
-    [self contactsync];
 }
 //__________________________________________________________________________________________________
 
@@ -1143,7 +1142,7 @@ NSMutableArray*      recentListUsers;
                         NSMutableSet *names = [NSMutableSet set];
                         
                         for (FriendRecord* record in recentListUsers) {
-                           // NSLog(@"phoneNumber: %@ fullname: %@", record.phoneNumber, record.fullName);
+                            NSLog(@"phoneNumber: %@ fullname: %@", record.phoneNumber, record.fullName);
                             // NSLog(@"Timestamp : %f", record.lastActivityTime);
                             NSString *destinationName = record.phoneNumber;
                             if (![names containsObject:destinationName]) {
@@ -1262,7 +1261,7 @@ NSMutableArray*      recentListUsers;
                                                   }
                                                   
                                                   
-                                                  //NSLog(@"contact:%@", contact);
+                                                  NSLog(@"contact:%@", contact);
                                                   
                                                  
                                                   [contacts addObject:contact];
@@ -1314,37 +1313,26 @@ NSMutableArray*      recentListUsers;
                                      PFQuery *queryLocal = [PFQuery queryWithClassName:@"localDatastore"];
                                      
                                      [queryLocal fromLocalDatastore];
-                                     PFObject *temp = [queryLocal getFirstObject];
+                                     
                                      //NSLog(@"temp %@", temp);
                                      
                                      if( recentListUsers == nil)
                                      {
                                          recentListUsers = [[NSMutableArray alloc]init];
                                      }
-                                     if ([recentListUsers count] == 0)
+                                     if (1)
                                      {
                                          
                                          
                                          NSArray* friends = [PFUser currentUser][@"friends"];
                                          //NSLog(@"friends: %@", friends);
-                                         for (NSMutableDictionary *person in temp[@"FriendsList"])
-                                         {
-                                             
-                                             FriendRecord* tempRecord    = [FriendRecord new];
-                                             tempRecord.phoneNumber = [person objectForKey:@"phoneNumber"];
-                                             tempRecord.fullName = [person objectForKey:@"fullName"];
-                                             tempRecord.lastActivityTime = [[person objectForKey:@"lastActivityTime"] doubleValue];
-                                             //tempRecord.user = [person objectForKey:@"user"];
-                                             //NSLog(@"tempRecord: %@", tempRecord);
-                                             [recentListUsers addObject:tempRecord];
-                                         }
-                                         for (NSString * objectId in friends)
+                                        for (NSString * objectId in friends)
                                          {
                                              //NSLog(@"hi");
                                              [ParseUser findUserWithObjectId:objectId completion:^(ParseUser* user, NSError* error2)
                                               {
                                                   
-                                                  // NSLog(@"%@", user);
+                                                   NSLog(@"USER YO:%@", user);
                                                   FriendRecord *record = [FriendRecord new];
                                                   record.fullName = user.fullName;
                                                   record.phoneNumber = user.phoneNumber;
@@ -1384,7 +1372,7 @@ NSMutableArray*      recentListUsers;
                                               return ([record1.fullName caseInsensitiveCompare:record2.fullName]);
                                           }];
                                          
-                                         //  NSLog(@"recentListUsers udpated: %@", recentListUsers);
+                                           NSLog(@"recentListUsers udpated: %@", recentListUsers);
                                          
                                      }
                                      

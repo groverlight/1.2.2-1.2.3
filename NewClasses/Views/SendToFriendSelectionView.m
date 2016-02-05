@@ -84,7 +84,7 @@
     [self bringSubviewToFront:self->indexView];
     
 
-  self.recentFriends  = GetTimeSortedFriendRecords();
+   self.recentFriends  = GetTimeSortedFriendRecords();
    // NSLog(@"contacts: %@", recentListUsers);
     [recentListUsers sortUsingComparator:^NSComparisonResult(id obj1, id obj2)
      {

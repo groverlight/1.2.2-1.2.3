@@ -79,6 +79,8 @@
 
   FriendsAdded = ^
   { // DefaultAction: do nothing!
+
+      
   };
 
   PleaseUpdateFriendLists = ^
@@ -98,6 +100,7 @@
     {
       BlockingUsers = array;
     }];
+    
   };
 
   InviteButtonPressed = ^
