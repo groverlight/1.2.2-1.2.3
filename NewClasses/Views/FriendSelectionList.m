@@ -155,10 +155,7 @@
             switch (section)
             {
                 case 0:
-                    return parameters.friendsListRecentSectionHeaderTitle;
-                case 1:
-                    return parameters.friendsListAllSectionHeaderTitle;
-                
+                    return @"";
                 default:
                     break;
             }
@@ -183,7 +180,7 @@
         }
     else
         {
-        return 2;
+        return 1;
         }
 }
 //__________________________________________________________________________________________________
