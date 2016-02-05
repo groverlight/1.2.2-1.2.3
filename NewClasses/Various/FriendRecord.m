@@ -271,19 +271,21 @@
      {
          FriendRecord* record1 = (FriendRecord*)obj1;
          FriendRecord* record2 = (FriendRecord*)obj2;
+         NSLog(@"%@ : %f", record1.fullName, record1.lastActivityTime);
+         NSLog(@"%@ : %f", record2.fullName, record2.lastActivityTime);
+             if (record1.lastActivityTime > record2.lastActivityTime)
+             {
+                 return NSOrderedAscending;
+             }
+             else if (record1.lastActivityTime < record2.lastActivityTime)
+             {
+                 return NSOrderedDescending;
+             }
+             else
+             {
+                 return NSOrderedSame;
+             }
          
-         if (record1.lastActivityTime > record2.lastActivityTime)
-         {
-             return NSOrderedAscending;
-         }
-         else if (record1.lastActivityTime < record2.lastActivityTime)
-         {
-             return NSOrderedDescending;
-         }
-         else
-         {
-             return NSOrderedSame;
-         }
      }];
 
         // First sort array by descending so I could capture the max id
