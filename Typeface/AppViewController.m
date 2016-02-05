@@ -372,8 +372,6 @@ set_myself;
     
             [self dismissViewControllerAnimated:NO completion:nil];
             [self presentViewController:Intro animated:NO completion:^(){
-            [ViewStack.liveView  restorePreviewWithCompletion:^{
-                    }];
             [pinkbackground removeFromSuperview];
             [NavView showLoginFromStart:YES];
             }];
@@ -405,8 +403,16 @@ set_myself;
       }
       else
       {
+        PFInstallation* currentInstallation = [PFInstallation currentInstallation];
+        if (currentInstallation.badge > 0)
+        {
+            [NavView ScrollToPageAtIndex:0 animated:NO];
+        }
+        else {
+            [NavView ScrollToTypingPageAnimated:NO];
+
+        }
         [pinkbackground removeFromSuperview];
-        [NavView ScrollToTypingPageAnimated:NO];
         GlobalParams.loginDone(NO);
           
       }
@@ -465,6 +471,7 @@ set_myself;
     }
     NSLog(@"app launched from background");
     
+
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     formatter.dateFormat = @"dd MMM YYYY HH:mm:ss";
     NSString *string = [formatter stringFromDate:[NSDate date]];
@@ -486,10 +493,7 @@ set_myself;
     
     [self loadReceivedMessages:^(BOOL hasNewData)
     { // Do nothing!
-       if (hasNewData)
-       {
-           [NavView ScrollToSendToPageAnimated:NO];
-       }
+        
       [NavView updateFriendsLists];
     }];
     if (ViewStack != nil)
