@@ -1329,6 +1329,7 @@ typedef enum
 
 - (void)terminateLogin:(BOOL)newUser
 {
+    NSLog(@"terminatelogin");
     ParseFinalizeLogIn();
     State = E_LoginState_LoggedIn;
     [[NSUserDefaults standardUserDefaults] setInteger:State forKey:LOGIN_STATE_DEFAULTS_KEY];

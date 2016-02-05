@@ -104,6 +104,7 @@ static AppViewController* MainViewController = nil;
     NSLog(@"LOGIN DONE %@",currentUser[@"phoneNumber"]);
     if (currentUser != nil)
     {
+
         CNAuthorizationStatus permissions = [CNContactStore authorizationStatusForEntityType:CNEntityTypeContacts];
         
         
@@ -219,7 +220,7 @@ set_myself;
         if (newUser)
         {
 
-                [NavView showLoginFromStart:YES];
+              //  [NavView showLoginFromStart:YES];
 
 
           /*if (!ParseCheckPermissionForRemoteNotifications())
@@ -346,7 +347,7 @@ set_myself;
     dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
     
         [UIView animateWithDuration: 1
-                              delay: 0            // DELAY
+                              delay: 0.0            // DELAY
              usingSpringWithDamping: 0
               initialSpringVelocity: 0
                             options: 0
@@ -356,7 +357,7 @@ set_myself;
          }
                          completion:nil];
     //iv.transform = CGAffineTransformMakeScale(0.5, 0.5);
-    [UIView animateWithDuration: 2
+    [UIView animateWithDuration: 1.5
                           delay: 0            // DELAY
          usingSpringWithDamping: 0.5
           initialSpringVelocity: 0.5
@@ -368,36 +369,7 @@ set_myself;
                      completion:nil];
     });
 
-    CNAuthorizationStatus permissions = [CNContactStore authorizationStatusForEntityType:CNEntityTypeContacts];
-    
-        
-    AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
-    if((authStatus == AVAuthorizationStatusAuthorized) &&
-       ((permissions == CNAuthorizationStatusNotDetermined) || (!ParseCheckPermissionForRemoteNotifications())
-        )) {
-        
-              [NavView showLoginFromStart:YES];
-    } else if(authStatus == AVAuthorizationStatusDenied){
-        // denied
-    } else if(authStatus == AVAuthorizationStatusRestricted){
-        // restricted, normally won't happen
-    } else if(authStatus == AVAuthorizationStatusNotDetermined){
-        // not determined?!
-       dispatch_async(dispatch_get_main_queue(), ^(void){
-    
-            [self dismissViewControllerAnimated:NO completion:nil];
-            [self presentViewController:Intro animated:NO completion:^(){
-            [pinkbackground removeFromSuperview];
-            [NavView showLoginFromStart:YES];
-            }];
-        });
 
-        
-    }
-
-    else {
-        // impossible, unknown authorization status
-    }
 
 //  NSLog(@"1 viewDidLoad");
   [super viewDidLoad];
@@ -414,8 +386,37 @@ set_myself;
     {
       if (newUser)
       {
+          CNAuthorizationStatus permissions = [CNContactStore authorizationStatusForEntityType:CNEntityTypeContacts];
           
-          //[NavView showLoginFromStart:restart];
+          
+          AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
+          if((authStatus == AVAuthorizationStatusAuthorized) &&
+             ((permissions == CNAuthorizationStatusNotDetermined) || (!ParseCheckPermissionForRemoteNotifications())
+              )) {
+                 [pinkbackground removeFromSuperview];
+                 [NavView showLoginFromStart:YES];
+             } else if(authStatus == AVAuthorizationStatusDenied){
+                 // denied
+             } else if(authStatus == AVAuthorizationStatusRestricted){
+                 // restricted, normally won't happen
+             } else if(authStatus == AVAuthorizationStatusNotDetermined){
+                 // not determined?!
+                 dispatch_async(dispatch_get_main_queue(), ^(void){
+                     
+                     [self dismissViewControllerAnimated:NO completion:nil];
+                     [self presentViewController:Intro animated:NO completion:^(){
+                         [pinkbackground removeFromSuperview];
+                         [NavView showLoginFromStart:YES];
+                     }];
+                 });
+                 
+                 
+             }
+          
+             else {
+                 // impossible, unknown authorization status
+             }
+         
           
       }
       else
@@ -452,7 +453,7 @@ set_myself;
     NSLog(@"viewdidappear");
     if ((GetCurrentParseUser() != nil) && MainViewController->LoggedIn)
     {
-        [NavView layoutSubviews];
+        //[NavView layoutSubviews];
         [NavView->TypingMessageView->TextView->Editor becomeFirstResponder];
     }
 }
@@ -480,12 +481,7 @@ set_myself;
 //! The application did just become active.
 - (void)applicationDidBecomeActive
 {
-    CNAuthorizationStatus permissions = [CNContactStore authorizationStatusForEntityType:CNEntityTypeContacts];
-    AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
-    if ((permissions == CNAuthorizationStatusNotDetermined || !ParseCheckPermissionForRemoteNotifications()) && authStatus == AVAuthorizationStatusAuthorized)
-    {
-        [pinkbackground removeFromSuperview];
-    }
+
     NSLog(@"app launched from background");
     
 
