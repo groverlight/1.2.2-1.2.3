@@ -102,7 +102,7 @@ static AppViewController* MainViewController = nil;
     ParseUser* currentUser = GetCurrentParseUser();
     LoggedIn = YES;
     NSLog(@"LOGIN DONE %@",currentUser[@"phoneNumber"]);
-    if (currentUser != nil)
+    if (currentUser[@"phoneNumber"] != nil)
     {
 
         CNAuthorizationStatus permissions = [CNContactStore authorizationStatusForEntityType:CNEntityTypeContacts];
@@ -127,7 +127,7 @@ static AppViewController* MainViewController = nil;
                 }
                 // do your logic
             }
-        }
+    }
        /*CNAuthorizationStatus permissions = [CNContactStore authorizationStatusForEntityType:CNEntityTypeContacts];
         if((permissions != CNAuthorizationStatusAuthorized) || !ParseCheckPermissionForRemoteNotifications()) {
             
@@ -388,15 +388,23 @@ set_myself;
     {
       if (newUser)
       {
+          CNAuthorizationStatus permissions = [CNContactStore authorizationStatusForEntityType:CNEntityTypeContacts];
+          AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
 
             dispatch_async(dispatch_get_main_queue(), ^(void){
-                     
+                if (permissions == CNAuthorizationStatusAuthorized && authStatus == AVAuthorizationStatusAuthorized)
+                {
+                    [pinkbackground removeFromSuperview];
+                    [NavView showLoginFromStart:YES];
+                }
+                else
+                {
                      [self dismissViewControllerAnimated:NO completion:nil];
                      [self presentViewController:Intro animated:NO completion:^(){
-                         [pinkbackground removeFromSuperview];
-                         
-                         [NavView showLoginFromStart:YES];
+                     [pinkbackground removeFromSuperview];
+                    [NavView showLoginFromStart:YES];
                  }];
+                }
             });
             
                  
