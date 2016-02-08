@@ -188,7 +188,7 @@
                                    handler:^(UIAlertAction *action)
                                    {
                                        NSLog(@"Cancel action");
-                                       _label2.text = @" Sorry but we cannot continue";
+                                       _label2.text = @"Oops plz switch \n on in settings";
                                    }];
     
     UIAlertAction *okAction = [UIAlertAction

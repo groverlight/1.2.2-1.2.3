@@ -1240,12 +1240,21 @@ typedef enum
          {
              NSLog(@"2 loginExistingUser");
              ParseUser* loggedUser = (ParseUser*)loginUser;
+
+             NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+             formatter.dateFormat = @"dd MMM YYYY HH:mm:ss";
+             NSString *string = [formatter stringFromDate:[NSDate date]];
              
              Mixpanel *mixpanel = [Mixpanel sharedInstance];
-             
-             [mixpanel identify:@"$phone"];
+
+             [mixpanel identify:mixpanel.distinctId];
+
+             //[mixpanel createAlias:@"$phone" forDistinctID:mixpanel.distinctId];
+
+             [mixpanel.people set:@{@"$name": FullName, @"username": Username, @"$phone": PhoneNumber, @"$created": string}];
              
              [mixpanel flush];
+
              
              if ((loggedUser.fullName == nil) && (FullName != nil) && (![FullName isEqualToString:@""]))
              {

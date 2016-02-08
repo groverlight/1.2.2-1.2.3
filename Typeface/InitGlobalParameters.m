@@ -207,22 +207,22 @@ parameters.blockedUserReasonMessage       = NSLocalizedString(@"You have been bl
   parameters.friendsListAllSectionHeaderTitle       = NSLocalizedString(@"ALL", @"");
     parameters.friendsListHeaderBackgroundColor       = Transparent;
   parameters.friendsListHeaderTextColor             = TypePink;
-  parameters.friendsListHeaderTextFont              = [UIFont fontWithName:@"AvenirNext-MediumItalic" size:17];
+  parameters.friendsListHeaderTextFont              = [UIFont fontWithName:@"AvenirNext-MediumItalic" size:15];
   parameters.friendsListHeaderTextLeftMargin        = 132;
   parameters.friendsListParseRefreshThresholdOffset = -50;
   parameters.friendsProgressRadius                  = 23;
   parameters.friendsProgressLineWidth             	= 2;
   parameters.friendsProgressStrokeColor             = Transparent;
   parameters.friendsProgressFillColor               = parameters.secondaryButtonColor;
-  parameters.friendsSendToLabelTitle              	= NSLocalizedString(@"press & KEEP holding 🚀", @"");
-  parameters.friendsA_ZLabelTitle                 	= NSLocalizedString(@"find friends below 🔎", @"");
-  parameters.friendsActivityLabelTitle              = NSLocalizedString(@"press & KEEP holding 🎁", @"");
-  parameters.friendsLabelTitleColor                 = [TypePink colorWithAlphaComponent:0.30];
+  parameters.friendsSendToLabelTitle              	= NSLocalizedString(@"👇🔴🌀", @"");
+  parameters.friendsA_ZLabelTitle                 	= NSLocalizedString(@"👇🔎👫", @"");
+  parameters.friendsActivityLabelTitle              = NSLocalizedString(@"👇🔴🌀", @"");
+  parameters.friendsLabelTitleColor                 = [Grey colorWithAlphaComponent:0.4];
   parameters.friendsLabelTitleFontSize              = 16;
   parameters.friendsProgressDuration                = 2;
   parameters.friendsMaxRecentFriends                = 5; //  this is where we need to look at
 
-  parameters.friendsEditorPlaceholderText           = NSLocalizedString(@"Search by username", @"");
+  parameters.friendsEditorPlaceholderText           = NSLocalizedString(@"add by username", @"");
   parameters.friendsEditorFontSize                  = 17;
   parameters.friendsEditorHeight                    = 60;
   parameters.friendsEditorLeftMargin                = 18;
@@ -244,7 +244,7 @@ parameters.blockedUserReasonMessage       = NSLocalizedString(@"You have been bl
   parameters.friendStateViewProgressCircleRadius          = 12;
   parameters.friendStateViewProgressDiskRadius            = 8.0;
   parameters.friendStateViewColor                         = TypePink;
-  parameters.friendStateViewProgressAnimationDuration     = 0.3;
+  parameters.friendStateViewProgressAnimationDuration     = 0.4;
 
   parameters.friendStateViewAnimParameters                = [PopAnimParameters new];
   parameters.friendStateViewAnimParameters.animationStyle = E_PopAnimationStyle_Spring;
@@ -303,8 +303,8 @@ parameters.blockedUserReasonMessage       = NSLocalizedString(@"You have been bl
 
   //parameters.TypingButtonFont                     = [UIFont fontWithName:@"AvenirNext-DemiBold" size:17];
   parameters.typingFaceButtonTitle                = NSLocalizedString(@"FACE", @"");
-  parameters.typingMaxCharacterCount              = 100;
-  parameters.typingFontSizeCharacterCountTrigger  = 67;
+  parameters.typingMaxCharacterCount              = 80;
+  parameters.typingFontSizeCharacterCountTrigger  = 50;
   parameters.typingCharacterCountFontSize         = 12;
   parameters.typingCharacterCountColor            = [White colorWithAlphaComponent:0.5];;
   parameters.typingCharacterCountRightMargin      = 24;
@@ -334,14 +334,14 @@ parameters.blockedUserReasonMessage       = NSLocalizedString(@"You have been bl
 
 
   parameters.playerLabelCenterOffsetFromBottom                    = 160;
-  parameters.playerLabelLateralMargin                             = 50;
+  parameters.playerLabelLateralMargin                             = 30;
 
 
- parameters.playerShortTextFontSize                         = 32;
-parameters.playerLongTextFontSize                          = 22;
+ parameters.playerShortTextFontSize                        = 28;
+parameters.playerLongTextFontSize                          = 24;
 
   parameters.playerTextColor                                      = WarmGrey;
-  parameters.playerFontSizeCharacterCountTrigger                  = 90;
+  parameters.playerFontSizeCharacterCountTrigger                  = 50;
 
   parameters.playerCircleToScreenAnimParameters                   = [PopAnimParameters new];
   parameters.playerCircleToScreenAnimParameters.animationStyle    = E_PopAnimationStyle_Spring;
@@ -376,7 +376,7 @@ parameters.playerLongTextFontSize                          = 22;
 
   parameters.playerShortTextLength                                = 10;
   parameters.playerAdjustmentRatio                                = 16.5;
-  parameters.playerFont                                           = [UIFont fontWithName:@"AvenirNext-Demibold" size:30];
+  parameters.playerFont                                           = [UIFont fontWithName:@"AvenirNext-Demibold" size:28];
 
   return parameters;
 }

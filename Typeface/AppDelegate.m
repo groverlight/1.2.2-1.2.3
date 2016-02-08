@@ -31,12 +31,12 @@ typedef void(^BlockBfrAction)(UIBackgroundFetchResult result);
 {
     [Parse enableLocalDatastore];
 
-    //#define MIXPANEL_TOKEN @"bfcb77fdbcaaa747ac994c1bdba999aa"
+    #define MIXPANEL_TOKEN @"bfcb77fdbcaaa747ac994c1bdba999aa"
 
 
     // Initialize the library with your
     // Mixpanel project token, MIXPANEL_TOKEN
-    //[Mixpanel sharedInstanceWithToken:MIXPANEL_TOKEN];
+    [Mixpanel sharedInstanceWithToken:MIXPANEL_TOKEN];
     /*NSDictionary *notificationPayload = launchOptions[UIApplicationLaunchOptionsRemoteNotificationKey];
      NSLog(@"notificationpayload: %@", notificationPayload);
     NSString *objectid = [notificationPayload objectForKey:@"p"];
@@ -48,24 +48,6 @@ typedef void(^BlockBfrAction)(UIBackgroundFetchResult result);
   // Parse initialization.
   ParseAppDelegateInitialization(launchOptions);
    
-
-
-    
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    formatter.dateFormat = @"dd MMM YYYY HH:mm:ss";
-    NSString *string = [formatter stringFromDate:[NSDate date]];
-
-    Mixpanel *mixpanel = [Mixpanel sharedInstance];
-
-    [mixpanel track:@"last seen"];
-
-    [mixpanel identify:mixpanel.distinctId];
-
-    [mixpanel.people set:@{@"$last_seen": string}];
-
-    [mixpanel flush];
-
-    NSLog(@"app launched from quit");
 
   self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
   RootViewController = [[AppViewController alloc] init];
