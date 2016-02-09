@@ -117,9 +117,9 @@ parameters.blockedUserReasonMessage       = NSLocalizedString(@"You have been bl
   parameters.cameraWhiteBalanceBlueGain           = 1.0;
   parameters.cameraUseBackCamera                  = NO;
 
-  parameters.gradientTopColor                     = ColorWithAlpha(White, 0.9);
+  parameters.gradientTopColor                     = ColorWithAlpha(White, 1.0);
   parameters.gradientBottomColor                  = ColorWithAlpha(White , 0.6);
-  parameters.gradientAlpha                        = 1.0;
+  parameters.gradientAlpha                        = 0.95;
 
   parameters.separatorLineWidth                   = 0.40;
   parameters.separatorLineColor                   = LightGrey;

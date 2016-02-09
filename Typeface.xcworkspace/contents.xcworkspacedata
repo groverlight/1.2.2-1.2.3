@@ -5,7 +5,19 @@
       location = "group:StyledPageControl.h">
    </FileRef>
    <FileRef
-      location = "group:Video2.mov">
+      location = "group:Video1.m4v">
+   </FileRef>
+   <FileRef
+      location = "group:Video2.m4v">
+   </FileRef>
+   <FileRef
+      location = "group:Video3.m4v">
+   </FileRef>
+   <FileRef
+      location = "group:Video4.m4v">
+   </FileRef>
+   <FileRef
+      location = "group:Video5.m4v">
    </FileRef>
    <FileRef
       location = "group:click_lo.aif">
