@@ -12,7 +12,7 @@
 #define Black           Color(E_Color_Black)            //!< Black color.
 #define DarkGrey        Color(E_Color_DarkGrey)         //!< Dark grey color.
 #define Grey            Color(E_Color_Grey)             //!< Grey color.
-#define RealLightGrey   Color(E_Color_RealLightGrey)
+#define DarkLightGrey   Color(E_Color_DarkLightGrey)
 #define LightGrey       Color(E_Color_LightGrey)        //!< Light grey color.
 #define VeryLightGrey   Color(E_Color_VeryLightGrey)    //!< Very light grey color.
 #define White           Color(E_Color_White)            //!< White color.
@@ -43,7 +43,7 @@ typedef enum
   E_Color_Blue,           //!< Blue color.
   E_Color_Black,          //!< Black color.
   E_Color_DarkGrey,       //!< Dark grey color.
-  E_Color_RealLightGrey,
+  E_Color_DarkLightGrey,
   E_Color_Grey,           //!< Grey color.
   E_Color_LightGrey,      //!< Light grey color.
   E_Color_VeryLightGrey,  //!< Light grey color.

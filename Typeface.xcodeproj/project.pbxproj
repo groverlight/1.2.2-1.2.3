@@ -114,17 +114,17 @@
 		F466BDF11BDF3B2400683986 /* liftoff20.aiff in Resources */ = {isa = PBXBuildFile; fileRef = F466BDF01BDF3B2400683986 /* liftoff20.aiff */; };
 		F466BDFB1BDF42F600683986 /* zap_shake.aif in Resources */ = {isa = PBXBuildFile; fileRef = F466BDFA1BDF42F600683986 /* zap_shake.aif */; };
 		F480C2B01BDFEF3F009EF518 /* zap_future.aif in Resources */ = {isa = PBXBuildFile; fileRef = F480C2AF1BDFEF3F009EF518 /* zap_future.aif */; };
-		F49F36941C6A495600BFA900 /* Video1.m4v in Resources */ = {isa = PBXBuildFile; fileRef = F49F368F1C6A495600BFA900 /* Video1.m4v */; };
-		F49F36951C6A495600BFA900 /* Video2.m4v in Resources */ = {isa = PBXBuildFile; fileRef = F49F36901C6A495600BFA900 /* Video2.m4v */; };
-		F49F36961C6A495600BFA900 /* Video3.m4v in Resources */ = {isa = PBXBuildFile; fileRef = F49F36911C6A495600BFA900 /* Video3.m4v */; };
-		F49F36971C6A495600BFA900 /* Video4.m4v in Resources */ = {isa = PBXBuildFile; fileRef = F49F36921C6A495600BFA900 /* Video4.m4v */; };
-		F49F36981C6A495600BFA900 /* Video5.m4v in Resources */ = {isa = PBXBuildFile; fileRef = F49F36931C6A495600BFA900 /* Video5.m4v */; };
 		F4CEF4BC1BDAFCF800A1399D /* beep_prompt_2x.aif in Resources */ = {isa = PBXBuildFile; fileRef = F4CEF4BA1BDAFCF800A1399D /* beep_prompt_2x.aif */; };
 		F4D0F9F91BDAF3E40039C51D /* chime_blip_on.aif in Resources */ = {isa = PBXBuildFile; fileRef = F4D0F9F81BDAF3E40039C51D /* chime_blip_on.aif */; };
 		F4D5FDC41BDB06440048910D /* pop_digi_up.aif in Resources */ = {isa = PBXBuildFile; fileRef = F4D5FDC31BDB06440048910D /* pop_digi_up.aif */; };
 		F4D6D0CC1C5162AF001EE243 /* spelled_out_white.png in Resources */ = {isa = PBXBuildFile; fileRef = F4D6D0CB1C5162AF001EE243 /* spelled_out_white.png */; };
 		F4D6D0CE1C516C82001EE243 /* branding.png in Resources */ = {isa = PBXBuildFile; fileRef = F4D6D0CD1C516C82001EE243 /* branding.png */; };
 		F4D6D0D21C52E83F001EE243 /* click_lo.aif in Resources */ = {isa = PBXBuildFile; fileRef = F4D6D0D11C52E83F001EE243 /* click_lo.aif */; };
+		F4D6D0D81C532631001EE243 /* Video1.mov in Resources */ = {isa = PBXBuildFile; fileRef = F4D6D0D31C532631001EE243 /* Video1.mov */; };
+		F4D6D0DA1C532631001EE243 /* Video3.mov in Resources */ = {isa = PBXBuildFile; fileRef = F4D6D0D51C532631001EE243 /* Video3.mov */; };
+		F4D6D0DB1C532631001EE243 /* Video4.mov in Resources */ = {isa = PBXBuildFile; fileRef = F4D6D0D61C532631001EE243 /* Video4.mov */; };
+		F4D6D0DC1C532631001EE243 /* Video5.mov in Resources */ = {isa = PBXBuildFile; fileRef = F4D6D0D71C532631001EE243 /* Video5.mov */; };
+		F4D6D0DE1C533DB6001EE243 /* Video2.mov in Resources */ = {isa = PBXBuildFile; fileRef = F4D6D0DD1C533DB6001EE243 /* Video2.mov */; };
 		F4F5854B1B82A9C80016D180 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F4F585451B82A9C80016D180 /* AppDelegate.m */; };
 		F4F5854C1B82A9C80016D180 /* AppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4F585471B82A9C80016D180 /* AppViewController.m */; };
 		F4F5854D1B82A9C80016D180 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4F585481B82A9C80016D180 /* Images.xcassets */; };
@@ -334,17 +334,17 @@
 		F466BDF01BDF3B2400683986 /* liftoff20.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = liftoff20.aiff; sourceTree = SOURCE_ROOT; };
 		F466BDFA1BDF42F600683986 /* zap_shake.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = zap_shake.aif; sourceTree = SOURCE_ROOT; };
 		F480C2AF1BDFEF3F009EF518 /* zap_future.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = zap_future.aif; sourceTree = SOURCE_ROOT; };
-		F49F368F1C6A495600BFA900 /* Video1.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = Video1.m4v; sourceTree = SOURCE_ROOT; };
-		F49F36901C6A495600BFA900 /* Video2.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = Video2.m4v; sourceTree = SOURCE_ROOT; };
-		F49F36911C6A495600BFA900 /* Video3.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = Video3.m4v; sourceTree = SOURCE_ROOT; };
-		F49F36921C6A495600BFA900 /* Video4.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = Video4.m4v; sourceTree = SOURCE_ROOT; };
-		F49F36931C6A495600BFA900 /* Video5.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = Video5.m4v; sourceTree = SOURCE_ROOT; };
 		F4CEF4BA1BDAFCF800A1399D /* beep_prompt_2x.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = beep_prompt_2x.aif; sourceTree = SOURCE_ROOT; };
 		F4D0F9F81BDAF3E40039C51D /* chime_blip_on.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = chime_blip_on.aif; sourceTree = SOURCE_ROOT; };
 		F4D5FDC31BDB06440048910D /* pop_digi_up.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = pop_digi_up.aif; sourceTree = SOURCE_ROOT; };
 		F4D6D0CB1C5162AF001EE243 /* spelled_out_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spelled_out_white.png; sourceTree = SOURCE_ROOT; };
 		F4D6D0CD1C516C82001EE243 /* branding.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = branding.png; sourceTree = SOURCE_ROOT; };
 		F4D6D0D11C52E83F001EE243 /* click_lo.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = click_lo.aif; sourceTree = SOURCE_ROOT; };
+		F4D6D0D31C532631001EE243 /* Video1.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = Video1.mov; sourceTree = SOURCE_ROOT; };
+		F4D6D0D51C532631001EE243 /* Video3.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = Video3.mov; sourceTree = SOURCE_ROOT; };
+		F4D6D0D61C532631001EE243 /* Video4.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = Video4.mov; sourceTree = SOURCE_ROOT; };
+		F4D6D0D71C532631001EE243 /* Video5.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = Video5.mov; sourceTree = SOURCE_ROOT; };
+		F4D6D0DD1C533DB6001EE243 /* Video2.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = Video2.mov; sourceTree = SOURCE_ROOT; };
 		F4F585441B82A9C80016D180 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Typeface/AppDelegate.h; sourceTree = SOURCE_ROOT; };
 		F4F585451B82A9C80016D180 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Typeface/AppDelegate.m; sourceTree = SOURCE_ROOT; };
 		F4F585461B82A9C80016D180 /* AppViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppViewController.h; path = Typeface/AppViewController.h; sourceTree = SOURCE_ROOT; };
@@ -753,11 +753,11 @@
 				F4F585451B82A9C80016D180 /* AppDelegate.m */,
 				F4F585461B82A9C80016D180 /* AppViewController.h */,
 				F4F585471B82A9C80016D180 /* AppViewController.m */,
-				F49F368F1C6A495600BFA900 /* Video1.m4v */,
-				F49F36901C6A495600BFA900 /* Video2.m4v */,
-				F49F36911C6A495600BFA900 /* Video3.m4v */,
-				F49F36921C6A495600BFA900 /* Video4.m4v */,
-				F49F36931C6A495600BFA900 /* Video5.m4v */,
+				F4D6D0D31C532631001EE243 /* Video1.mov */,
+				F4D6D0DD1C533DB6001EE243 /* Video2.mov */,
+				F4D6D0D51C532631001EE243 /* Video3.mov */,
+				F4D6D0D61C532631001EE243 /* Video4.mov */,
+				F4D6D0D71C532631001EE243 /* Video5.mov */,
 				F4F585481B82A9C80016D180 /* Images.xcassets */,
 				F4F585491B82A9C80016D180 /* InitGlobalParameters.h */,
 				F4F5854A1B82A9C80016D180 /* InitGlobalParameters.m */,
@@ -861,7 +861,6 @@
 				ORGANIZATIONNAME = "";
 				TargetAttributes = {
 					B6E7AABD1868512800DBB0EB = {
-						DevelopmentTeam = 4THJ5Z3YGF;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -870,7 +869,7 @@
 								enabled = 0;
 							};
 							com.apple.Push = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -899,29 +898,29 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4D6D0D81C532631001EE243 /* Video1.mov in Resources */,
 				F466BDFB1BDF42F600683986 /* zap_shake.aif in Resources */,
 				F466BDE51BDF343500683986 /* next30.aiff in Resources */,
+				F4D6D0DB1C532631001EE243 /* Video4.mov in Resources */,
 				F466BDEA1BDF37D200683986 /* blurbin15.aiff in Resources */,
 				F466BDEE1BDF39A500683986 /* new20.aiff in Resources */,
-				F49F36971C6A495600BFA900 /* Video4.m4v in Resources */,
 				F466BDF11BDF3B2400683986 /* liftoff20.aiff in Resources */,
+				F4D6D0DC1C532631001EE243 /* Video5.mov in Resources */,
 				F466BDCF1BDF2E0F00683986 /* swipe25.aiff in Resources */,
+				F4D6D0DA1C532631001EE243 /* Video3.mov in Resources */,
 				F4D6D0CC1C5162AF001EE243 /* spelled_out_white.png in Resources */,
 				B652A13E1A9E7D1F006222EE /* ImageAssets in Resources */,
 				27DB56F91C0F8B0A00022D9C /* spelled_out.png in Resources */,
 				F4CEF4BC1BDAFCF800A1399D /* beep_prompt_2x.aif in Resources */,
-				F49F36951C6A495600BFA900 /* Video2.m4v in Resources */,
 				F4D5FDC41BDB06440048910D /* pop_digi_up.aif in Resources */,
-				F49F36961C6A495600BFA900 /* Video3.m4v in Resources */,
 				F4172AC91C1F46F9006379E7 /* digi_blip_hi_2x.aif in Resources */,
 				F4F5854D1B82A9C80016D180 /* Images.xcassets in Resources */,
 				F4172AC81C1F46F9006379E7 /* digi_alert.aif in Resources */,
 				F4D6D0CE1C516C82001EE243 /* branding.png in Resources */,
+				F4D6D0DE1C533DB6001EE243 /* Video2.mov in Resources */,
 				F466BDEF1BDF39A500683986 /* rolldown10.aiff in Resources */,
 				F466BDEB1BDF37D200683986 /* blurbout15.aiff in Resources */,
 				F466BDE71BDF34D200683986 /* back30.aiff in Resources */,
-				F49F36941C6A495600BFA900 /* Video1.m4v in Resources */,
-				F49F36981C6A495600BFA900 /* Video5.m4v in Resources */,
 				27DB56F11C0F80D600022D9C /* logo_tut.png in Resources */,
 				F4152EDC1BDAF7F600F83627 /* chime_blip_off.aif in Resources */,
 				F4D0F9F91BDAF3E40039C51D /* chime_blip_on.aif in Resources */,
@@ -1083,8 +1082,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Grover Light (4THJ5Z3YGF)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Grover Light (4THJ5Z3YGF)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Grover Light (4MBTY8L594)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Grover Light (4MBTY8L594)";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1104,7 +1103,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "acec8683-212c-4821-b644-74492752e51c";
+				PROVISIONING_PROFILE = "5fece7e3-f6c0-4ccd-8c9b-060f78a22aca";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1126,8 +1125,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Grover Light (4THJ5Z3YGF)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Grover Light (4THJ5Z3YGF)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Grover Light (4MBTY8L594)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Grover Light (4MBTY8L594)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_TESTABILITY = YES;
@@ -1139,7 +1138,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
-				PROVISIONING_PROFILE = "acec8683-212c-4821-b644-74492752e51c";
+				PROVISIONING_PROFILE = "5fece7e3-f6c0-4ccd-8c9b-060f78a22aca";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -1152,8 +1151,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Grover Light (4THJ5Z3YGF)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Grover Light (4THJ5Z3YGF)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1173,9 +1172,9 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.groverlight.Typeface;
+				PRODUCT_BUNDLE_IDENTIFIER = com.grover.Typeface;
 				PRODUCT_NAME = Typeface;
-				PROVISIONING_PROFILE = "acec8683-212c-4821-b644-74492752e51c";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1187,8 +1186,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Grover Light (4THJ5Z3YGF)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Grover Light (4THJ5Z3YGF)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1208,9 +1207,9 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.groverlight.Typeface;
+				PRODUCT_BUNDLE_IDENTIFIER = com.grover.Typeface;
 				PRODUCT_NAME = Typeface;
-				PROVISIONING_PROFILE = "acec8683-212c-4821-b644-74492752e51c";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1232,8 +1231,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Grover Light (4THJ5Z3YGF)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Grover Light (4THJ5Z3YGF)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Grover Light (4MBTY8L594)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Grover Light (4MBTY8L594)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_TESTABILITY = YES;
@@ -1245,7 +1244,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
-				PROVISIONING_PROFILE = "acec8683-212c-4821-b644-74492752e51c";
+				PROVISIONING_PROFILE = "5fece7e3-f6c0-4ccd-8c9b-060f78a22aca";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -1258,8 +1257,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Grover Light (4THJ5Z3YGF)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Grover Light (4THJ5Z3YGF)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1279,9 +1278,9 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.groverlight.Typeface;
+				PRODUCT_BUNDLE_IDENTIFIER = com.grover.Typeface;
 				PRODUCT_NAME = Typeface;
-				PROVISIONING_PROFILE = "acec8683-212c-4821-b644-74492752e51c";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};

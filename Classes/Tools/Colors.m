@@ -55,8 +55,8 @@ static UIColor* BaseColor(T_Colors color)
       return [UIColor colorWithRed:0.68 green:0.48 blue:0.91 alpha:1.0];
     case E_Color_WarmGrey:
        return [UIColor colorWithRed:0.20 green:.18 blue:0.17 alpha:1.0];
-    case E_Color_RealLightGrey:
-       return [UIColor colorWithRed:0.95 green:0.95 blue:0.95 alpha:1.0];
+    case E_Color_DarkLightGrey:
+          return [UIColor colorWithRed:0.84 green:0.84 blue:0.84 alpha:1.0];
     case E_Color_TypePink:
           return [UIColor colorWithRed:1.00 green:0.28 blue:0.44 alpha:1.0];
     case E_Color_TypeTeal:
