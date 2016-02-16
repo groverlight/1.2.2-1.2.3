@@ -779,6 +779,7 @@ typedef enum
 
 - (void)startVerification
 {
+    NSLog(@"fullphonenumber:%@", FullPhoneNumber);
     ParseStartVerification(FullPhoneNumber, ^(BOOL success, NSError* error)
                            {
                                if (success)
@@ -889,7 +890,7 @@ typedef enum
     switch (State)
     {
         case E_LoginState_PhoneNumber:
-            length = [self getLength:textField.text];
+         /*   length = [self getLength:textField.text];
             NSLog(@"textField: %@", textField.text);
             
             switch (length)
@@ -917,7 +918,7 @@ typedef enum
             }
             default:
                 break;
-        }
+        }*/
             PhoneNumber = [self formatNumber:textField.text];
             [defaults setObject:PhoneNumber forKey:LOGIN_PHONE_NUMBER_DEFAULTS_KEY];
             if ([PhoneNumber isEqualToString:@""])
