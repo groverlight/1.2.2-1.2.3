@@ -1141,9 +1141,11 @@ NSMutableArray*      recentListUsers;
                         NSMutableArray *uniqueArray = [NSMutableArray array];
                         NSMutableSet *names = [NSMutableSet set];
                         
-                        for (FriendRecord* record in recentListUsers) {
-                            NSLog(@"phoneNumber: %@ fullname: %@", record.phoneNumber, record.fullName);
+                        //for (FriendRecord* record in recentListUsers) {
+                        for (NSInteger i = 0; i < [recentListUsers count]; i ++){
+                           
                             // NSLog(@"Timestamp : %f", record.lastActivityTime);
+                            FriendRecord *record = recentListUsers[i];
                             NSString *destinationName = record.phoneNumber;
                             if (![names containsObject:destinationName]) {
                                 if (destinationName != nil)
@@ -1158,12 +1160,12 @@ NSMutableArray*      recentListUsers;
                             {
                                 if (record.user != nil)
                                 {
-                                    for (NSInteger i = 0; i < [uniqueArray count]; i ++)
+                                    for (NSInteger j = 0; j < [uniqueArray count]; j++)
                                     {
-                                        FriendRecord *record2 = uniqueArray[i];
+                                        FriendRecord *record2 = uniqueArray[j];
                                         if ([record2.phoneNumber isEqualToString: record.phoneNumber])
                                         {
-                                            uniqueArray[i] = record;
+                                            uniqueArray[j] = record;
                                         }
                                     }
                                 }
@@ -1261,7 +1263,7 @@ NSMutableArray*      recentListUsers;
                                                   }
                                                   
                                                   
-                                                  NSLog(@"contact:%@", contact);
+                                                  //NSLog(@"contact:%@", contact);
                                                   
                                                  
                                                   [contacts addObject:contact];
@@ -1372,7 +1374,7 @@ NSMutableArray*      recentListUsers;
                                               return ([record1.fullName caseInsensitiveCompare:record2.fullName]);
                                           }];
                                          
-                                           NSLog(@"recentListUsers udpated: %@", recentListUsers);
+                                           //NSLog(@"recentListUsers udpated: %@", recentListUsers);
                                          
                                      }
                                      
