@@ -43,9 +43,9 @@ GradientView* GetAppGradientBackgroundView(void)
 //! Initialize the object however it has been created.
 -(void)Initialize
 {
-  self.backgroundColor  = Black;
-  self.defaultColor1    = LightGrey;
-  self.defaultColor2    = White;
+  self.backgroundColor  = Transparent;
+  self.defaultColor1    = Transparent;
+  self.defaultColor2    = Transparent;
   self.color1           = self.defaultColor1;
   self.color2           = self.defaultColor2;
   HorizontalGradient    = false;

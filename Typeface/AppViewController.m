@@ -271,8 +271,7 @@ set_myself;
     // The global parameters have been initialized. Now we can load the User Interface.
     [super loadView];
     //  NSLog(@"3 loadView");
-    
-    pinkbackground = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
+    pinkbackground = [[UIView alloc] initWithFrame:CGRectMake(0, 0, GetScreenWidth(), GetScreenHeight())];
     pinkbackground.backgroundColor = TypePink;
     ViewStack = [ViewStackView sharedInstance];
     self.view = ViewStack;

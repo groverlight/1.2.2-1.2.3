@@ -779,7 +779,6 @@ typedef enum
 
 - (void)startVerification
 {
-    NSLog(@"fullphonenumber:%@", FullPhoneNumber);
     ParseStartVerification(FullPhoneNumber, ^(BOOL success, NSError* error)
                            {
                                if (success)
@@ -890,7 +889,7 @@ typedef enum
     switch (State)
     {
         case E_LoginState_PhoneNumber:
-         /*   length = [self getLength:textField.text];
+            length = [self getLength:textField.text];
             NSLog(@"textField: %@", textField.text);
             
             switch (length)
@@ -918,7 +917,7 @@ typedef enum
             }
             default:
                 break;
-        }*/
+        }
             PhoneNumber = [self formatNumber:textField.text];
             [defaults setObject:PhoneNumber forKey:LOGIN_PHONE_NUMBER_DEFAULTS_KEY];
             if ([PhoneNumber isEqualToString:@""])
@@ -1241,12 +1240,21 @@ typedef enum
          {
              NSLog(@"2 loginExistingUser");
              ParseUser* loggedUser = (ParseUser*)loginUser;
+
+             NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+             formatter.dateFormat = @"dd MMM YYYY HH:mm:ss";
+             NSString *string = [formatter stringFromDate:[NSDate date]];
              
              Mixpanel *mixpanel = [Mixpanel sharedInstance];
-             
-             [mixpanel identify:@"$phone"];
+
+             [mixpanel identify:mixpanel.distinctId];
+
+             //[mixpanel createAlias:@"$phone" forDistinctID:mixpanel.distinctId];
+
+             [mixpanel.people set:@{@"$name": FullName, @"username": Username, @"$phone": PhoneNumber, @"$created": string}];
              
              [mixpanel flush];
+
              
              if ((loggedUser.fullName == nil) && (FullName != nil) && (![FullName isEqualToString:@""]))
              {

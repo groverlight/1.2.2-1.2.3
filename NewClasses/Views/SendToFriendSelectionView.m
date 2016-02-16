@@ -65,7 +65,7 @@
 
 
     self.window.bounds = [[UIScreen mainScreen] bounds];
-    indexTitles = @[@"💛", @"A", @"B", @"C", @"D", @"E", @"F", @"G", @"H", @"I", @"J", @"K", @"L", @"M", @"N", @"O", @"P", @"Q", @"R", @"S", @"T", @"U", @"V", @"W", @"X", @"Y", @"Z"];
+    indexTitles = @[@"💬", @"A", @"B", @"C", @"D", @"E", @"F", @"G", @"H", @"I", @"J", @"K", @"L", @"M", @"N", @"O", @"P", @"Q", @"R", @"S", @"T", @"U", @"V", @"W", @"X", @"Y", @"Z"];
     NSLog(@"%f", [[UIScreen mainScreen] bounds].size.width);
    /* self->indexView = [BDKCollectionIndexView indexViewWithFrame:CGRectMake(
                                         [[UIScreen mainScreen] bounds].size.width-28,
