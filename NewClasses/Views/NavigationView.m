@@ -163,7 +163,7 @@ SystemSoundID           soundEffect;
                      
                      UpdateFriendRecordListForFriends(friends);
                      [myself->ActivityListView updateFriendsLists];
-                     NSLog(@"TimeSorteFriendRecords: %@", GetTimeSortedFriendRecords());
+                    // NSLog(@"TimeSorteFriendRecords: %@", GetTimeSortedFriendRecords());
                  }];
                 
                 

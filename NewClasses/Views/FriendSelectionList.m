@@ -571,9 +571,10 @@
     for (NSString *letter in sections)
         {
         NSMutableArray *sectionPeople = [[NSMutableArray alloc]init];
-        for (FriendRecord *record in recentListUsers)
+        //for (FriendRecord *record in recentListUsers)
+            for (NSInteger i = 0; i < [recentListUsers count]; i++)
             {
-                
+                FriendRecord *record = recentListUsers[i];
                 if([letter isEqualToString: [record.fullName substringToIndex:1]])
                 {
                     [sectionPeople addObject:record];

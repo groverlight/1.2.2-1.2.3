@@ -121,7 +121,7 @@ NSMutableArray*      recentListUsers;
       CNAuthorizationStatus permissions = [CNContactStore authorizationStatusForEntityType:CNEntityTypeContacts];
       if(permissions == CNAuthorizationStatusAuthorized)
       {
-      NSLog(@"not nil %@", [PFUser currentUser]);
+      //NSLog(@"not nil %@", [PFUser currentUser]);
       [self contactsync];
       }
   }
@@ -1176,8 +1176,10 @@ NSMutableArray*      recentListUsers;
                         // clear contacts with no phone numbers
                         NSMutableArray *filterArray = [[NSMutableArray alloc]init];
                         
-                        for (FriendRecord *record in recentListUsers)
+                        //for (FriendRecord *record in recentListUsers)
+                        for (NSInteger i = 0; i < [recentListUsers count]; i++)
                         {
+                            FriendRecord *record = recentListUsers[i];
                             if ([[self formatNumber:record.phoneNumber] length] == 10)
                             {
                                 [filterArray addObject: record];
