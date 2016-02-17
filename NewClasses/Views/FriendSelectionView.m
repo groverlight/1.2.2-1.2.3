@@ -189,7 +189,7 @@
   InviteButton.alpha  = 0.0;
   AddButton.alpha     = 0.0;
 
-  UIColor *color = LightGrey;
+  UIColor *color = [TypePink colorWithAlphaComponent:0.4];
   Editor.attributedPlaceholder = [[NSAttributedString alloc] initWithString:parameters.friendsEditorPlaceholderText
                                                                    attributes:@{NSForegroundColorAttributeName: color}];
 
@@ -468,14 +468,24 @@
 - (void)layout
 {
 
-  GlobalParameters* parameters  = GetGlobalParameters();
-  if (KeyboardTop <= 0)
-  {
-    KeyboardTop = self.height;
-  }
-  [ListName sizeToFit];
-  [ListName centerHorizontally];
-  ListName.top = 81;
+    GlobalParameters* parameters  = GetGlobalParameters();
+    if (KeyboardTop <= 0)
+    {
+        KeyboardTop = self.height;
+    }
+    [ListName sizeToFit];
+    [ListName centerHorizontally];
+    ListName.font                   = parameters.friendsListHeaderTextFont;
+    ListName.top = 81;
+
+    ListName.height =  36.5;
+    ListName.width = 80;
+    ListName.textAlignment = NSTextAlignmentCenter;
+    ListName.layer.borderColor = RealLightGrey.CGColor;
+    ListName.layer.borderWidth = 1;
+    ListName.layer.cornerRadius = 12;
+    ListName.layer.backgroundColor = RealLightGrey.CGColor;
+
 
   CGFloat editorOffset    = -Editor.font.descender / 2;
   TopSeparator.height     = EditorIsVisible? parameters.separatorLineWidth: 0;

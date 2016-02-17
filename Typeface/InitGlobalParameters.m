@@ -223,7 +223,7 @@ parameters.blockedUserReasonMessage       = NSLocalizedString(@"You have been bl
     parameters.friendsProgressDuration                = 2;
     parameters.friendsMaxRecentFriends                = 5; //  this is where we need to look at
 
-  parameters.friendsEditorPlaceholderText           = NSLocalizedString(@"add by username", @"");
+  parameters.friendsEditorPlaceholderText           = NSLocalizedString(@"add by username...", @"");
   parameters.friendsEditorFontSize                  = 17;
   parameters.friendsEditorHeight                    = 60;
   parameters.friendsEditorLeftMargin                = 18;
