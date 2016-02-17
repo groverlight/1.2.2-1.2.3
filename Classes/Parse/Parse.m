@@ -372,6 +372,8 @@ void ParseSendMessage
 
     [mixpanel.people increment:@"messages sent" by:[NSNumber numberWithInt:1]];
 
+    [mixpanel flush];
+
 
 
   if (msg == nil)

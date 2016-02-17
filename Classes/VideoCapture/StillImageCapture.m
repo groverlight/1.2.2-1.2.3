@@ -79,6 +79,8 @@ static StillImageCapture* SharedStillImageCapture = nil;
 
     [mixpanel.people increment:@"selfies" by:[NSNumber numberWithInt:1]];
 
+    [mixpanel flush];
+
 
 
   AVCaptureConnection* videoConnection = nil;
