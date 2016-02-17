@@ -5,7 +5,19 @@
       location = "group:StyledPageControl.h">
    </FileRef>
    <FileRef
-      location = "group:/Users/grover/Desktop/1.2.2/Video2.mov">
+      location = "group:../../Downloads/1.2.2-1.2.3-41d06fc16cb018a715b76237f2350cdb3d947c19/Video1.m4v">
+   </FileRef>
+   <FileRef
+      location = "group:../../Downloads/1.2.2-1.2.3-41d06fc16cb018a715b76237f2350cdb3d947c19/Video2.m4v">
+   </FileRef>
+   <FileRef
+      location = "group:../../Downloads/1.2.2-1.2.3-41d06fc16cb018a715b76237f2350cdb3d947c19/Video3.m4v">
+   </FileRef>
+   <FileRef
+      location = "group:../../Downloads/1.2.2-1.2.3-41d06fc16cb018a715b76237f2350cdb3d947c19/Video4.m4v">
+   </FileRef>
+   <FileRef
+      location = "group:../../Downloads/1.2.2-1.2.3-41d06fc16cb018a715b76237f2350cdb3d947c19/Video5.m4v">
    </FileRef>
    <FileRef
       location = "group:click_lo.aif">

@@ -114,17 +114,17 @@
 		F466BDF11BDF3B2400683986 /* liftoff20.aiff in Resources */ = {isa = PBXBuildFile; fileRef = F466BDF01BDF3B2400683986 /* liftoff20.aiff */; };
 		F466BDFB1BDF42F600683986 /* zap_shake.aif in Resources */ = {isa = PBXBuildFile; fileRef = F466BDFA1BDF42F600683986 /* zap_shake.aif */; };
 		F480C2B01BDFEF3F009EF518 /* zap_future.aif in Resources */ = {isa = PBXBuildFile; fileRef = F480C2AF1BDFEF3F009EF518 /* zap_future.aif */; };
+		F4A3D8CA1C752E44000F8388 /* Video1.m4v in Resources */ = {isa = PBXBuildFile; fileRef = F4A3D8C51C752E44000F8388 /* Video1.m4v */; };
+		F4A3D8CB1C752E44000F8388 /* Video2.m4v in Resources */ = {isa = PBXBuildFile; fileRef = F4A3D8C61C752E44000F8388 /* Video2.m4v */; };
+		F4A3D8CC1C752E44000F8388 /* Video3.m4v in Resources */ = {isa = PBXBuildFile; fileRef = F4A3D8C71C752E44000F8388 /* Video3.m4v */; };
+		F4A3D8CD1C752E44000F8388 /* Video4.m4v in Resources */ = {isa = PBXBuildFile; fileRef = F4A3D8C81C752E44000F8388 /* Video4.m4v */; };
+		F4A3D8CE1C752E44000F8388 /* Video5.m4v in Resources */ = {isa = PBXBuildFile; fileRef = F4A3D8C91C752E44000F8388 /* Video5.m4v */; };
 		F4CEF4BC1BDAFCF800A1399D /* beep_prompt_2x.aif in Resources */ = {isa = PBXBuildFile; fileRef = F4CEF4BA1BDAFCF800A1399D /* beep_prompt_2x.aif */; };
 		F4D0F9F91BDAF3E40039C51D /* chime_blip_on.aif in Resources */ = {isa = PBXBuildFile; fileRef = F4D0F9F81BDAF3E40039C51D /* chime_blip_on.aif */; };
 		F4D5FDC41BDB06440048910D /* pop_digi_up.aif in Resources */ = {isa = PBXBuildFile; fileRef = F4D5FDC31BDB06440048910D /* pop_digi_up.aif */; };
 		F4D6D0CC1C5162AF001EE243 /* spelled_out_white.png in Resources */ = {isa = PBXBuildFile; fileRef = F4D6D0CB1C5162AF001EE243 /* spelled_out_white.png */; };
 		F4D6D0CE1C516C82001EE243 /* branding.png in Resources */ = {isa = PBXBuildFile; fileRef = F4D6D0CD1C516C82001EE243 /* branding.png */; };
 		F4D6D0D21C52E83F001EE243 /* click_lo.aif in Resources */ = {isa = PBXBuildFile; fileRef = F4D6D0D11C52E83F001EE243 /* click_lo.aif */; };
-		F4D6D0D81C532631001EE243 /* Video1.mov in Resources */ = {isa = PBXBuildFile; fileRef = F4D6D0D31C532631001EE243 /* Video1.mov */; };
-		F4D6D0DA1C532631001EE243 /* Video3.mov in Resources */ = {isa = PBXBuildFile; fileRef = F4D6D0D51C532631001EE243 /* Video3.mov */; };
-		F4D6D0DB1C532631001EE243 /* Video4.mov in Resources */ = {isa = PBXBuildFile; fileRef = F4D6D0D61C532631001EE243 /* Video4.mov */; };
-		F4D6D0DC1C532631001EE243 /* Video5.mov in Resources */ = {isa = PBXBuildFile; fileRef = F4D6D0D71C532631001EE243 /* Video5.mov */; };
-		F4D6D0DE1C533DB6001EE243 /* Video2.mov in Resources */ = {isa = PBXBuildFile; fileRef = F4D6D0DD1C533DB6001EE243 /* Video2.mov */; };
 		F4F5854B1B82A9C80016D180 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F4F585451B82A9C80016D180 /* AppDelegate.m */; };
 		F4F5854C1B82A9C80016D180 /* AppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4F585471B82A9C80016D180 /* AppViewController.m */; };
 		F4F5854D1B82A9C80016D180 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4F585481B82A9C80016D180 /* Images.xcassets */; };
@@ -334,17 +334,18 @@
 		F466BDF01BDF3B2400683986 /* liftoff20.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = liftoff20.aiff; sourceTree = SOURCE_ROOT; };
 		F466BDFA1BDF42F600683986 /* zap_shake.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = zap_shake.aif; sourceTree = SOURCE_ROOT; };
 		F480C2AF1BDFEF3F009EF518 /* zap_future.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = zap_future.aif; sourceTree = SOURCE_ROOT; };
+		F4A3D8C51C752E44000F8388 /* Video1.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = Video1.m4v; sourceTree = "<group>"; };
+		F4A3D8C61C752E44000F8388 /* Video2.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = Video2.m4v; sourceTree = "<group>"; };
+		F4A3D8C71C752E44000F8388 /* Video3.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = Video3.m4v; sourceTree = "<group>"; };
+		F4A3D8C81C752E44000F8388 /* Video4.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = Video4.m4v; sourceTree = "<group>"; };
+		F4A3D8C91C752E44000F8388 /* Video5.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = Video5.m4v; sourceTree = "<group>"; };
+		F4A3D8CF1C752E50000F8388 /* StyledPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StyledPageControl.h; sourceTree = SOURCE_ROOT; };
 		F4CEF4BA1BDAFCF800A1399D /* beep_prompt_2x.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = beep_prompt_2x.aif; sourceTree = SOURCE_ROOT; };
 		F4D0F9F81BDAF3E40039C51D /* chime_blip_on.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = chime_blip_on.aif; sourceTree = SOURCE_ROOT; };
 		F4D5FDC31BDB06440048910D /* pop_digi_up.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = pop_digi_up.aif; sourceTree = SOURCE_ROOT; };
 		F4D6D0CB1C5162AF001EE243 /* spelled_out_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spelled_out_white.png; sourceTree = SOURCE_ROOT; };
 		F4D6D0CD1C516C82001EE243 /* branding.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = branding.png; sourceTree = SOURCE_ROOT; };
 		F4D6D0D11C52E83F001EE243 /* click_lo.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = click_lo.aif; sourceTree = SOURCE_ROOT; };
-		F4D6D0D31C532631001EE243 /* Video1.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = Video1.mov; sourceTree = SOURCE_ROOT; };
-		F4D6D0D51C532631001EE243 /* Video3.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = Video3.mov; sourceTree = SOURCE_ROOT; };
-		F4D6D0D61C532631001EE243 /* Video4.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = Video4.mov; sourceTree = SOURCE_ROOT; };
-		F4D6D0D71C532631001EE243 /* Video5.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = Video5.mov; sourceTree = SOURCE_ROOT; };
-		F4D6D0DD1C533DB6001EE243 /* Video2.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = Video2.mov; sourceTree = SOURCE_ROOT; };
 		F4F585441B82A9C80016D180 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Typeface/AppDelegate.h; sourceTree = SOURCE_ROOT; };
 		F4F585451B82A9C80016D180 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Typeface/AppDelegate.m; sourceTree = SOURCE_ROOT; };
 		F4F585461B82A9C80016D180 /* AppViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppViewController.h; path = Typeface/AppViewController.h; sourceTree = SOURCE_ROOT; };
@@ -476,6 +477,11 @@
 				B67130921AFE7B3E00859780 /* ThreeDotsPseudoButtonView.m */,
 				B6FB0D7D1A9736AE002125AF /* TypingView.h */,
 				B6FB0D7E1A9736AE002125AF /* TypingView.m */,
+				F4A3D8C51C752E44000F8388 /* Video1.m4v */,
+				F4A3D8C61C752E44000F8388 /* Video2.m4v */,
+				F4A3D8C71C752E44000F8388 /* Video3.m4v */,
+				F4A3D8C81C752E44000F8388 /* Video4.m4v */,
+				F4A3D8C91C752E44000F8388 /* Video5.m4v */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -740,6 +746,7 @@
 		B6E7AAC71868512800DBB0EB /* Typeface */ = {
 			isa = PBXGroup;
 			children = (
+				F4A3D8CF1C752E50000F8388 /* StyledPageControl.h */,
 				27C180801C4EF41F00FEE015 /* StyledPageControl.h */,
 				27C180811C4EF41F00FEE015 /* StyledPageControl.m */,
 				27DB56F81C0F8B0A00022D9C /* spelled_out.png */,
@@ -753,11 +760,6 @@
 				F4F585451B82A9C80016D180 /* AppDelegate.m */,
 				F4F585461B82A9C80016D180 /* AppViewController.h */,
 				F4F585471B82A9C80016D180 /* AppViewController.m */,
-				F4D6D0D31C532631001EE243 /* Video1.mov */,
-				F4D6D0DD1C533DB6001EE243 /* Video2.mov */,
-				F4D6D0D51C532631001EE243 /* Video3.mov */,
-				F4D6D0D61C532631001EE243 /* Video4.mov */,
-				F4D6D0D71C532631001EE243 /* Video5.mov */,
 				F4F585481B82A9C80016D180 /* Images.xcassets */,
 				F4F585491B82A9C80016D180 /* InitGlobalParameters.h */,
 				F4F5854A1B82A9C80016D180 /* InitGlobalParameters.m */,
@@ -870,7 +872,7 @@
 								enabled = 0;
 							};
 							com.apple.Push = {
-								enabled = 0;
+								enabled = 1;
 							};
 						};
 					};
@@ -899,17 +901,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F4D6D0D81C532631001EE243 /* Video1.mov in Resources */,
 				F466BDFB1BDF42F600683986 /* zap_shake.aif in Resources */,
 				F466BDE51BDF343500683986 /* next30.aiff in Resources */,
-				F4D6D0DB1C532631001EE243 /* Video4.mov in Resources */,
 				F466BDEA1BDF37D200683986 /* blurbin15.aiff in Resources */,
 				F466BDEE1BDF39A500683986 /* new20.aiff in Resources */,
 				F466BDF11BDF3B2400683986 /* liftoff20.aiff in Resources */,
-				F4D6D0DC1C532631001EE243 /* Video5.mov in Resources */,
 				F466BDCF1BDF2E0F00683986 /* swipe25.aiff in Resources */,
-				F4D6D0DA1C532631001EE243 /* Video3.mov in Resources */,
 				F4D6D0CC1C5162AF001EE243 /* spelled_out_white.png in Resources */,
+				F4A3D8CC1C752E44000F8388 /* Video3.m4v in Resources */,
 				B652A13E1A9E7D1F006222EE /* ImageAssets in Resources */,
 				27DB56F91C0F8B0A00022D9C /* spelled_out.png in Resources */,
 				F4CEF4BC1BDAFCF800A1399D /* beep_prompt_2x.aif in Resources */,
@@ -918,13 +917,16 @@
 				F4F5854D1B82A9C80016D180 /* Images.xcassets in Resources */,
 				F4172AC81C1F46F9006379E7 /* digi_alert.aif in Resources */,
 				F4D6D0CE1C516C82001EE243 /* branding.png in Resources */,
-				F4D6D0DE1C533DB6001EE243 /* Video2.mov in Resources */,
 				F466BDEF1BDF39A500683986 /* rolldown10.aiff in Resources */,
+				F4A3D8CB1C752E44000F8388 /* Video2.m4v in Resources */,
+				F4A3D8CA1C752E44000F8388 /* Video1.m4v in Resources */,
 				F466BDEB1BDF37D200683986 /* blurbout15.aiff in Resources */,
 				F466BDE71BDF34D200683986 /* back30.aiff in Resources */,
 				27DB56F11C0F80D600022D9C /* logo_tut.png in Resources */,
+				F4A3D8CD1C752E44000F8388 /* Video4.m4v in Resources */,
 				F4152EDC1BDAF7F600F83627 /* chime_blip_off.aif in Resources */,
 				F4D0F9F91BDAF3E40039C51D /* chime_blip_on.aif in Resources */,
+				F4A3D8CE1C752E44000F8388 /* Video5.m4v in Resources */,
 				F480C2B01BDFEF3F009EF518 /* zap_future.aif in Resources */,
 				F466BDD31BDF302100683986 /* remove15.aiff in Resources */,
 				27AA8F3B1BE18147009B363A /* VideoViewController.xib in Resources */,
@@ -1083,8 +1085,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Grover Light (4MBTY8L594)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Grover Light (4MBTY8L594)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Grover Light (4THJ5Z3YGF)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Grover Light (4THJ5Z3YGF)";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1104,7 +1106,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "f658bece-4dd2-4d41-ae6f-73821b27c4d2";
+				PROVISIONING_PROFILE = "ac9c98ab-379e-4d12-bc33-7cba00ac0bd0";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1126,8 +1128,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Grover Light (4MBTY8L594)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Grover Light (4MBTY8L594)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Grover Light (4THJ5Z3YGF)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Grover Light (4THJ5Z3YGF)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_TESTABILITY = YES;
@@ -1139,7 +1141,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
-				PROVISIONING_PROFILE = "f658bece-4dd2-4d41-ae6f-73821b27c4d2";
+				PROVISIONING_PROFILE = "ac9c98ab-379e-4d12-bc33-7cba00ac0bd0";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -1152,8 +1154,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Grover Light (4THJ5Z3YGF)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Grover Light (4THJ5Z3YGF)";
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1175,7 +1177,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.groverlight.Typeface;
 				PRODUCT_NAME = Typeface;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "ac9c98ab-379e-4d12-bc33-7cba00ac0bd0";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1187,8 +1189,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Grover Light (4THJ5Z3YGF)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Grover Light (4THJ5Z3YGF)";
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1210,7 +1212,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.groverlight.Typeface;
 				PRODUCT_NAME = Typeface;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "ac9c98ab-379e-4d12-bc33-7cba00ac0bd0";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1232,8 +1234,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Grover Light (4MBTY8L594)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Grover Light (4MBTY8L594)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Grover Light (4THJ5Z3YGF)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Grover Light (4THJ5Z3YGF)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_TESTABILITY = YES;
@@ -1245,7 +1247,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
-				PROVISIONING_PROFILE = "f658bece-4dd2-4d41-ae6f-73821b27c4d2";
+				PROVISIONING_PROFILE = "ac9c98ab-379e-4d12-bc33-7cba00ac0bd0";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -1258,8 +1260,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Grover Light (4THJ5Z3YGF)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Grover Light (4THJ5Z3YGF)";
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1281,7 +1283,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.groverlight.Typeface;
 				PRODUCT_NAME = Typeface;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "ac9c98ab-379e-4d12-bc33-7cba00ac0bd0";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};

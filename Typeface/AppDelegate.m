@@ -31,12 +31,12 @@ typedef void(^BlockBfrAction)(UIBackgroundFetchResult result);
 {
     [Parse enableLocalDatastore];
 
-    //#define MIXPANEL_TOKEN @"bfcb77fdbcaaa747ac994c1bdba999aa"
+    #define MIXPANEL_TOKEN @"bfcb77fdbcaaa747ac994c1bdba999aa"
 
 
     // Initialize the library with your
     // Mixpanel project token, MIXPANEL_TOKEN
-    //[Mixpanel sharedInstanceWithToken:MIXPANEL_TOKEN];
+   [Mixpanel sharedInstanceWithToken:MIXPANEL_TOKEN];
     /*NSDictionary *notificationPayload = launchOptions[UIApplicationLaunchOptionsRemoteNotificationKey];
      NSLog(@"notificationpayload: %@", notificationPayload);
     NSString *objectid = [notificationPayload objectForKey:@"p"];

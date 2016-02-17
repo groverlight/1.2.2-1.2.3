@@ -220,7 +220,7 @@
     [[AVAudioSession sharedInstance] setActive:YES error:&sessionError];
     
     //Set up player
-    [self setUpVideo:@"Video1" :@"mov"];
+    [self setUpVideo:@"Video1" :@"m4v"];
 
     
     //Config player
@@ -984,7 +984,7 @@
             _label3.hidden = YES;
             _button.hidden = YES;
             if (restartVideo)
-            {[self setUpVideo:@"Video1" :@"mov"];}
+            {[self setUpVideo:@"Video1" :@"m4v"];}
             break;
         case 1:
             _logo.hidden = YES;
@@ -998,7 +998,7 @@
             _label2.text = @"type something \n then take a selfie";
             _button.hidden = YES;
             if (restartVideo)
-            [self setUpVideo:@"Video2" :@"mov"];
+            [self setUpVideo:@"Video2" :@"m4v"];
         
             break;
         case 2:
@@ -1007,13 +1007,13 @@
             _label3.numberOfLines = 3;
             _label3.text = @"watch selfies + text play \n to see how you came off \n";
             if (restartVideo)
-            [self setUpVideo:@"Video3" :@"mov"];
+            [self setUpVideo:@"Video3" :@"m4v"];
             _button.hidden = YES;
             break;
         case 3:
             _label2.text = @"do the same thing \n to read a reply";
             if (restartVideo)
-            [self setUpVideo:@"Video4" :@"mov"];
+            [self setUpVideo:@"Video4" :@"m4v"];
             _label3.hidden = NO;
             _label3.numberOfLines = 3;
             _label3.text = @"keep holding until the \n message disappears \n";
@@ -1033,7 +1033,7 @@
             [_button setTitle:@"Allow Camera"forState:UIControlStateNormal];
 
             if (restartVideo)
-            [self setUpVideo:@"Video5" :@"mov"];
+            [self setUpVideo:@"Video5" :@"m4v"];
 
         
 
