@@ -782,6 +782,10 @@ set_myself;
     {
         recentListUsers = [[NSMutableArray alloc]init];
     }
+    else
+    {
+        [recentListUsers removeAllObjects];
+    }
     
     for (NSString* name in fullName)
     {
